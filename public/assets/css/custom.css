@@ -1,0 +1,231 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* navigation bar styles */
+.navbar {
+    background-color: #F21314;
+    height: 178px;
+}
+
+.navbar label, .navbar a, .navbar span {
+    color: #fff;
+}
+
+.navbar a:hover {
+    text-decoration: none;
+}
+
+button.btn-register {
+    background-color: #f8ec20;
+    border-color: #f8ec20;
+    color: #000;
+}
+
+button.btn-register:hover {
+    background-color: #f8ec99;
+    border-color: #f8ec99;
+    color: #000;
+}
+
+.nav-tabs > li > a {
+    background-color: #e6e6e6;
+    color: #000;
+    font-weight: bold;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover {
+    background-color: #f8ec20;
+}
+
+.nav-tabs > li > a:hover {
+    color: #333;
+    background-color: #f8ec20;
+}
+
+.social-media span {
+    padding-right: 10px;
+}
+
+.social-media img {
+    height: 34px;
+    width: 34px;
+}
+/* end of navigation bar styles */
+
+/* footer styles */
+footer {
+    color: #F21314;
+    margin-top: 25px;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #b3b3b3;
+    background-color: #333;
+    font-size: 9pt;
+}
+
+
+footer h4 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 11pt;
+    margin-bottom: -5px;
+}
+
+footer hr {
+    border-color: #555;
+}
+
+.footer-copy {
+    margin-left: -75px;
+    margin-top: -10px;
+}
+
+label.footer-contact-message {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11pt;
+    font-style: italic;
+    display: block;
+    text-align: right;
+}
+
+label.footer-subscribe-check {
+    font-size: 7pt;
+}
+
+footer .site-map-subcategory {
+    color: #5e5e5e;
+}
+
+footer .social-media {
+    margin-top: 25px;
+}
+
+footer .social-media ul {
+    margin-top: 15px;
+}
+
+footer .social-media ul li {
+    display: inline;
+    padding-left: 3px;
+}
+
+footer a,
+footer a:hover,
+footer a:visited {
+    color: #b3b3b3;
+}
+
+.ctm-sitemap-list ul {
+    margin-left: 1em;
+}
+
+.copyright-text {
+    margin-top: 20px;
+}
+/* end of footer styles */
+
+/* content styles */
+.content-map {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.content .profile-image-description, .content .nav-pills a, .content h1 {
+    color: #F21314;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.margin-top-bottom {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.btn-very-red {
+    background-color: #f21414;
+}
+/* end of content styles */
+
+/* generic styles */
+.indented {
+    text-indent: 2em;
+}
+
+a.yellow-text {
+    color: #f8ec20;
+}
+/* end of generic styles */
+
+.ctm-categories-row {
+    margin-top: 2px;
+}
+
+.ctm-categories-row div {
+    height: 108px;
+    width: 112px;
+    float: left;
+}
+.ctm-categories-autos{
+    background: url("images/autos.gif") no-repeat center;
+}
+.ctm-categories-realstate{
+    background: url("images/realstate.gif") no-repeat center;
+}
+.ctm-categories-furniture{
+    background: url("images/furniture.gif") no-repeat center;
+}
+.ctm-categories-tools{
+    background: url("images/tools.gif") no-repeat center;
+}
+.ctm-categories-pets{
+    background: url("images/pets.gif") no-repeat center;
+}
+.ctm-categories-jobs{
+    background: url("images/jobs.gif") no-repeat center;
+}
+.ctm-categories-travel{
+    background: url("images/travel.gif") no-repeat center;
+}
+.ctm-categories-sports{
+    background: url("images/sports.gif") no-repeat center;
+}
+.ctm-categories-family{
+    background: url("images/family.gif") no-repeat center;
+}
+.ctm-categories-services{
+    background: url("images/services.gif") no-repeat center;
+}
+.ctm-categories-computer{
+    background: url("images/computer.gif") no-repeat center;
+}
+.ctm-categories-electronic{
+    background: url("images/electronic.gif") no-repeat center;
+}
+.ctm-categories-food{
+    background: url("images/food.gif") no-repeat center;
+}
+.ctm-categories-community{
+    background: url("images/community.gif") no-repeat center;
+}
+.ctm-categories-dating{
+    background: url("images/dating.gif") no-repeat center;
+}
+.ctm-categories-others{
+    background: url("images/others.gif") no-repeat center;
+}
+.ctm-categories-category-title{
+    font-weight: normal;
+    color: #DDDDDD;
+    text-align: center;
+    font-size: 1em;
+    margin-top: 78px;
+}
