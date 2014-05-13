@@ -7,4 +7,24 @@ class StaticPagesController extends BaseController
     {
         return View::make('static.home');
     }
+    
+    public function ourStory()
+    {
+        return View::make('static.home');
+    }
+    
+    public function aboutUs()
+    {
+        return View::make('static.home');
+    }
+    
+    public function privacyPolicy()
+    {
+        return View::make('static.privacy-policy');
+    }
+    
+    public function termsAndCondition()
+    {
+        return View::make('static.home');
+    }
 } 

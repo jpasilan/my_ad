@@ -12,3 +12,11 @@
 */
 
 Route::get('/', 'StaticPagesController@index');
+
+Route::get('/our-story', 'StaticPagesController@ourStory');
+
+Route::get('/about-us', 'StaticPagesController@aboutUs');
+
+Route::get('/privacy-policy', 'StaticPagesController@privacyPolicy');
+
+Route::get('/terms-and-condition', 'StaticPagesController@termsAndCondition');
