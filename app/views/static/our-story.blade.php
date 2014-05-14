@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <h1>Our Story</h1>
             <div class="col-sm-3">
-                <img src="{{ URL::asset('assets/images/generic-profile-image.png') }}" class="img-responsive img-rounded" />
+                <img src="{{ URL::asset('assets/css/images/generic-profile-image.png') }}" class="img-responsive img-rounded" />
                 <div class="text-center profile-image-description">
                     <h4>Richard Valdevit</h4>
                     <p>Founder, Visionary</p>

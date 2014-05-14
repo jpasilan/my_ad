@@ -16,21 +16,21 @@
             <h1>About Us</h1>
             <div class="row">
                 <div class="col-sm-4">
-                    <img src="{{ URL::asset('assets/images/generic-profile-image.png') }}" class="img-responsive img-rounded" />
+                    <img src="{{ URL::asset('assets/css/images/generic-profile-image.png') }}" class="img-responsive img-rounded" />
                     <div class="text-center profile-image-description">
                         <h4>Richard Valdevit</h4>
                         <p>Founder, Visionary</p>
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <img src="{{ URL::asset('assets/images/generic-profile-image.png') }}" class="img-responsive img-rounded" />
+                    <img src="{{ URL::asset('assets/css/images/generic-profile-image.png') }}" class="img-responsive img-rounded" />
                     <div class="text-center profile-image-description">
                         <h4>Ritche Felix Cartagena</h4>
                         <p>Project Manager</p>
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <img src="{{ URL::asset('assets/images/generic-profile-image.png') }}" class="img-responsive img-rounded" />
+                    <img src="{{ URL::asset('assets/css/images/generic-profile-image.png') }}" class="img-responsive img-rounded" />
                     <div class="text-center profile-image-description">
                         <h4>John Doe</h4>
                         <p>Developer</p>
