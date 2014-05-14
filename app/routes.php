@@ -12,3 +12,10 @@
 */
 
 Route::get('/', 'StaticPagesController@index');
+
+//Route::get('social/{action?}', array('as' => 'hybridauth', 'uses' => 'UserController@socialAuth'));
+
+// User login and logout routes.
+Route::get('login', 'UserController@login');
+Route::post('login', array('before' => 'csrf', 'uses' => 'UserController@login'));
+Route::get('logout', 'UserController@logout');
