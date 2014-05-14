@@ -58,11 +58,11 @@
                     <div class="col-sm-3 text-right">
                         <div>
                             <ul class="list-unstyled">
-                                <li><a href="about_us.htm">About Us</a></li>
-                                <li><a href="vision_mission.htm">Vision and Mission</a></li>
-                                <li><a href="our_story.htm">Our Story</a></li>
-                                <li><a href="privacy_policy.htm">Privacy Policy</a></li>
-                                <li><a href="terms_and_condition.htm">Terms & Conditions</a></li>
+                                <li><a href="{{ URL::to('about-us') }}">About Us</a></li>
+                                <li><a href="{{ URL::to('/') }}">Vision and Mission</a></li>
+                                <li><a href="{{ URL::to('our-story') }}">Our Story</a></li>
+                                <li><a href="{{ URL::to('privacy-policy') }}">Privacy Policy</a></li>
+                                <li><a href="{{ URL::to('terms-and-condition') }}">Terms & Conditions</a></li>
                             </ul>
                         </div>
                         <div class="social-media">

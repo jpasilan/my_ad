@@ -14,12 +14,13 @@
 <body>
     @include('layouts.navbar')
 
-    <div class="container">
+    <div class="content container">
         @yield('content')
     </div>
 
     @include('layouts.footer')
-
+    
+    {{ HTML::script('assets/bootstrap/js/jquery.min.js') }}
     {{ HTML::script('assets/bootstrap/js/bootstrap.min.js') }}
     @yield('more-footer-scripts')
 </body>

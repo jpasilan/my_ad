@@ -10,12 +10,12 @@ class StaticPagesController extends BaseController
     
     public function ourStory()
     {
-        return View::make('static.home');
+        return View::make('static.our-story');
     }
     
     public function aboutUs()
     {
-        return View::make('static.home');
+        return View::make('static.about-us');
     }
     
     public function privacyPolicy()
@@ -25,6 +25,7 @@ class StaticPagesController extends BaseController
     
     public function termsAndCondition()
     {
-        return View::make('static.home');
+        return View::make('static.terms-and-condition');
     }
+    
 } 
