@@ -2,6 +2,10 @@ body {
     font-family: Helvetica, Arial, sans-serif;
 }
 
+form {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
 /* navigation bar styles */
 .navbar {
     background-color: #F21314;
@@ -15,11 +19,20 @@ body {
 .navbar a:hover {
     text-decoration: none;
 }
+div.row .navbar-brand{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 9999;
+}
 
-button.btn-register {
+div.row button.btn-register {
     background-color: #f8ec20;
-    border-color: #f8ec20;
+    border-color: #A39900;
     color: #000;
+}
+div.row button.btn-register:hover{
+	background: #FFF54C;
 }
 
 button.btn-register:hover {
@@ -32,6 +45,9 @@ button.btn-register:hover {
     background-color: #e6e6e6;
     color: #000;
     font-weight: bold;
+	transition: 0.2s ease;
+	-o-transition: 0.2s ease;
+	-webkit-transition: 0.2s ease;
 }
 
 .nav-tabs > li.active > a,
@@ -51,6 +67,14 @@ button.btn-register:hover {
 .social-media img {
     height: 34px;
     width: 34px;
+	transition: 0.5s ease;
+	-o-transition: 0.5s ease;
+	-webkit-transition: 0.5s ease;
+}
+.social-media img:hover{
+	-ms-transform: rotate(360deg); /* IE 9 */
+	-webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */
+	transform: rotate(360deg);
 }
 /* end of navigation bar styles */
 
@@ -145,11 +169,6 @@ footer a:visited {
     font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 
-.margin-top-bottom {
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
 .btn-very-red {
     background-color: #f21414;
 }
@@ -166,66 +185,137 @@ a.yellow-text {
 /* end of generic styles */
 
 .ctm-categories-row {
-    margin-top: 2px;
+	margin-top: 2px;
 }
 
 .ctm-categories-row div {
-    height: 108px;
-    width: 112px;
-    float: left;
+	height: 108px;
+	width: 112px;
+	float: left;
 }
+
 .ctm-categories-autos{
-    background: url("images/autos.gif") no-repeat center;
+	background: url("images/autos.png") no-repeat center;
+	
 }
-.ctm-categories-realstate{
-    background: url("images/realstate.gif") no-repeat center;
+.ctm-categories-realstate{	
+	background: url("images/realstate.png") no-repeat center;
 }
-.ctm-categories-furniture{
-    background: url("images/furniture.gif") no-repeat center;
+.ctm-categories-furniture{	
+	background: url("images/furniture.png") no-repeat center;
 }
-.ctm-categories-tools{
-    background: url("images/tools.gif") no-repeat center;
+.ctm-categories-tools{	
+	background: url("images/tools.png") no-repeat center;
 }
-.ctm-categories-pets{
-    background: url("images/pets.gif") no-repeat center;
+.ctm-categories-pets{	
+	background: url("images/pets.png") no-repeat center;
 }
-.ctm-categories-jobs{
-    background: url("images/jobs.gif") no-repeat center;
+.ctm-categories-jobs{	
+	background: url("images/jobs.png") no-repeat center;
 }
-.ctm-categories-travel{
-    background: url("images/travel.gif") no-repeat center;
+.ctm-categories-travel{	
+	background: url("images/travel.png") no-repeat center;
 }
-.ctm-categories-sports{
-    background: url("images/sports.gif") no-repeat center;
+.ctm-categories-sports{	
+	background: url("images/sports.png") no-repeat center;
 }
-.ctm-categories-family{
-    background: url("images/family.gif") no-repeat center;
+.ctm-categories-family{	
+	background: url("images/family.png") no-repeat center;
 }
-.ctm-categories-services{
-    background: url("images/services.gif") no-repeat center;
+.ctm-categories-services{	
+	background: url("images/services.png") no-repeat center;
 }
-.ctm-categories-computer{
-    background: url("images/computer.gif") no-repeat center;
+.ctm-categories-computer{	
+	background: url("images/computer.png") no-repeat center;
 }
-.ctm-categories-electronic{
-    background: url("images/electronic.gif") no-repeat center;
+.ctm-categories-electronic{	
+	background: url("images/electronic.png") no-repeat center;
 }
-.ctm-categories-food{
-    background: url("images/food.gif") no-repeat center;
+.ctm-categories-food{	
+	background: url("images/food.png") no-repeat center;
 }
-.ctm-categories-community{
-    background: url("images/community.gif") no-repeat center;
+.ctm-categories-community{	
+	background: url("images/community.png") no-repeat center;
 }
-.ctm-categories-dating{
-    background: url("images/dating.gif") no-repeat center;
+.ctm-categories-dating{	
+	background: url("images/dating.png") no-repeat center;
 }
-.ctm-categories-others{
-    background: url("images/others.gif") no-repeat center;
+.ctm-categories-others{	
+	background: url("images/others.png") no-repeat center;
 }
 .ctm-categories-category-title{
-    font-weight: normal;
-    color: #DDDDDD;
-    text-align: center;
-    font-size: 1em;
-    margin-top: 78px;
+	font-weight: normal;
+	color: #DDDDDD;
+	text-align: center;
+	font-size: 1em;
+	margin-top: 78px;
 }
+.ctm-categories-row .ctm-categories-autos,
+.ctm-categories-row .ctm-categories-realstate,
+.ctm-categories-row .ctm-categories-furniture,
+.ctm-categories-row .ctm-categories-tools,
+.ctm-categories-row .ctm-categories-pets,
+.ctm-categories-row .ctm-categories-jobs,
+.ctm-categories-row .ctm-categories-travel,
+.ctm-categories-row .ctm-categories-sports,
+.ctm-categories-row .ctm-categories-family,
+.ctm-categories-row .ctm-categories-services,
+.ctm-categories-row .ctm-categories-computer,
+.ctm-categories-row .ctm-categories-electronic,
+.ctm-categories-row .ctm-categories-food,
+.ctm-categories-row .ctm-categories-community,
+.ctm-categories-row .ctm-categories-dating,
+.ctm-categories-row .ctm-categories-others
+{
+	background-size: 110px;
+	cursor: pointer;
+	transition: 0.5s ease;
+	-o-transition: 0.5s ease;
+	-webkit-transition: 0.5s ease;
+}
+.ctm-categories-row .ctm-categories-autos:hover,
+.ctm-categories-row .ctm-categories-realstate:hover,
+.ctm-categories-row .ctm-categories-furniture:hover,
+.ctm-categories-row .ctm-categories-tools:hover,
+.ctm-categories-row .ctm-categories-pets:hover,
+.ctm-categories-row .ctm-categories-jobs:hover,
+.ctm-categories-row .ctm-categories-travel:hover,
+.ctm-categories-row .ctm-categories-sports:hover,
+.ctm-categories-row .ctm-categories-family:hover,
+.ctm-categories-row .ctm-categories-services:hover,
+.ctm-categories-row .ctm-categories-computer:hover,
+.ctm-categories-row .ctm-categories-electronic:hover,
+.ctm-categories-row .ctm-categories-food:hover,
+.ctm-categories-row .ctm-categories-community:hover,
+.ctm-categories-row .ctm-categories-dating:hover,
+.ctm-categories-row .ctm-categories-others:hover
+{
+	opacity: 0.70;
+}
+
+/* Start: Global Styles */
+div.row .no-padding-right{
+	padding-right: 0px;
+}
+.bottom-offset-8{
+	margin-bottom: 8.3rem;
+}
+/* End: Global Styles */
+
+/* Start: Overriding Bootstrap Rules */
+div.row .btn-primary{
+	background: #0B9191;
+	border-color: #037272;
+}
+div.row .btn-primary:hover{
+	background: #299797;
+}
+div.row .panel-default>.panel-heading {
+    background: #FB4545;
+    border-color: #FF6E6E;
+    color: #fff;
+}
+div.row .panel-default{
+    border-color: #eeeeee;
+}
+/* End: Overriding Bootstrap Rules */

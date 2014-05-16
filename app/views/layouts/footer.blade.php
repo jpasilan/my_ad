@@ -3,16 +3,16 @@
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="row">
-                    <div class="col-sm-3 text-right">
+                    <div class="col-sm-3 text-left">
                         <h4>Reviews</h4>
                     </div>
-                    <div class="col-sm-3 text-right">
+                    <div class="col-sm-3 text-left">
                         <h4>My-Ad</h4>
                     </div>
-                    <div class="col-sm-3 text-right">
+                    <div class="col-sm-3 text-left">
                         <h4>Info</h4>
                     </div>
-                    <div class="col-sm-3 text-right">
+                    <div class="col-sm-3 text-left">
                         <h4>Contact Us</h4>
                     </div>
                 </div>
@@ -24,13 +24,13 @@
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="row">
-                    <div class="col-sm-3 text-right">
+                    <div class="col-sm-3 text-left">
                         <p>"Lorem ipsum dolor sit amet, dicat mollis deseruisse ea per, habemus fuisset reformidans per at. Vel graeco scriptorem in, eu mea diceret utroque pertinacia, sea dolor nusquam dissentiet et."</p>
                         <p>~ Bryan Adams</p>
                         <p>"Minim tritani no ius, vel alterum posidonium deterruisset an. Per eu volutpat efficiantur mediocritatem, mel an facer virtute constituto. Nec id laudem habemus iracundia."</p>
                         <p>~ Celine Dion</p>
                     </div>
-                    <div class="col-sm-3 text-right">
+                    <div class="col-sm-3 text-left">
                         <ul class="list-unstyled ctm-sitemap-list">
                             <li>My-Ad</li>
                             <li>Post an ad</li>
@@ -55,7 +55,7 @@
                             </ul>
                         </ul>
                     </div>
-                    <div class="col-sm-3 text-right">
+                    <div class="col-sm-3 text-left">
                         <div>
                             <ul class="list-unstyled">
                                 <li><a href="{{ URL::to('about-us') }}">About Us</a></li>
@@ -68,9 +68,9 @@
                         <div class="social-media">
                             <h4>Connect with Us</h4>
                             <ul class="list-unstyled">
-                                <li><a href="#"><img src="assets/css/images/google_plus.png" /></a></li>
-                                <li><a href="#"><img src="assets/css/images/facebook.png" /></a></li>
-                                <li><a href="#"><img src="assets/css/images/twitter.png" /></a></li>
+                                <a href="#"><img src="{{ URL::asset('assets/css/images/google_plus.png') }}" /></a>
+                                <a href="#"><img src="{{ URL::asset('assets/css/images/facebook.png') }}" /></a>
+                                <a href="#"><img src="{{ URL::asset('assets/css/images/twitter.png') }}" /></a>
                             </ul>
                         </div>
                     </div>
