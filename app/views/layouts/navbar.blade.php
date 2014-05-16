@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-2 hidden-xs">
                 <div class="navbar-header">
-                    <a href="{{ URL::to('/') }}" class="navbar-brand"><img id="header-logo" src="assets/css/images/logo.jpg"></a>
+                    <a href="{{ URL::to('/') }}" class="navbar-brand"><img id="header-logo" src="{{ URL::asset('assets/css/images/logo.jpg') }}"></a>
                 </div>
             </div>
             <div class="col-sm-10">
@@ -22,7 +22,9 @@
                                 <div class="col-sm-4">
                                     <div class="checkbox">
                                         <label>
-                                            <a href="{{ URL::to('password/reset') }}" class="yellow-text">Forgot Password?</a>
+                                            <a data-toggle="modal" data-target="#resetModal" class="yellow-text">
+                                                Forgot Password?
+                                            </a>
                                         </label>
                                     </div>
                                 </div>
@@ -32,9 +34,9 @@
                     <div class="row{{ isset($hide_login) || $loggedIn ? ' hide-sign-in' : ''}}">
                         <p class="navbar-text navbar-right social-media">
                             <span><strong>Sign in using:</strong></span>
-                            <a href="#"><img src="assets/css/images/google_plus.png" /></a>
-                            <a href="#"><img src="assets/css/images/facebook.png" /></a>
-                            <a href="#"><img src="assets/css/images/twitter.png" /></a>
+                            <a href="#"><img src="{{ URL::asset('assets/css/images/google_plus.png') }}" /></a>
+                            <a href="#"><img src="{{ URL::asset('assets/css/images/facebook.png') }}" /></a>
+                            <a href="#"><img src="{{ URL::asset('assets/css/images/twitter.png') }}" /></a>
                         </p>
                     </div>
                     <div class="row">
@@ -51,3 +53,24 @@
         </div>
     </div>
 </nav>
+@if (!$loggedIn)
+<div class="modal fade" id="resetModal" tabindex="-1" role="dialog" aria-labelledby="resetModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title" id="resetModalLabel">Password Reset</h3>
+            </div>
+            {{ Form::open(['url' => 'password/request']) }}
+            <div class="modal-body">
+                <p>Please enter your e-mail address so that we can send you the instructions.</p>
+                <div class="form-group">
+                    {{ Form::email('email', '', ['class' => 'form-control input-lg', 'placeholder' => 'Email']) }}
+                </div>
+                {{ Form::submit('Reset My Password', ['class' => 'btn btn-primary btn-lg btn-block']) }}
+            </div>
+            {{ Form::close() }}
+        </div>
+    </div>
+</div>
+@endif

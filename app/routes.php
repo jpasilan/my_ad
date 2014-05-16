@@ -15,6 +15,7 @@ Route::group(['before' => 'sentryGuest'], function()
 {
     Route::get('/', 'StaticPagesController@index');
 
+    // @TODO: Social login to be worked with for later.
     //Route::get('social/{action?}', array('as' => 'hybridauth', 'uses' => 'UserController@socialAuth'));
 
     // User registration and confirmation
@@ -25,6 +26,11 @@ Route::group(['before' => 'sentryGuest'], function()
     // User login
     Route::get('login', 'UserController@login');
     Route::post('login', ['before' => 'csrf', 'uses' => 'UserController@login']);
+
+    // Password request and reset.
+    Route::post('password/request', ['before' => 'csrf', 'uses' => 'UserController@requestPassword']);
+    Route::post('password/reset/{key}', ['before' => 'csrf', 'uses' => 'UserController@resetPassword']);
+    Route::get('password/reset/{key}', 'UserController@resetPassword');
 });
 
 Route::group(['before' => 'sentryAuth'], function()
