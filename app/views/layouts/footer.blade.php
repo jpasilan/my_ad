@@ -3,16 +3,16 @@
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="row">
-                    <div class="col-sm-3 text-right">
+                    <div class="col-sm-3 text-left">
                         <h4>Reviews</h4>
                     </div>
-                    <div class="col-sm-3 text-right">
+                    <div class="col-sm-3 text-left">
                         <h4>My-Ad</h4>
                     </div>
-                    <div class="col-sm-3 text-right">
+                    <div class="col-sm-3 text-left">
                         <h4>Info</h4>
                     </div>
-                    <div class="col-sm-3 text-right">
+                    <div class="col-sm-3 text-left">
                         <h4>Contact Us</h4>
                     </div>
                 </div>
@@ -24,13 +24,13 @@
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="row">
-                    <div class="col-sm-3 text-right">
+                    <div class="col-sm-3 text-left">
                         <p>"Lorem ipsum dolor sit amet, dicat mollis deseruisse ea per, habemus fuisset reformidans per at. Vel graeco scriptorem in, eu mea diceret utroque pertinacia, sea dolor nusquam dissentiet et."</p>
                         <p>~ Bryan Adams</p>
                         <p>"Minim tritani no ius, vel alterum posidonium deterruisset an. Per eu volutpat efficiantur mediocritatem, mel an facer virtute constituto. Nec id laudem habemus iracundia."</p>
                         <p>~ Celine Dion</p>
                     </div>
-                    <div class="col-sm-3 text-right">
+                    <div class="col-sm-3 text-left">
                         <ul class="list-unstyled ctm-sitemap-list">
                             <li>My-Ad</li>
                             <li>Post an ad</li>
@@ -55,14 +55,14 @@
                             </ul>
                         </ul>
                     </div>
-                    <div class="col-sm-3 text-right">
+                    <div class="col-sm-3 text-left">
                         <div>
                             <ul class="list-unstyled">
-                                <li><a href="about_us.htm">About Us</a></li>
-                                <li><a href="vision_mission.htm">Vision and Mission</a></li>
-                                <li><a href="our_story.htm">Our Story</a></li>
-                                <li><a href="privacy_policy.htm">Privacy Policy</a></li>
-                                <li><a href="terms_and_condition.htm">Terms & Conditions</a></li>
+                                <li><a href="{{ URL::to('about-us') }}">About Us</a></li>
+                                <li><a href="{{ URL::to('/') }}">Vision and Mission</a></li>
+                                <li><a href="{{ URL::to('our-story') }}">Our Story</a></li>
+                                <li><a href="{{ URL::to('privacy-policy') }}">Privacy Policy</a></li>
+                                <li><a href="{{ URL::to('terms-and-condition') }}">Terms & Conditions</a></li>
                             </ul>
                         </div>
                         <div class="social-media">

@@ -14,6 +14,7 @@
     <body>
         @include('layouts.navbar')
 
+<<<<<<< HEAD
         <div class="container">
             @if (Session::has('message'))
             <div class="alert alert-{{ key(Session::get('message')) }} alert-dismissable">
@@ -31,4 +32,16 @@
 
         @yield('more-footer-scripts')
     </body>
+=======
+    <div class="content container">
+        @yield('content')
+    </div>
+
+    @include('layouts.footer')
+    
+    {{ HTML::script('assets/bootstrap/js/jquery.min.js') }}
+    {{ HTML::script('assets/bootstrap/js/bootstrap.min.js') }}
+    @yield('more-footer-scripts')
+</body>
+>>>>>>> static-pages
 </html>
