@@ -11,11 +11,26 @@
 |
 */
 
-Route::get('/', 'StaticPagesController@index');
+Route::group(['before' => 'sentryGuest'], function()
+{
+    Route::get('/', 'StaticPagesController@index');
 
-//Route::get('social/{action?}', array('as' => 'hybridauth', 'uses' => 'UserController@socialAuth'));
+    //Route::get('social/{action?}', array('as' => 'hybridauth', 'uses' => 'UserController@socialAuth'));
 
-// User login and logout routes.
-Route::get('login', 'UserController@login');
-Route::post('login', array('before' => 'csrf', 'uses' => 'UserController@login'));
-Route::get('logout', 'UserController@logout');
+    // User registration and confirmation
+    Route::get('register', 'UserController@register');
+    Route::post('register', ['before' => 'csrf', 'uses' => 'UserController@register']);
+    Route::get('confirm/{key}', 'UserController@confirm');
+
+    // User login
+    Route::get('login', 'UserController@login');
+    Route::post('login', ['before' => 'csrf', 'uses' => 'UserController@login']);
+});
+
+Route::group(['before' => 'sentryAuth'], function()
+{
+    // User logout
+    Route::get('logout', 'UserController@logout');
+
+    Route::get('dashboard', 'UserController@showDashboard');
+});

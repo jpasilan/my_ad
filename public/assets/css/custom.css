@@ -12,17 +12,21 @@ body {
     color: #fff;
 }
 
+.hide-sign-in {
+    visibility: hidden;
+}
+
 .navbar a:hover {
     text-decoration: none;
 }
 
-button.btn-register {
+a.btn-register {
     background-color: #f8ec20;
     border-color: #f8ec20;
     color: #000;
 }
 
-button.btn-register:hover {
+a.btn-register:hover {
     background-color: #f8ec99;
     border-color: #f8ec99;
     color: #000;

@@ -15,11 +15,18 @@
     @include('layouts.navbar')
 
     <div class="container">
+        @if (Session::has('message'))
+        <div class="alert alert-{{ key(Session::get('message')) }} alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ Session::get('message')[key(Session::get('message'))] }}
+        </div>
+        @endif
         @yield('content')
     </div>
 
     @include('layouts.footer')
 
+    {{ HTML::script('//code.jquery.com/jquery-2.1.1.min.js') }}
     {{ HTML::script('assets/bootstrap/js/bootstrap.min.js') }}
     @yield('more-footer-scripts')
 </body>
