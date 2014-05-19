@@ -44,6 +44,11 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
+Route::filter('sentryAuth', function()
+{
+    if (!Sentry::check()) return Redirect::guest('login');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Guest Filter
@@ -58,6 +63,11 @@ Route::filter('auth.basic', function()
 Route::filter('guest', function()
 {
 	if (Auth::check()) return Redirect::to('/');
+});
+
+Route::filter('sentryGuest', function()
+{
+    if (Sentry::check()) return Redirect::to('dashboard');
 });
 
 /*

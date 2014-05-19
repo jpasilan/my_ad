@@ -9,23 +9,30 @@
                 </div>
                 <div class="col-sm-10 no-padding-right">
                     <div class="container-fluid">
-                        <div class="row">
-                            <form method="post" action="" class="navbar-form navbar-right">
-                                <input type="email" class="form-control input-sm" id="id-input-login-email" placeholder="Email">
-                                <input type="password" class="form-control input-sm" id="id-input-login-password" placeholder="Password">
-                                <button type="button" class="btn btn-primary">Sign in</button>
-                                <button type="button" class="btn btn-primary btn-register">Register</button>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="checkbox"><label class="small"><input type="checkbox"> Remember me</label></div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="checkbox"><label class="small"><a href="#" class="yellow-text">Forgot Password?</a></label></div>
+                        <?php $loggedIn = Sentry::check() ?>
+                        <div class="row{{ isset($hide_login) || $loggedIn ? ' hide-sign-in' : ''}}">
+                            {{ Form::open(['url' => 'login', 'class' => 'navbar-form navbar-right', 'role' => 'form']) }}
+                            {{ Form::email('email', '', ['placeholder' => 'Email', 'class' => 'form-control']) }}
+                            {{ Form::password('password', ['placeholder' => 'Password', 'class' => 'form-control']) }}
+                            {{ Form::submit('Sign in', ['class' => 'btn btn-primary']) }}
+                            <a href="{{ URL::to('register') }}" class="btn btn-register" role="button">Register</a>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="checkbox"><label>{{ Form::checkbox('remember_me') }} Remember me</label></div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <a data-toggle="modal" data-target="#resetModal" class="yellow-text">
+                                                Forgot Password?
+                                            </a>
+                                        </label>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
+                            {{ Form::close() }}
                         </div>
-                        <div class="row">
+                        <div class="row{{ isset($hide_login) || $loggedIn ? ' hide-sign-in' : ''}}">
                             <p class="navbar-text navbar-right social-media">
                                 <span><strong>Sign in using:</strong></span>
                                 <a href="#"><img src="{{ URL::asset('assets/css/images/google_plus.png') }}" /></a>
@@ -48,3 +55,24 @@
         </div>
     </div>
 </nav>
+@if (!$loggedIn)
+<div class="modal fade" id="resetModal" tabindex="-1" role="dialog" aria-labelledby="resetModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title" id="resetModalLabel">Password Reset</h3>
+            </div>
+            {{ Form::open(['url' => 'password/request']) }}
+            <div class="modal-body">
+                <p>Please enter your e-mail address so that we can send you the instructions.</p>
+                <div class="form-group">
+                    {{ Form::email('email', '', ['class' => 'form-control input-lg', 'placeholder' => 'Email']) }}
+                </div>
+                {{ Form::submit('Reset My Password', ['class' => 'btn btn-primary btn-lg btn-block']) }}
+            </div>
+            {{ Form::close() }}
+        </div>
+    </div>
+</div>
+@endif

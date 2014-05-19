@@ -16,6 +16,10 @@ form {
     color: #fff;
 }
 
+.hide-sign-in {
+    visibility: hidden;
+}
+
 .navbar a:hover {
     text-decoration: none;
 }
@@ -26,7 +30,7 @@ div.row .navbar-brand{
     z-index: 9999;
 }
 
-div.row button.btn-register {
+div.row a.btn-register {
     background-color: #f8ec20;
     border-color: #A39900;
     color: #000;
@@ -35,7 +39,7 @@ div.row button.btn-register:hover{
 	background: #FFF54C;
 }
 
-button.btn-register:hover {
+a.btn-register:hover {
     background-color: #f8ec99;
     border-color: #f8ec99;
     color: #000;

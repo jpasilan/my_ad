@@ -11,12 +11,37 @@
 |
 */
 
-Route::get('/', 'StaticPagesController@index');
+Route::group(['before' => 'sentryGuest'], function()
+{
+    // Static pages
+    Route::get('/', 'StaticPagesController@index');
+    Route::get('/our-story', 'StaticPagesController@ourStory');
+    Route::get('/about-us', 'StaticPagesController@aboutUs');
+    Route::get('/privacy-policy', 'StaticPagesController@privacyPolicy');
+    Route::get('/terms-and-condition', 'StaticPagesController@termsAndCondition');
 
-Route::get('/our-story', 'StaticPagesController@ourStory');
+    // @TODO: Social login to be worked with for later.
+    //Route::get('social/{action?}', array('as' => 'hybridauth', 'uses' => 'UserController@socialAuth'));
 
-Route::get('/about-us', 'StaticPagesController@aboutUs');
+    // User registration and confirmation
+    Route::get('register', 'UserController@register');
+    Route::post('register', ['before' => 'csrf', 'uses' => 'UserController@register']);
+    Route::get('confirm/{key}', 'UserController@confirm');
 
-Route::get('/privacy-policy', 'StaticPagesController@privacyPolicy');
+    // User login
+    Route::get('login', 'UserController@login');
+    Route::post('login', ['before' => 'csrf', 'uses' => 'UserController@login']);
 
-Route::get('/terms-and-condition', 'StaticPagesController@termsAndCondition');
+    // Password request and reset.
+    Route::post('password/request', ['before' => 'csrf', 'uses' => 'UserController@requestPassword']);
+    Route::post('password/reset/{key}', ['before' => 'csrf', 'uses' => 'UserController@resetPassword']);
+    Route::get('password/reset/{key}', 'UserController@resetPassword');
+});
+
+Route::group(['before' => 'sentryAuth'], function()
+{
+    // User logout
+    Route::get('logout', 'UserController@logout');
+
+    Route::get('dashboard', 'UserController@showDashboard');
+});
