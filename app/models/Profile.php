@@ -2,6 +2,7 @@
 
 class Profile extends Eloquent
 {
+
     /**
      * The database table used by the model.
      *
@@ -10,12 +11,20 @@ class Profile extends Eloquent
     protected $table = 'profiles';
 
     /**
+     * Guarded model attributes.
+     *
+     * @var array
+     */
+    protected $guarded = ['id'];
+
+    /**
      * Relation to User model.
      *
      * @return mixed
      */
     public function user()
     {
-        return $this->hasOne('User');
+        return $this->belongsTo('User');
     }
+
 } 

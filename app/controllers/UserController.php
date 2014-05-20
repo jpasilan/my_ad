@@ -41,7 +41,7 @@ class UserController extends BaseController
                     );
 
                     return Redirect::to('/')->withMessage(['success'
-                        => 'Registration successful. We sent to your activation code to your email.']);
+                        => 'Registration successful. We sent your activation code to your email.']);
                 } catch (Exception $e) {
                     return Redirect::back()->withMessage(['danger' => 'An error has occurred. Please try again.']);
                 }
