@@ -29,6 +29,8 @@
         {{ HTML::script('assets/bootstrap/js/jquery.min.js') }}
         {{ HTML::script('assets/bootstrap/js/bootstrap.min.js') }}
 
+        {{ HTML::script('assets/js/moment.min.js') }}
+
         @yield('more-footer-scripts')
     </body>
 </html>

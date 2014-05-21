@@ -38,7 +38,7 @@ class ProfileController extends BaseController
 
                 // Create the Profile object, set the data, then save.
                 $profile = new Profile([
-                    'photo' => $this->savePhoto(),
+                    'photo' => Input::get('photo'),
                     'city' => Input::get('city'),
                     'country' => Input::get('country'),
                     'postal_code' => Input::get('postal_code'),
@@ -47,6 +47,8 @@ class ProfileController extends BaseController
                     'gender' => Input::get('gender'),
                 ]);
                 $user->profile()->save($profile);
+
+                return Redirect::back()->withMessage(['success' => 'Profile saved.']);
             }
 
             return Redirect::back()->withErrors($validator)->withInput();
@@ -75,19 +77,18 @@ class ProfileController extends BaseController
                 $user->first_name = Input::get('first_name');
                 $user->last_name = Input::get('last_name');
 
-                // Set the Profile data.
-                if (Input::hasFile('photo')) {
-                    $user->profile->photo = $this->savePhoto();
-                }
-
+                // Update profile data
+                $user->profile->photo = Input::get('photo');
                 $user->profile->city = Input::get('city');
                 $user->profile->country = Input::get('country');
                 $user->profile->postal_code = Input::get('postal_code');
                 $user->profile->mobile = Input::get('mobile');
-                // $profile->birth_date = Input::get('birth_date');
+                $user->profile->birth_date = Input::get('birth_date');
                 $user->profile->gender = Input::get('gender');
 
                 $user->push(); // Save user and related models. In this case, the profile model.
+
+                return Redirect::back()->withMessage(['success' => 'Profile updated.']);
             }
 
             return Redirect::back()->withErrors($validator)->withInput();
@@ -107,7 +108,6 @@ class ProfileController extends BaseController
         $rules = [
             'first_name' => 'required',
             'last_name' => 'required',
-            'photo' => 'image|max:1000',
             'city' => 'max:100',
             'province' => 'max:100',
             'postal_code' => 'max:20',
@@ -116,30 +116,6 @@ class ProfileController extends BaseController
         ];
 
         return Validator::make($input, $rules);
-    }
-
-    /**
-     * Saves a profile photo.
-     *
-     * @param $input
-     * @return null|string
-     */
-    private function savePhoto()
-    {
-        $fileName = null;
-
-        if (Input::hasFile('photo')) {
-            $file = Input::file('photo');
-            $image = Image::make($file->getRealPath());
-            $fileName = Str::random() . '.' . $file->getClientOriginalExtension();
-            $savePath = public_path() . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR
-                . 'uploads' . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR;
-
-            // Save a 100x100 copy of the uploaded image.
-            $image->resize(100, 100)->save($savePath . $fileName);
-        }
-
-        return $fileName;
     }
 
 }

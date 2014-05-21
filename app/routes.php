@@ -52,4 +52,7 @@ Route::group(['before' => 'sentryAuth'], function()
     Route::post('profile/create', ['before' => ['csrf', 'allowed:profile.create'], 'uses' => 'ProfileController@create']);
     Route::get('profile/update', ['before' => ['allowed:profile.update'], 'uses' => 'ProfileController@update']);
     Route::post('profile/update', ['before' => ['csrf', 'allowed:profile.update'], 'uses' => 'ProfileController@update']);
+
+    // Image resource
+    Route::resource('image', 'ImageController');
 });
