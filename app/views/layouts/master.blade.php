@@ -7,6 +7,7 @@
         <link rel="icon" href="" />
         {{ HTML::style('assets/bootstrap/css/bootstrap.min.css') }}
         {{ HTML::style('assets/bootstrap/css/bootstrap-theme.min.css') }}
+        {{ HTML::style('assets/bootstrap/combobox/css/bootstrap-combobox.css') }}
         {{ HTML::style('assets/css/custom.css') }}
 
         @yield('more-header-scripts')
@@ -28,7 +29,15 @@
 
         {{ HTML::script('assets/bootstrap/js/jquery.min.js') }}
         {{ HTML::script('assets/bootstrap/js/bootstrap.min.js') }}
+        {{ HTML::script('assets/bootstrap/combobox/js/bootstrap-combobox.js') }}
 
+        {{ HTML::script('assets/js/moment.min.js') }}
+
+        <script type="text/javascript">
+            jQuery(function() {
+                jQuery('.combobox').combobox();
+            });
+        </script>
         @yield('more-footer-scripts')
     </body>
 </html>

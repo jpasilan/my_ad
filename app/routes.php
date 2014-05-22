@@ -43,5 +43,19 @@ Route::group(['before' => 'sentryAuth'], function()
     // User logout
     Route::get('logout', 'UserController@logout');
 
+    // User dashboard
     Route::get('dashboard', 'UserController@showDashboard');
+
+    // User profile
+    Route::get('profile', 'ProfileController@index');
+    Route::get('profile/create', ['before' => ['allowed:profile.create'], 'uses' => 'ProfileController@create']);
+    Route::post('profile/create', ['before' => ['csrf', 'allowed:profile.create'], 'uses' => 'ProfileController@create']);
+    Route::get('profile/update', ['before' => ['allowed:profile.update'], 'uses' => 'ProfileController@update']);
+    Route::post('profile/update', ['before' => ['csrf', 'allowed:profile.update'], 'uses' => 'ProfileController@update']);
+
+    // Image resource
+    Route::resource('image', 'ImageController');
+
+    // Geo RESTful
+    Route::controller('geo', 'GeoController');
 });
