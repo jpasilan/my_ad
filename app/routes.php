@@ -55,4 +55,7 @@ Route::group(['before' => 'sentryAuth'], function()
 
     // Image resource
     Route::resource('image', 'ImageController');
+
+    // Geo RESTful
+    Route::controller('geo', 'GeoController');
 });

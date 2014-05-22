@@ -11,6 +11,16 @@ class Country extends Eloquent
     protected $table = 'countries';
 
     /**
+     * Relation to the Postal Code model.
+     *
+     * @return mixed
+     */
+    public function postal_codes()
+    {
+        return $this->hasMany('PostalCode', 'country_code', 'id');
+    }
+
+    /**
      * Get list of countries.
      *
      * @return mixed

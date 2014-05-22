@@ -12,7 +12,7 @@ class CreatePostalTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('postal', function(Blueprint $table)
+		Schema::create('postal_code', function(Blueprint $table)
         {
             $table->increments('id');
             $table->string('country_code', 2);

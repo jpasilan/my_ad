@@ -10,4 +10,14 @@ class PostalCode extends Eloquent
      */
     protected $table = 'postal_code';
 
-} 
+    /**
+     * Relation to the Country model.
+     *
+     * @return mixed
+     */
+    public function country()
+    {
+        return $this->belongsto('Country');
+    }
+
+}

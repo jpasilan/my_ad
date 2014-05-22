@@ -30,21 +30,25 @@ class ProfileController extends BaseController
         }
 
         if (Request::isMethod('post')) {
-            $validator = $this->getValidator(Input::all());
+            $validate = $this->validateInput(Input::all());
+            $validator = $validate['validator'];
+
             if ($validator->passes()) {
-                $user->first_name = Input::get('first_name');
-                $user->last_name = Input::get('last_name');
+                $data = $validate['data'];
+
+                $user->first_name = $data['first_name'];
+                $user->last_name = $data['last_name'];
                 $user->save();
 
                 // Create the Profile object, set the data, then save.
                 $profile = new Profile([
-                    'photo' => Input::get('photo'),
-                    'city' => Input::get('city'),
-                    'country' => Input::get('country'),
-                    'postal_code' => Input::get('postal_code'),
-                    'mobile' => Input::get('mobile'),
-                    'birth_date' => Input::get('birth_date'),
-                    'gender' => Input::get('gender'),
+                    'photo' => $data['photo'],
+                    'city' => $data['city'],
+                    'country' => $data['country'],
+                    'postal_code' => $data['postal_code'],
+                    'mobile' => $data['mobile'],
+                    'birth_date' => $data['birth_date'],
+                    'gender' => $data['gender'],
                 ]);
                 $user->profile()->save($profile);
 
@@ -72,19 +76,24 @@ class ProfileController extends BaseController
         }
 
         if (Request::isMethod('post')) {
-            $validator = $this->getValidator(Input::all());
-            if ($validator->passes()){
-                $user->first_name = Input::get('first_name');
-                $user->last_name = Input::get('last_name');
+            $validate = $this->validateInput(Input::all());
+            $validator = $validate['validator'];
+
+            if ($validator->passes()) {
+                $data = $validate['data'];
+
+                // Update the user's full name
+                $user->first_name = $data['first_name'];
+                $user->last_name = $data['last_name'];
 
                 // Update profile data
-                $user->profile->photo = Input::get('photo');
-                $user->profile->city = Input::get('city');
-                $user->profile->country = Input::get('country');
-                $user->profile->postal_code = Input::get('postal_code');
-                $user->profile->mobile = Input::get('mobile');
-                $user->profile->birth_date = Input::get('birth_date');
-                $user->profile->gender = Input::get('gender');
+                $user->profile->photo = $data['photo'];
+                $user->profile->city = $data['city'];
+                $user->profile->country = $data['country'];
+                $user->profile->postal_code = $data['postal_code'];
+                $user->profile->mobile = $data['mobile'];
+                $user->profile->birth_date = $data['birth_date'];
+                $user->profile->gender = $data['gender'];
 
                 $user->push(); // Save user and related models. In this case, the profile model.
 
@@ -98,12 +107,12 @@ class ProfileController extends BaseController
     }
 
     /**
-     * Get the profile validator object.
+     * Validate the input data.
      *
-     * @param $input Input object
-     * @return Validator
+     * @param $input Input array
+     * @return array Returns the validator object and data.
      */
-    private function getValidator($input)
+    private function validateInput($input)
     {
         $rules = [
             'first_name' => 'required',
@@ -113,9 +122,11 @@ class ProfileController extends BaseController
             'postal_code' => 'max:20',
             'mobile' => 'integer|max:10',
             'birth_date' => 'date',
+            'country' => 'exists:countries,id',
+            'gender' => 'in:male,female',
         ];
 
-        return Validator::make($input, $rules);
+        return ['validator' => Validator::make($input, $rules), 'data' => $input];
     }
 
 }
