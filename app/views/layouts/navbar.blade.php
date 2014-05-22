@@ -1,10 +1,10 @@
 <nav class="navbar navbar-static-top" role="navigation">
     <div class="container">
         <div class="row">
-            <div class="col-sm-10 col-sm-offset-1 no-padding-right">
+            <div class="col-sm-10 col-sm-offset-1 no-padding-right nav-fix">
                 <div class="col-sm-2 hidden-xs">
                     <div class="navbar-header">
-                        <a href="{{ URL::to('/') }}" class="navbar-brand"><img id="header-logo" src="{{ URL::asset('assets/css/images/logo.png') }}" height="150"></a>
+                        <a href="{{ URL::to('/') }}" class="navbar-brand"><img id="header-logo" src="{{ URL::asset('assets/css/images/logo.png') }}" height="147"></a>
                     </div>
                 </div>
                 <div class="col-sm-10 no-padding-right">

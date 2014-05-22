@@ -5,13 +5,22 @@ body {
 form {
     font-family: Helvetica, Arial, sans-serif;
 }
+/* Start: Global Styles */
+.no-padding-right{
+    padding-right: 0px;
+}
+.top-offset-2{
+    margin-top: 2rem;
+}
+/* End: Global Styles */
 
 /* navigation bar styles */
 .navbar {
     background-color: #F21314;
-    height: 178px;
 }
-
+.navbar .nav-fix{
+    margin-bottom: -1px;
+}
 .navbar label, .navbar a, .navbar span {
     color: #fff;
 }
@@ -79,6 +88,15 @@ a.btn-register:hover {
 	-ms-transform: rotate(360deg); /* IE 9 */
 	-webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */
 	transform: rotate(360deg);
+}
+
+div#side-affix ul li{
+    font-size: 12px;
+    font-weight: bold;
+}
+div#side-affix ul li.active{
+    border-left: solid 2px #F21314;
+    background: #fafafa;
 }
 /* end of navigation bar styles */
 
@@ -173,8 +191,25 @@ footer a:visited {
     font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 
-.btn-very-red {
-    background-color: #f21414;
+div.row .btn-very-red {
+    background: #ef4747; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ef4747 1%, #ef3232 44%, #f21314 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ef4747), color-stop(44%,#ef3232), color-stop(100%,#f21314)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ef4747 1%,#ef3232 44%,#f21314 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ef4747 1%,#ef3232 44%,#f21314 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ef4747 1%,#ef3232 44%,#f21314 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ef4747 1%,#ef3232 44%,#f21314 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef4747', endColorstr='#f21314',GradientType=0 ); /* IE6-9 */
+}
+div.row .btn-very-red:hover{
+    background: #f21314; /* Old browsers */
+    background: -moz-linear-gradient(top,  #f21314 0%, #ef3232 44%, #ef4747 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f21314), color-stop(44%,#ef3232), color-stop(100%,#ef4747)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #f21314 0%,#ef3232 44%,#ef4747 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f21314 0%,#ef3232 44%,#ef4747 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f21314 0%,#ef3232 44%,#ef4747 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #f21314 0%,#ef3232 44%,#ef4747 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f21314', endColorstr='#ef4747',GradientType=0 ); /* IE6-9 */
 }
 /* end of content styles */
 
@@ -321,5 +356,12 @@ div.row .panel-default>.panel-heading {
 }
 div.row .panel-default{
     border-color: #eeeeee;
+}
+/* Css fix for Affix issue not removing .affix-bottom when scrolling back up */
+div.container .affix-bottom{
+    position: relative;
+}
+div.container .affix{
+    top: 10px;
 }
 /* End: Overriding Bootstrap Rules */

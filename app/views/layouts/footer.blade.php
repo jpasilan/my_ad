@@ -68,9 +68,9 @@
                         <div class="social-media">
                             <h4>Connect with Us</h4>
                             <ul class="list-unstyled">
-                                <li><a href="#"><img src="{{ URL::asset('assets/css/images/google_plus.png') }}" /></a></li>
-                                <li><a href="#"><img src="{{ URL::asset('assets/css/images/facebook.png') }}" /></a></li>
-                                <li><a href="#"><img src="{{ URL::asset('assets/css/images/twitter.png') }}" /></a></li>
+                                <li><a href="#"><img src="{{ URL::asset('assets/css/images/google_plus-white.png') }}" /></a></li>
+                                <li><a href="#"><img src="{{ URL::asset('assets/css/images/facebook-white.png') }}" /></a></li>
+                                <li><a href="#"><img src="{{ URL::asset('assets/css/images/twitter-white.png') }}" /></a></li>
                             </ul>
                         </div>
                     </div>
