@@ -16,13 +16,14 @@ class GeoController extends BaseController
             ];
 
             $validator = Validator::make(Input::all(), $rule);
+            $validator->getPresenceVerifier()->setConnection('mysqlgeo');
             if ($validator->passes()) {
                 $countryCode = Input::get('country');
                 $country = Country::find($countryCode);
 
                 $postalCodes = [];
                 if ($country) {
-                    $postalCodes = $country->postal_codes()->lists('postal_code');
+                    $postalCodes = $country->postal_codes()->limit(1000)->lists('postal_code');
                 }
 
                 return Response::json($postalCodes, 200);

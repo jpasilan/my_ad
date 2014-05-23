@@ -11,6 +11,13 @@ class PostalCode extends Eloquent
     protected $table = 'postal_code';
 
     /**
+     * Connection used by the model.
+     *
+     * @var string
+     */
+    protected $connection = 'mysqlgeo';
+
+    /**
      * Relation to the Country model.
      *
      * @return mixed

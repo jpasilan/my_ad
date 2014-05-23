@@ -11,6 +11,13 @@ class Country extends Eloquent
     protected $table = 'countries';
 
     /**
+     * Connection used by this model.
+     *
+     * @var string
+     */
+    protected $connection = 'mysqlgeo';
+
+    /**
      * Relation to the Postal Code model.
      *
      * @return mixed

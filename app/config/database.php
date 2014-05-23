@@ -61,12 +61,20 @@ return array(
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
-            'options'   => array(
-                PDO::MYSQL_ATTR_LOCAL_INFILE => true,
-            )
 		),
 
-		'pgsql' => array(
+        'mysqlgeo' => array(
+            'driver'    => 'mysql',
+            'host'      => 'my-ad.ca',
+            'database'  => 'geonames',
+            'username'  => 'geouser',
+            'password'  => '!reVaQe4',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+        ),
+
+        'pgsql' => array(
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',
 			'database' => 'database',
