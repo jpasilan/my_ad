@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-sm-5 col-sm-offset-1">
+    <div class="col-md-6">
         <div class="container-fluid ctm-categories">
             <div class="row ctm-categories-row">
                 <div class="ctm-categories-autos">
@@ -62,37 +62,37 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-5">
-        <div class="row well well-lg">
+    <div class="col-md-6">
+        <div class="clearfix well well-lg">
             <div class="col-sm-12 bottom-offset-8">
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="search-keyword" placeholder="Keyword">
+                            <input type="text" class="form-control input-lg" id="search-keyword" placeholder="Keyword">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <select class="form-control">
+                            <select class="form-control input-lg">
                                 <option>Province/State</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <select class="form-control">
+                            <select class="form-control input-lg">
                                 <option>City</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="search-zip-code" placeholder="Zip Code">
+                            <input type="text" class="form-control input-lg" id="search-zip-code" placeholder="Zip Code">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="search-miles-from-zip" placeholder="Miles from Zip">
+                            <input type="text" class="form-control input-lg" id="search-miles-from-zip" placeholder="Miles from Zip">
                         </div>
                     </div>
                     <div class="form-group">
@@ -106,7 +106,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-10 col-sm-offset-1">
+    <div class="col-sm-12">
         <img src="assets/css/images/google-map.png" class="img-responsive content-map" />
     </div>
 </div>

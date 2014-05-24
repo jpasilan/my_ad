@@ -34,6 +34,16 @@ class StaticPagesController extends BaseController
     }
     
     /**
+     * Static Vision and Mission Page
+     * 
+     * @return mixed
+     */
+    public function visionMission()
+    {
+        return View::make('static.vision-mission');
+    }
+    
+    /**
      * Static Privacy Policy Page
      * 
      * @return mixed
