@@ -39,15 +39,21 @@
                             <a href="#"><img src="{{ URL::asset('assets/css/images/twitter.png') }}" /></a>
                         </p>
                     </div>
+                    
                     <div class="row">
                         <ul class="nav nav-tabs navbar-right nav-fix">
+                            @if(!$loggedIn)
                             <li class="active"><a href="{{ URL::to('/') }}">Classifieds</a></li>
                             <li><a href="{{ URL::to('/') }}">Vehicles</a></li>
                             <li><a href="{{ URL::to('/') }}">Real Estate</a></li>
                             <li><a href="{{ URL::to('/') }}">My-Ad</a></li>
                             <li><a href="{{ URL::to('/') }}">Post an Ad</a></li>
+                            @else
+                            <li><a href="{{ URL::to('/logout') }}">Logout</a></li>
+                            @endif
                         </ul>
                     </div>
+                    
                 </div>
             </div>
         </div>
