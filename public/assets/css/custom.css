@@ -335,6 +335,37 @@ div.row .no-padding-right{
 .bottom-offset-8{
 	margin-bottom: 11.6rem;
 }
+.gray-panel, .red-panel {
+    margin-bottom: 3rem;
+    padding: 20px;
+}
+.gray-panel {
+    background-color: #F5F5F5;
+    border: solid 1px #EAEAEA;
+    color: #787878;
+}
+.red-panel {
+    background-color: #F21314;
+    border: solid 1px #CB1112;
+    color: #fff;
+    transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+}
+.red-panel a {
+    color: #fff;
+}
+.red-panel a:hover {
+    text-decoration: none;
+}
+.red-panel:hover {
+    background: #FF4647;
+    border: solid 1px #F21314;
+}
+.red {
+    background: #F21314;
+    color: #fff;
+}
 /* End: Global Styles */
 
 /* Start: Static Pages Styles */
@@ -368,6 +399,31 @@ div.container .affix{
         top: 10px;
 }
 /* End: Overriding Bootstrap Rules */
+
+/* Start: Start Dashboard */
+div#dashboard .img-responsive {
+    margin: 0 auto;
+}
+div#dashboard h3{
+    margin: 5px 0px 15px 0px;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #eee;
+}
+div#dashboard h3.no-line{
+    border-bottom: none;
+}
+div#dashboard .time{
+    font-size: 11px;
+}
+div#dashboard ul.profile-list a{
+    color: #787878;
+}
+div#dashboard .name{
+    margin: 10px 1px 16px;
+    padding-bottom: 10px;
+    border-bottom: dashed 1px;
+}
+/* End: Start Dashboard */
 
 /* Start: Media Queries */
 
