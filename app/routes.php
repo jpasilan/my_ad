@@ -53,9 +53,15 @@ Route::group(['before' => 'sentryAuth'], function()
     Route::get('profile/update', ['before' => ['allowed:profile.update'], 'uses' => 'ProfileController@update']);
     Route::post('profile/update', ['before' => ['csrf', 'allowed:profile.update'], 'uses' => 'ProfileController@update']);
 
-    // Image resource
-    Route::resource('image', 'ImageController');
+    // Advertisement resource. Filters for this resource are set in the constructor.
+    Route::resource('ad', 'AdController');
 
-    // Geo RESTful
+    // Image routes
+    Route::post('image', ['before' => 'csrf', 'uses' => 'ImageController@store']);
+    Route::post('image/delete', ['before' => 'csrf', 'uses' => 'ImageController@destroy']);
+
     Route::controller('geo', 'GeoController');
 });
+
+// Routes available to both internal and external users.
+Route::controller('ad/data', 'AdDataController');

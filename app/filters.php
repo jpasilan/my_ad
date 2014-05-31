@@ -98,7 +98,7 @@ Route::filter('csrf', function()
 
 Route::filter('allowed', function($route, $request, $value)
 {
-    if (!Sentry::check() || !Sentry::getUser()->hasAccess($value)) {
-        return Redirect::to('/')->withMessage('Access not allowed.');
+    if ( ! Sentry::check() || ! Sentry::getUser()->hasAccess($value)) {
+        return Redirect::to('dashboard')->withMessage(['danger' => 'Access not allowed.']);
     }
 });

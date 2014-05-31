@@ -3,6 +3,7 @@
 class Country extends Eloquent
 {
 
+
     /**
      * The database table used by the model.
      *
@@ -10,12 +11,14 @@ class Country extends Eloquent
      */
     protected $table = 'countries';
 
+
     /**
      * Connection used by this model.
      *
      * @var string
      */
     protected $connection = 'mysqlgeo';
+
 
     /**
      * Relation to the Postal Code model.
@@ -27,6 +30,7 @@ class Country extends Eloquent
         return $this->hasMany('PostalCode', 'country_code', 'id');
     }
 
+
     /**
      * Get list of countries.
      *
@@ -36,5 +40,6 @@ class Country extends Eloquent
     {
         return static::orderBy('name')->lists('name', 'id');
     }
+
 
 }

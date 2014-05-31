@@ -24,9 +24,34 @@
             </div>
             <div class="form-group">
                 <label for="photo">Photo/Avatar</label>
-                {{ Form::hidden('photo', $update ? $user->profile->photo : '', ['id' => 'photoPath']) }}
-                <div class="col-md-12" id="image-dropzone">
-                    <div class="dz-message"><span class="glyphicon glyphicon-cloud-upload"></span> Drop file here to upload.</div>
+                <div id="ad-images">
+                    <?php
+                        $photo = Input::old('photo') ? : ($update ? $user->profile->photo : '');
+                        if ($photo) {
+                            list($id, $ext) = explode('.', $photo);
+                            // TODO: Refactor the following lines.
+                            $uploadPath = DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR .
+                                'uploads' . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR;
+                            $profileImagePath = DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR .
+                                'images' . DIRECTORY_SEPARATOR . 'profile' . DIRECTORY_SEPARATOR;
+                            $path = $uploadPath;
+                            $size = 0;
+                            if (File::exists(public_path() . $uploadPath . $photo)) {
+                                $size = File::size(public_path() . $uploadPath . $photo);
+                            } else if (File::exists(public_path() . $profileImagePath . $photo)) {
+                                $path = $profileImagePath;
+                                $size = File::size(public_path() . $profileImagePath . $photo);
+                            }
+                        }
+                    ?>
+
+                    {{ Form::hidden('photo', $photo, ['id' => $id, 'data-size' => $size, 'data-file-path' => $path]) }}
+                </div>
+                <div class="col-md-12" id="image-dropzone" data-max-files="1" data-token="{{ csrf_token() }}"
+                    data-input-name="photo">
+                        <div class="dz-message">
+                            <span class="glyphicon glyphicon-cloud-upload"></span> Drop file here to upload.
+                        </div>
                 </div>
             </div>
             <div class="form-group">
@@ -96,19 +121,7 @@
 {{ HTML::script('assets/pikaday/pikaday.js') }}
 {{ HTML::script('assets/pikaday/plugins/pikaday.jquery.js') }}
 {{ HTML::script('assets/dropzone/dropzone.min.js') }}
-<style>
-    #image-dropzone {
-        margin-bottom: 15px;
-    }
-    #image-dropzone .dz-message {
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 1.5em;
-        position: absolute;
-        top: 45%;
-        left: 20%;
-        font-style: italic;
-    }
-</style>
+{{ HTML::script('assets/js/image-dropzone.js') }}
 <script type="text/javascript">
     //<![CDATA[
     jQuery(function() {
@@ -123,16 +136,6 @@
             setDefaultDate:  birthDate.isValid() ? true : false,
             maxDate: fiveYearsAgo.toDate(),
             yearRange: [1900, fiveYearsAgo.year()]
-        });
-
-        // Dropzone.js stuff
-        Dropzone.autoDiscover = false;
-
-        var dropzone = new Dropzone('#image-dropzone',  { url: "{{ URL::to('image') }}", maxFiles: 1 });
-        jQuery('#image-dropzone').addClass('dropzone');
-
-        dropzone.on('success', function(file, response) {
-            jQuery('input#photoPath').val(response.filename);
         });
     });
     //]]>

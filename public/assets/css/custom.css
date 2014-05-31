@@ -365,3 +365,18 @@ div.container .affix{
     top: 10px;
 }
 /* End: Overriding Bootstrap Rules */
+
+/* Dropzone styles */
+div#image-dropzone {
+    margin-bottom: 15px;
+}
+
+div#image-dropzone .dz-message {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.5em;
+    position: absolute;
+    top: 45%;
+    left: 20%;
+    font-style: italic;
+}
+/* End Dropzone styles*/

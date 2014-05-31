@@ -40,6 +40,8 @@ class ProfileController extends BaseController
                 $user->last_name = $data['last_name'];
                 $user->save();
 
+                // TODO: Move profile image to /assets/images/profile
+
                 // Create the Profile object, set the data, then save.
                 $profile = new Profile([
                     'photo' => $data['photo'],

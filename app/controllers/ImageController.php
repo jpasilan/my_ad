@@ -4,28 +4,6 @@ class ImageController extends BaseController
 {
 
 	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
-	}
-
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-        //
-	}
-
-
-	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
@@ -42,52 +20,18 @@ class ImageController extends BaseController
             $image = Image::make($file->getRealPath());
             $uploadPath = public_path() . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR
                 . 'uploads' . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR;
-            $fileName = Str::random() . '.' . $file->getClientOriginalExtension();
+            $fileId = Str::random();
+            $fileName = $fileId . '.' . $file->getClientOriginalExtension();
 
             if ($image->save($uploadPath . $fileName)) {
-                return Response::json(['filename' => $fileName, 'status' => 'success'], 200);
-            } else {
-                return Response::json(['status' => 'error'], 400);
+                return Response::json(['id' => $fileId, 'filename' => $fileName,
+                    'status' => 'success', 'message' => 'Image added.'], 200);
             }
+
+            return Response::json(['message' => 'An error occurred when saving the image.', 'status' => 'error'], 400);
         }
 
         return Response::json(['error' => $validator->messages()->first('file'), 'status' => 'error'], 400);
-	}
-
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
 	}
 
 
@@ -97,10 +41,26 @@ class ImageController extends BaseController
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy()
 	{
-		//
-	}
+        $rule = [
+            'filename' => 'required'
+        ];
 
+        $validator = Validator::make(Input::all(), $rule);
+        if ($validator->passes()) {
+            $filePath = public_path() . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR .
+                'uploads' . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . Input::get('filename');
+
+            if (File::exists($filePath) && File::delete($filePath)) {
+                return Response::json(['message' => 'Image deleted.', 'status' => 'success'], 200);
+            }
+
+            return Response::json(['message' => 'Image does not exist or there was an error in deleting the image.'
+                , 'status' => 'error' ], 400);
+        }
+
+        return Response::json(['message' => $validator->messages()->first(), 'status' => 'error'], 400);
+	}
 
 }

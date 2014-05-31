@@ -3,6 +3,7 @@
 class PostalCode extends Eloquent
 {
 
+
     /**
      * The database table used by the model.
      *
@@ -10,12 +11,14 @@ class PostalCode extends Eloquent
      */
     protected $table = 'postal_code';
 
+
     /**
      * Connection used by the model.
      *
      * @var string
      */
     protected $connection = 'mysqlgeo';
+
 
     /**
      * Relation to the Country model.
@@ -26,5 +29,6 @@ class PostalCode extends Eloquent
     {
         return $this->belongsto('Country');
     }
+
 
 }

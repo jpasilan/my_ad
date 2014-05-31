@@ -70,6 +70,8 @@ return array(
 	),
 	"unique"               => "The :attribute has already been taken.",
 	"url"                  => "The :attribute format is invalid.",
+    "required_in_category" => "The :attribute field is required when the selected Category falls under :type.",
+    "required_images_min"  => "There must be at least :count uploaded image(s).",
 
 	/*
 	|--------------------------------------------------------------------------
@@ -99,6 +101,17 @@ return array(
 	|
 	*/
 
-	'attributes' => array(),
+	'attributes' => array(
+        'title'             => 'Title',
+        'price'             => 'Price',
+        'description'       => 'Description',
+        'condition'         => 'Condition',
+        'ad_category_id'    => 'Category',
+        'address'           => 'Address',
+        'city'              => 'City',
+        'province'          => 'State/Province',
+        'country'           => 'Country',
+        'postal_code'       => 'Postal Code',
+    ),
 
 );

@@ -121,6 +121,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',
         'Intervention\Image\ImageServiceProvider',
+        'Libraries\Validation\ValidationServiceProvider',
 
 	),
 

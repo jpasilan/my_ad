@@ -42,11 +42,11 @@
                         </div>
                         <div class="row">
                             <ul class="nav nav-tabs navbar-right">
-                                <li class="active"><a href="{{ URL::to('/') }}">Classifieds</a></li>
+                                <li class="active"><a href="{{ URL::to('ad') }}">Classifieds</a></li>
                                 <li><a href="{{ URL::to('/') }}">Vehicles</a></li>
                                 <li><a href="{{ URL::to('/') }}">Real Estate</a></li>
                                 <li><a href="{{ URL::to('/') }}">My-Ad</a></li>
-                                <li><a href="{{ URL::to('/') }}">Post an Ad</a></li>
+                                <li><a href="{{ URL::to('ad/create') }}">Post an Ad</a></li>
                             </ul>
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 <?php
 
-class Profile extends Eloquent
+class Photo extends Eloquent
 {
 
 
@@ -9,7 +9,7 @@ class Profile extends Eloquent
      *
      * @var string
      */
-    protected $table = 'profiles';
+    protected $table = 'photos';
 
 
     /**
@@ -21,13 +21,13 @@ class Profile extends Eloquent
 
 
     /**
-     * Relation to User model.
+     * Polymorphic relation to various models.
      *
      * @return mixed
      */
-    public function user()
+    public function photoable()
     {
-        return $this->belongsTo('User');
+        return $this->morphTo();
     }
 
 
