@@ -30,23 +30,6 @@
                                 </div>
                             </div>
                         {{ Form::close() }}
-                        <div class="row{{ isset($hide_login) || $loggedIn ? ' hide-sign-in' : ''}}">
-                            <p class="navbar-text navbar-right social-media">
-                                <span><strong>Sign in using:</strong></span>
-                                <a href="#"><img src="{{ URL::asset('assets/css/images/google_plus.png') }}" /></a>
-                                <a href="#"><img src="{{ URL::asset('assets/css/images/facebook.png') }}" /></a>
-                                <a href="#"><img src="{{ URL::asset('assets/css/images/twitter.png') }}" /></a>
-                            </p>
-                        </div>
-                        <div class="row">
-                            <ul class="nav nav-tabs navbar-right">
-                                <li class="active"><a href="{{ URL::to('ad') }}">Classifieds</a></li>
-                                <li><a href="{{ URL::to('/') }}">Vehicles</a></li>
-                                <li><a href="{{ URL::to('/') }}">Real Estate</a></li>
-                                <li><a href="{{ URL::to('/') }}">My-Ad</a></li>
-                                <li><a href="{{ URL::to('ad/create') }}">Post an Ad</a></li>
-                            </ul>
-                        </div>
                     </div>
                     <div class="row{{ isset($hide_login) || $loggedIn ? ' hide-sign-in' : ''}}">
                         <p class="navbar-text navbar-right social-media">
@@ -56,16 +39,14 @@
                             <a href="#"><img src="{{ URL::asset('assets/css/images/twitter.png') }}" /></a>
                         </p>
                     </div>
-                    
                     <div class="row">
                         <ul class="nav nav-tabs navbar-right nav-fix">
-                            @if(!$loggedIn)
-                            <li class="active"><a href="{{ URL::to('/') }}">Classifieds</a></li>
+                            <li class="active"><a href="{{ URL::to('ad') }}">Classifieds</a></li>
                             <li><a href="{{ URL::to('/') }}">Vehicles</a></li>
                             <li><a href="{{ URL::to('/') }}">Real Estate</a></li>
                             <li><a href="{{ URL::to('/') }}">My-Ad</a></li>
-                            <li><a href="{{ URL::to('/') }}">Post an Ad</a></li>
-                            @else
+                            @if ($loggedIn)
+                            <li><a href="{{ URL::to('ad/create') }}">Post an Ad</a></li>
                             <li><a href="{{ URL::to('/logout') }}">Logout</a></li>
                             @endif
                         </ul>
