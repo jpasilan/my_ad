@@ -17,6 +17,7 @@ Route::group(['before' => 'sentryGuest'], function()
     Route::get('/', 'StaticPagesController@index');
     Route::get('/our-story', 'StaticPagesController@ourStory');
     Route::get('/about-us', 'StaticPagesController@aboutUs');
+    Route::get('/vision-mission', 'StaticPagesController@visionMission');
     Route::get('/privacy-policy', 'StaticPagesController@privacyPolicy');
     Route::get('/terms-and-condition', 'StaticPagesController@termsAndCondition');
 

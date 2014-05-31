@@ -1,7 +1,7 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-sm-10 col-sm-offset-1">
+            <div class="col-sm-12">
                 <div class="row">
                     <div class="col-sm-3 text-left">
                         <h4>Reviews</h4>
@@ -22,7 +22,7 @@
     <hr />
     <div class="container">
         <div class="row">
-            <div class="col-sm-10 col-sm-offset-1">
+            <div class="col-sm-12">
                 <div class="row">
                     <div class="col-sm-3 text-left">
                         <p>"Lorem ipsum dolor sit amet, dicat mollis deseruisse ea per, habemus fuisset reformidans per at. Vel graeco scriptorem in, eu mea diceret utroque pertinacia, sea dolor nusquam dissentiet et."</p>
@@ -59,7 +59,7 @@
                         <div>
                             <ul class="list-unstyled">
                                 <li><a href="{{ URL::to('about-us') }}">About Us</a></li>
-                                <li><a href="{{ URL::to('/') }}">Vision and Mission</a></li>
+                                <li><a href="{{ URL::to('/vision-mission') }}">Vision and Mission</a></li>
                                 <li><a href="{{ URL::to('our-story') }}">Our Story</a></li>
                                 <li><a href="{{ URL::to('privacy-policy') }}">Privacy Policy</a></li>
                                 <li><a href="{{ URL::to('terms-and-condition') }}">Terms & Conditions</a></li>

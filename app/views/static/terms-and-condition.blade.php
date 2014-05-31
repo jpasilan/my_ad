@@ -1,8 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-
-    <div class="col-sm-3 col-sm-offset-1 top-offset-2">
+<div id="static-pages" class="row">
+    <div class="col-sm-3">
         <div id="side-affix">
             <ul class="nav list-unstyled">
                 <li><a href="#terms-and-condition">Terms and Condition of Use</a></li>
@@ -19,11 +19,11 @@
             </ul>
          </div>
     </div>
-    <div class="col-sm-8 no-padding-right">
+    <div class="col-sm-9">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12" id="scroll-able">
-                    <h3 id="terms-and-condition">Terms and Condition of Use</h3>
+                    <h1 id="terms-and-condition">Terms and Condition of Use</h1>
 
                     <p>Please carefully review the following basic rules that govern your use of the Website. Please note that your use of
                     the Website constitutes your unconditional agreement to follow and be bound by these Terms and Conditions of Use. If
@@ -36,7 +36,7 @@
                     whenever you use the Website.</p>
 
                     <p>These Terms and Conditions of Use apply to the use of the Website and do not extend to any linked third party sites.
-                    These Terms and Conditions and our <a href="/privacy-policy">Privacy Policy</a>, which are hereby incorporated by
+                    These Terms and Conditions and our <a href="{{ URL::to('privacy-policy') }}">Privacy Policy</a>, which are hereby incorporated by
                     reference, contain the entire agreement (the “Agreement”) between you and My-Ad.ca with respect to the Website.
                     Any rights not expressly granted herein are reserved.</p>
                     <p><a href="#header-logo">Back to top</a></p>
@@ -256,9 +256,7 @@
                   return (this.bottom = $('footer').outerHeight(true))
                 }
             }
-       })
-       
-    });
-    
+       })  
+    });   
 </script>
 @stop

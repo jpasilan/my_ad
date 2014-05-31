@@ -1,8 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="row">
-    <div class="col-sm-3 col-sm-offset-1 top-offset-2">
+<div id="static-pages" class="row">
+    <div class="col-sm-3">
         <div id="side-affix">
             <ul class="nav list-unstyled">
                 <li><a href="#privacy-policy">Privacy Policy</a></li>
@@ -27,7 +27,7 @@
             </ul>
          </div>
     </div>
-    <div class="col-sm-7 no-padding-right" data-spy="scroll" data-target="#side-affix">
+    <div class="col-sm-9" data-spy="scroll" data-target="#side-affix">
         <div class="container-fluid" >
             <h1 id="privacy-policy">Privacy Policy</h1>
             <div class="row">

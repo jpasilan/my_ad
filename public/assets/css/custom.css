@@ -124,7 +124,6 @@ footer hr {
 }
 
 .footer-copy {
-    margin-left: -75px;
     margin-top: -10px;
 }
 
@@ -176,8 +175,8 @@ footer a:visited {
 .content-map {
     margin-top: 30px;
     margin-bottom: 20px;
+    width: 100%;
 }
-
 .content .profile-image-description, .content .nav-pills a, .content h1 {
     color: #F21314;
 }
@@ -215,21 +214,17 @@ div.row .btn-very-red:hover{
 
 /* generic styles */
 .indented {
-    text-indent: 2em;
+        text-indent: 2em;
 }
 
 a.yellow-text {
-    color: #f8ec20;
+        color: #f8ec20;
 }
 /* end of generic styles */
 
-.ctm-categories-row {
-	margin-top: 2px;
-}
-
 .ctm-categories-row div {
-	height: 108px;
-	width: 112px;
+	height: 133px;
+        width: 138px;
 	float: left;
 }
 
@@ -286,8 +281,9 @@ a.yellow-text {
 	font-weight: normal;
 	color: #DDDDDD;
 	text-align: center;
-	font-size: 1em;
-	margin-top: 78px;
+	font-size: 1.2em;
+        margin-top: 97px;
+        font-weight: bold;
 }
 .ctm-categories-row .ctm-categories-autos,
 .ctm-categories-row .ctm-categories-realstate,
@@ -306,7 +302,7 @@ a.yellow-text {
 .ctm-categories-row .ctm-categories-dating,
 .ctm-categories-row .ctm-categories-others
 {
-	background-size: 110px;
+	background-size: 136px;
 	cursor: pointer;
 	transition: 0.5s ease;
 	-o-transition: 0.5s ease;
@@ -337,9 +333,47 @@ div.row .no-padding-right{
 	padding-right: 0px;
 }
 .bottom-offset-8{
-	margin-bottom: 8.3rem;
+	margin-bottom: 11.6rem;
+}
+.gray-panel, .red-panel {
+    margin-bottom: 3rem;
+    padding: 20px;
+}
+.gray-panel {
+    background-color: #F5F5F5;
+    border: solid 1px #EAEAEA;
+    color: #787878;
+}
+.red-panel {
+    background-color: #F21314;
+    border: solid 1px #CB1112;
+    color: #fff;
+    transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+}
+.red-panel a {
+    color: #fff;
+}
+.red-panel a:hover {
+    text-decoration: none;
+}
+.red-panel:hover {
+    background: #FF4647;
+    border: solid 1px #F21314;
+}
+.red {
+    background: #F21314;
+    color: #fff;
 }
 /* End: Global Styles */
+
+/* Start: Static Pages Styles */
+div#static-pages h1{
+    margin-top: 0px;
+    margin-bottom: 25px;
+}
+/* End: Static Pages Styles */
 
 /* Start: Overriding Bootstrap Rules */
 div.row .btn-primary{
@@ -350,21 +384,79 @@ div.row .btn-primary:hover{
 	background: #299797;
 }
 div.row .panel-default>.panel-heading {
-    background: #FB4545;
-    border-color: #FF6E6E;
-    color: #fff;
+        background: #FB4545;
+        border-color: #FF6E6E;
+        color: #fff;
 }
 div.row .panel-default{
-    border-color: #eeeeee;
+        border-color: #eeeeee;
 }
 /* Css fix for Affix issue not removing .affix-bottom when scrolling back up */
 div.container .affix-bottom{
-    position: relative;
+        position: relative;
 }
 div.container .affix{
-    top: 10px;
+        top: 10px;
 }
 /* End: Overriding Bootstrap Rules */
+
+/* Start: Start Dashboard */
+div#dashboard .img-responsive {
+    margin: 0 auto;
+}
+div#dashboard h3{
+    margin: 5px 0px 15px 0px;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #eee;
+}
+div#dashboard h3.no-line{
+    border-bottom: none;
+}
+div#dashboard .time{
+    font-size: 11px;
+}
+div#dashboard ul.profile-list a{
+    color: #787878;
+}
+div#dashboard .name{
+    margin: 10px 1px 16px;
+    padding-bottom: 10px;
+    border-bottom: dashed 1px;
+}
+/* End: Start Dashboard */
+
+/* Start: Media Queries */
+/* Bootstrap first collapse at 1200px width */
+@media only screen and (max-width: 1200px) {
+    .ctm-categories-row .ctm-categories-autos,
+    .ctm-categories-row .ctm-categories-realstate,
+    .ctm-categories-row .ctm-categories-furniture,
+    .ctm-categories-row .ctm-categories-tools,
+    .ctm-categories-row .ctm-categories-pets,
+    .ctm-categories-row .ctm-categories-jobs,
+    .ctm-categories-row .ctm-categories-travel,
+    .ctm-categories-row .ctm-categories-sports,
+    .ctm-categories-row .ctm-categories-family,
+    .ctm-categories-row .ctm-categories-services,
+    .ctm-categories-row .ctm-categories-computer,
+    .ctm-categories-row .ctm-categories-electronic,
+    .ctm-categories-row .ctm-categories-food,
+    .ctm-categories-row .ctm-categories-community,
+    .ctm-categories-row .ctm-categories-dating,
+    .ctm-categories-row .ctm-categories-others
+    {
+            background-size: 111px;
+    }
+    .ctm-categories-row div {
+            width: 113px;
+            height: 109px;
+    }
+    .ctm-categories-category-title {
+            font-size: 1em;
+            margin-top: 80px;
+    }
+}
+/* End: Media Queries */
 
 /* Dropzone styles */
 div#image-dropzone {
@@ -380,3 +472,6 @@ div#image-dropzone .dz-message {
     font-style: italic;
 }
 /* End Dropzone styles*/
+
+
+
