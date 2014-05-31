@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-5 col-md-offset-2">
+    <div class="col-md-7">
         <h3>Register for your My-Ad account</h3>
         <p>Please complete the following fields. All fields are required.</p>
         @include('partials.form-errors', $errors)

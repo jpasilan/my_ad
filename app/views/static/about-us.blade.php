@@ -1,17 +1,17 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="row">
-    <div class="col-sm-2 col-sm-offset-1">
+<div id="static-pages" class="row">
+    <div class="col-sm-3">
         <ul class="nav nav-pills nav-stacked">
             <li class="active"><a href="{{ URL::to('about-us') }}">About Us</a></li>
-            <li><a href="{{ URL::to('/') }}">Vision and Mission</a></li>
+            <li><a href="{{ URL::to('/vision-mission') }}">Vision and Mission</a></li>
             <li><a href="{{ URL::to('our-story') }}">Our Story</a></li>
             <li><a href="{{ URL::to('privacy-policy') }}">Privacy Policy</a></li>
             <li><a href="{{ URL::to('terms-and-condition') }}">Terms & Conditions</a></li>
         </ul>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-9">
         <div class="container-fluid">
             <h1>About Us</h1>
             <div class="row">
