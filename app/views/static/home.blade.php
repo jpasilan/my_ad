@@ -62,7 +62,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="clearfix well well-lg">
             <div class="col-sm-12 bottom-offset-8">
                 <form class="form-horizontal" role="form">
@@ -103,6 +103,11 @@
                 </form>
             </div>
         </div>
+    </div>
+    <div class="col-md-2 ads-on-side">
+        <img src="assets/css/images/noad-thumb.png" class="img-responsive"/>  
+        <img src="assets/css/images/noad-thumb.png" class="img-responsive"/>  
+        <img src="assets/css/images/noad-thumb.png" class="img-responsive"/>          
     </div>
 </div>
 <div class="row">

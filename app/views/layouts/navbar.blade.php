@@ -9,23 +9,24 @@
             <div class="col-sm-10">
                 <div class="container-fluid">
                     <?php $loggedIn = Sentry::check() ?>
-                    <div class="row{{ isset($hide_login) || $loggedIn ? ' hide-sign-in' : ''}}">
+                    <div class="row inline-login-form{{ isset($hide_login) || $loggedIn ? ' hide-sign-in' : ''}}">
                         {{ Form::open(['url' => 'login', 'class' => 'navbar-form navbar-right', 'role' => 'form']) }}
-                        {{ Form::email('email', '', ['placeholder' => 'Email', 'class' => 'form-control']) }}
-                        {{ Form::password('password', ['placeholder' => 'Password', 'class' => 'form-control']) }}
-                        {{ Form::submit('Sign in', ['class' => 'btn btn-primary']) }}
-                        <a href="{{ URL::to('register') }}" class="btn btn-register" role="button">Register</a>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="checkbox"><label>{{ Form::checkbox('remember_me') }} Remember me</label></div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <a data-toggle="modal" data-target="#resetModal" class="yellow-text">
-                                            Forgot Password?
-                                        </a>
-                                    </label>
+                            {{ Form::email('email', '', ['placeholder' => 'Email', 'class' => 'form-control']) }}
+                            {{ Form::password('password', ['placeholder' => 'Password', 'class' => 'form-control']) }}
+                            {{ Form::submit('Sign in', ['class' => 'btn btn-primary']) }}
+                            <a href="{{ URL::to('register') }}" class="btn btn-register" role="button">Register</a>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="checkbox remember"><label>{{ Form::checkbox('remember_me') }} <span class="remember-text">Remember me</span></label></div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <a data-toggle="modal" data-target="#resetModal" class="yellow-text">
+                                                Forgot Password?
+                                            </a>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
