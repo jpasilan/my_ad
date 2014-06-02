@@ -102,6 +102,6 @@
     </div>
     <hr />
     <div class="container">
-        <p class="footer-copy">Copyright &copy 2014 &nbsp;&nbsp;|&nbsp;&nbsp; www.my-ad.ca</p>
+        <p class="footer-copy">Copyright &copy 2014 &nbsp;&nbsp;|&nbsp;&nbsp; www.{{ Lang::get('general.site_base_name') }}</p>
     </div>
 </footer>

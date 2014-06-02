@@ -52,7 +52,7 @@ return array(
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => isset($_SERVER['LARAVEL_LOCALE']) ? $_SERVER['LARAVEL_LOCALE'] : 'en',
 
 	/*
 	|--------------------------------------------------------------------------

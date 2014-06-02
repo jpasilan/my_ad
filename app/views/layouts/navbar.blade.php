@@ -42,11 +42,17 @@
                     <div class="row">
                         <ul class="nav nav-tabs navbar-right nav-fix">
                             <li class="active"><a href="{{ URL::to('ad') }}">Classifieds</a></li>
-                            <li><a href="{{ URL::to('/') }}">Vehicles</a></li>
-                            <li><a href="{{ URL::to('/') }}">Real Estate</a></li>
+                            <li>
+                                <a href="{{ URL::to('/') }}">{{ Lang::choice('ads.vehicles', 2) }}</a>
+                            </li>
+                            <li>
+                                <a href="{{ URL::to('/') }}">{{ Lang::get('ads.real_estate') }}</a>
+                            </li>
                             <li><a href="{{ URL::to('/') }}">My-Ad</a></li>
                             @if ($loggedIn)
-                            <li><a href="{{ URL::to('ad/create') }}">Post an Ad</a></li>
+                            <li>
+                                <a href="{{ URL::to('ad/create') }}">{{ Lang::get('ads.post_an_ad') }}</a>
+                            </li>
                             <li><a href="{{ URL::to('/logout') }}">Logout</a></li>
                             @endif
                         </ul>

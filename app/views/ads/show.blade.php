@@ -11,7 +11,7 @@
         <p>{{ $ad->description }}</p>
         <ul class="list-unstyled">
             <li><strong>Price:</strong> {{ $ad->price }}</li>
-            <li><strong>Condition:</strong> {{ Lang::get('terms.' . $ad->ad_condition) }}</li>
+            <li><strong>Condition:</strong> {{ Lang::get('ads.' . $ad->ad_condition) }}</li>
             <li><strong>Category:</strong> {{ $ad->category->parent->name }} / {{ $ad->category->name }}</li>
         </ul>
         <div class="row">
