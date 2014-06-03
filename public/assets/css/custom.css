@@ -22,6 +22,10 @@ form
 {
     background-color: #F21314;
 }
+.navbar-header
+{
+    text-align: center;
+}
 .navbar .nav-fix
 {
     position: relative;
@@ -125,6 +129,9 @@ div#side-affix ul li.active
 /* end of navigation bar styles */
 
 /* Start: Form Styles */
+.bottom-offset-cat{
+    margin-bottom: 17.5rem;
+}
 div.inline-login-form input,
 div.inline-login-form .btn,
 div.inline-login-form div.checkbox label
@@ -157,6 +164,10 @@ div.inline-login-form input[type="password"]:focus
     border-color: rgba(157, 6, 6, 0.8);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(157, 6, 6, 0.6);
     outline: 0 none;
+}
+div.row div.inline-login-form form.navbar-form
+{
+    margin-right: -30px;
 }
 /* End: Form Styles*/
 
@@ -572,18 +583,124 @@ div#dashboard .name
     .ctm-categories-row .ctm-categories-dating,
     .ctm-categories-row .ctm-categories-others
     {
-            background-size: 111px;
+        background-size: 111px;
     }
     .ctm-categories-row div {
-            width: 113px;
-            height: 109px;
+        width: 113px;
+        height: 109px;
     }
     .ctm-categories-category-title 
     {
-            font-size: 1em;
-            margin-top: 80px;
+        font-size: 1em;
+        margin-top: 80px;
     }
 }
+@media only screen and (max-width: 990px)
+{
+    .ctm-categories
+    {
+        margin-left: 18%;
+        margin-bottom: 20px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .ctm-categories-row .ctm-categories-autos,
+    .ctm-categories-row .ctm-categories-realstate,
+    .ctm-categories-row .ctm-categories-furniture,
+    .ctm-categories-row .ctm-categories-tools,
+    .ctm-categories-row .ctm-categories-pets,
+    .ctm-categories-row .ctm-categories-jobs,
+    .ctm-categories-row .ctm-categories-travel,
+    .ctm-categories-row .ctm-categories-sports,
+    .ctm-categories-row .ctm-categories-family,
+    .ctm-categories-row .ctm-categories-services,
+    .ctm-categories-row .ctm-categories-computer,
+    .ctm-categories-row .ctm-categories-electronic,
+    .ctm-categories-row .ctm-categories-food,
+    .ctm-categories-row .ctm-categories-community,
+    .ctm-categories-row .ctm-categories-dating,
+    .ctm-categories-row .ctm-categories-others
+    {
+        background-size: 88px;
+    }
+    .ctm-categories-row div {
+        width: 90px;
+        height: 85px;
+    }
+    .ctm-categories-category-title 
+    {
+        font-size: 1em;
+        margin-top: 59px;
+    }
+    .ctm-categories
+    {
+        margin-left: 23%;
+        margin-bottom: 20px;
+    }
+    .nav-tabs > li > a 
+    {
+        padding: 5px;
+        font-size: 11px;
+    }
+    .navbar-text 
+    {
+        margin: 0px;
+        margin-bottom: 10px;
+        margin-top: -50px;
+    }
+    div.inline-login-form div.remember [type="checkbox"]
+    {
+        top: -15px;
+    }
+    div.inline-login-form a.btn-register {
+        margin-top: -10px;
+    }
+    div.inline-login-form a.yellow-text
+    {
+        position: absolute;
+        top: -40px;
+        right: 15px;
+    }
+    div.inline-login-form input
+    {
+        margin-bottom: 10px;
+    }
+    p.social-media
+    {
+        margin-left: 15px;
+    }
+    div.row .no-padding-right
+    {
+        padding-right: 1.5rem;
+    }
+    div.row div.inline-login-form form.navbar-form
+    {
+        margin-right: 0px;
+    }
+}
+@media only screen and (max-width: 320px)
+{
+    .ctm-categories
+    {
+        margin-left: 11%;
+        margin-bottom: 20px;
+    }
+    .nav-tabs>li {
+        width: 100%;
+        margin-bottom: 1px;
+    }
+    .nav-tabs > li > a
+    {
+        width: 100%;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border-radius: 0px;
+    }
+    img#header-logo
+    {
+        margin-left: -15px;
+    }  
+}    
 /* End: Media Queries */
 
 /* Dropzone styles */

@@ -20,6 +20,9 @@ Route::group(['before' => 'sentryGuest'], function()
     Route::get('/vision-mission', 'StaticPagesController@visionMission');
     Route::get('/privacy-policy', 'StaticPagesController@privacyPolicy');
     Route::get('/terms-and-condition', 'StaticPagesController@termsAndCondition');
+    
+    // Pages for category search 
+    Route::get('/search-vehicles', 'UserController@searchVehicle');
 
     // @TODO: Social login to be worked with for later.
     //Route::get('social/{action?}', array('as' => 'hybridauth', 'uses' => 'UserController@socialAuth'));

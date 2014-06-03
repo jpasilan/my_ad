@@ -231,5 +231,16 @@ class UserController extends BaseController
     {
         return View::make('users.dashboard');
     }
+    
+    /**
+     * Render search vehicle.
+     *
+     * @return mixed
+     */
+    public function searchVehicle()
+    {
+        return View::make('users.search-vehicles');
+    }
+    
 
 } 

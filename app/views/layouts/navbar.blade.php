@@ -1,7 +1,7 @@
 <nav class="navbar navbar-static-top" role="navigation">
     <div class="container">
         <div class="row">
-            <div class="col-sm-2 hidden-xs">
+            <div class="col-sm-2">
                 <div class="navbar-header">
                     <a href="{{ URL::to('/') }}" class="navbar-brand"><img id="header-logo" src="{{ URL::asset('assets/css/images/logo.png') }}" height="147"></a>
                 </div>
@@ -42,8 +42,8 @@
                     </div>
                     <div class="row">
                         <ul class="nav nav-tabs navbar-right nav-fix">
-                            <li class="active"><a href="{{ URL::to('/') }}">Classifieds</a></li>
-                            <li><a href="{{ URL::to('/') }}">Vehicles</a></li>
+                            <li {{ Request::is('/') ? 'class="active"' : '' }}><a href="{{ URL::to('/') }}">Classifieds</a></li>
+                            <li {{ Request::is('search-vehicles') ? 'class="active"' : '' }}><a href="{{ URL::to('/search-vehicles') }}">Vehicles</a></li>
                             <li><a href="{{ URL::to('/') }}">Real Estate</a></li>
                             <li><a href="{{ URL::to('/') }}">My-Ad</a></li>
                             <li><a href="{{ URL::to('/') }}">Post an Ad</a></li>

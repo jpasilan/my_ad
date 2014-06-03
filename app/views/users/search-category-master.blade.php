@@ -62,48 +62,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="row well well-lg">
-            <div class="col-sm-12">
-                <form class="form-horizontal" role="form">
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <input type="text" class="form-control" id="search-keyword" placeholder="Keyword">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <select class="form-control">
-                                <option>Province/State</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <select class="form-control">
-                                <option>City</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <input type="text" class="form-control" id="search-zip-code" placeholder="Zip Code">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <input type="text" class="form-control" id="search-miles-from-zip" placeholder="Miles from Zip">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <button type="submit" class="btn btn-danger btn-lg btn-very-red pull-right bottom-offset-cat">Search Now</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    @yield('search-category-form')
     <div class="col-md-2 ads-on-side no-padding-right">
         <img src="assets/css/images/noad-thumb.png" class="img-responsive"/>  
         <img src="assets/css/images/noad-thumb.png" class="img-responsive"/>  
