@@ -87,7 +87,7 @@ class CustomValidator extends \Illuminate\Validation\Validator
      */
     protected function replaceRequiredInCategory($message, $attribute, $rule, $parameters)
     {
-        return str_replace(':type', Lang::get('terms.' . $parameters[1]), $message);
+        return str_replace(':type', Lang::get('ads.' . $parameters[1]), $message);
     }
 
 

@@ -22,45 +22,45 @@ class CreateAdCategoriesTable extends Migration {
         if (Schema::hasTable('ad_categories')) {
             $categories = [
                 [
-                    'parent' => 'Buy and Sell',
+                    'parent' => 'general',
                     'sub' => [
-                        'Appliances',
-                        'Arts and Crafts',
-                        'Audio and Video Electronics',
-                        'Books',
-                        'Clothing',
-                        'Computers',
-                        'Furniture',
-                        'Health and Beauty',
-                        'Pets',
-                        'Phones and Handhelds',
-                        'Sports and Hobbies',
-                        'Toys and Video Games'
+                        'appliances',
+                        'arts_and_crafts',
+                        'audio_and_video',
+                        'books',
+                        'clothing',
+                        'computers',
+                        'furniture',
+                        'health_and_beauty',
+                        'pets',
+                        'phones_and_handhelds',
+                        'sports_and_hobbies',
+                        'toys_and_videos'
                     ],
                 ],
                 [
-                    'parent' => 'Real Estate',
+                    'parent' => 'real_estate',
                     'sub' => [
-                        'Apartments',
-                        'Condominiums',
-                        'Beach Resort',
-                        'Commercial and Industrial',
-                        'House and Lot',
-                        'Land and Farm',
-                        'Real Estate For Rent',
-                        'Rooms and Beds'
+                        'apartments',
+                        'condiminiums',
+                        'beach_resort',
+                        'commercial_and_industrial',
+                        'house_and_lot',
+                        'land_and_farm',
+                        'real_estate_rent',
+                        'rooms_and_beds'
                     ],
                 ],
                 [
-                    'parent' => 'Vehicles',
+                    'parent' => 'vehicles',
                     'sub' => [
-                        'Parts and Accessories',
-                        'Cars',
-                        'Motorcycles',
-                        'Trucks',
-                        'Vans',
-                        'Vehicles For Rent',
-                        'Other Vehicles',
+                        'parts_and_accessories',
+                        'cars',
+                        'motorcycles',
+                        'trucks',
+                        'vans',
+                        'vehicles_rent',
+                        'other_vehicles',
                     ]
                 ],
             ];

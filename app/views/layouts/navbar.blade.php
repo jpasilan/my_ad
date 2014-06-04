@@ -46,7 +46,9 @@
                             <li><a href="{{ URL::to('/') }}">Real Estate</a></li>
                             <li><a href="{{ URL::to('/') }}">My-Ad</a></li>
                             @if ($loggedIn)
-                            <li><a href="{{ URL::to('ad/create') }}">Post an Ad</a></li>
+                            <li>
+                                <a href="{{ URL::to('ad/create') }}">{{ Lang::get('ads.post_an_ad') }}</a>
+                            </li>
                             <li><a href="{{ URL::to('/logout') }}">Logout</a></li>
                             @endif
                         </ul>
