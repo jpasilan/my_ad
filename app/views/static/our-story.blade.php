@@ -4,16 +4,16 @@
 <div id="static-pages" class="row">
     <div class="col-sm-3">
         <ul class="nav nav-pills nav-stacked">
-            <li><a href="{{ URL::to('about-us') }}">About Us</a></li>
+            <li><a href="{{ URL::to('about-us') }}">{{ Lang::get('general.about_us') }}</a></li>
             <li><a href="{{ URL::to('/vision-mission') }}">Vision and Mission</a></li>
-            <li class="active"><a href="{{ URL::to('our-story') }}">Our Story</a></li>
-            <li><a href="{{ URL::to('privacy-policy') }}">Privacy Policy</a></li>
-            <li><a href="{{ URL::to('terms-and-condition') }}">Terms & Conditions</a></li>
+            <li class="active"><a href="{{ URL::to('our-story') }}">{{ Lang::get('general.our_story') }}</a></li>
+            <li><a href="{{ URL::to('privacy-policy') }}">{{ Lang::get('general.privacy_policy') }}</a></li>
+            <li><a href="{{ URL::to('terms-and-condition') }}">{{ Lang::get('general.terms_and_conditions') }}</a></li>
         </ul>
     </div>
     <div class="col-sm-9">
         <div class="container-fluid">
-            <h1>Our Story</h1>
+            <h1>{{ Lang::get('general.our_story') }}</h1>
             <div class="col-sm-3">
                 <img src="{{ URL::asset('assets/css/images/generic-profile-image.png') }}" class="img-responsive img-rounded" />
                 <div class="text-center profile-image-description">
