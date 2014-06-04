@@ -24,9 +24,13 @@ class UserController extends BaseController
                 try {
                     $user = Sentry::register(Input::only('email', 'password', 'first_name', 'last_name'));
 
-                    // By default, add user to "buyer" group.
+                    // Add user to "buyer" group.
                     $buyerGroup = Sentry::findGroupByName('buyer');
                     $user->addGroup($buyerGroup);
+
+                    // And to the "seller" group as well.
+                    $sellerGroup = Sentry::findGroupByName('seller');
+                    $user->addGroup($sellerGroup);
 
                     // Send activation code to the user.
                     Mail::send('emails.account-activation', ['activationCode' => $user->getActivationCode()],
@@ -37,7 +41,7 @@ class UserController extends BaseController
                     );
 
                     return Redirect::to('/')->withMessage(['success'
-                        => 'Registration successful. We sent to your activation code to your email.']);
+                        => 'Registration successful. We sent your activation code to your email.']);
                 } catch (Exception $e) {
                     return Redirect::back()->withMessage(['danger' => 'An error has occurred. Please try again.']);
                 }

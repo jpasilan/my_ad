@@ -88,3 +88,17 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+/*
+|--------------------------------------------------------------------------
+| Custom Filters
+|--------------------------------------------------------------------------
+|
+*/
+
+Route::filter('allowed', function($route, $request, $value)
+{
+    if ( ! Sentry::check() || ! Sentry::getUser()->hasAccess($value)) {
+        return Redirect::to('dashboard')->withMessage(['danger' => 'Access not allowed.']);
+    }
+});

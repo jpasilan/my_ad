@@ -165,9 +165,9 @@ div.inline-login-form input[type="password"]:focus
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(157, 6, 6, 0.6);
     outline: 0 none;
 }
-div.row div.inline-login-form form.navbar-form
+form label.control-label
 {
-    margin-right: -30px;
+    font-size: 13px;
 }
 /* End: Form Styles*/
 
@@ -468,6 +468,37 @@ div.row .no-padding-right
     background: #F21314;
     color: #fff;
 }
+.gray-panel, .red-panel {
+    margin-bottom: 3rem;
+    padding: 20px;
+}
+.gray-panel {
+    background-color: #F5F5F5;
+    border: solid 1px #EAEAEA;
+    color: #787878;
+}
+.red-panel {
+    background-color: #F21314;
+    border: solid 1px #CB1112;
+    color: #fff;
+    transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+}
+.red-panel a {
+    color: #fff;
+}
+.red-panel a:hover {
+    text-decoration: none;
+}
+.red-panel:hover {
+    background: #FF4647;
+    border: solid 1px #F21314;
+}
+.red {
+    background: #F21314;
+    color: #fff;
+}
 /* End: Global Styles */
 
 /* Start: Static Pages Styles */
@@ -564,6 +595,7 @@ div#dashboard .name
 
 /* Start: Media Queries */
 
+/* Start: Media Queries */
 /* Bootstrap first collapse at 1200px width */
 @media only screen and (max-width: 1200px) {
     .ctm-categories-row .ctm-categories-autos,

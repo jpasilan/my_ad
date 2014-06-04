@@ -6,7 +6,7 @@
                     <a href="{{ URL::to('/') }}" class="navbar-brand"><img id="header-logo" src="{{ URL::asset('assets/css/images/logo.png') }}" height="147"></a>
                 </div>
             </div>
-            <div class="col-sm-10">
+            <div class="col-sm-10 no-padding-right">
                 <div class="container-fluid">
                     <?php $loggedIn = Sentry::check() ?>
                     <div class="row inline-login-form{{ isset($hide_login) || $loggedIn ? ' hide-sign-in' : ''}}">
@@ -29,7 +29,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         {{ Form::close() }}
                     </div>
                     <div class="row{{ isset($hide_login) || $loggedIn ? ' hide-sign-in' : ''}}">
@@ -46,9 +45,13 @@
                             <li {{ Request::is('search-vehicles') ? 'class="active"' : '' }}><a href="{{ URL::to('/search-vehicles') }}">Vehicles</a></li>
                             <li><a href="{{ URL::to('/') }}">Real Estate</a></li>
                             <li><a href="{{ URL::to('/') }}">My-Ad</a></li>
-                            <li><a href="{{ URL::to('/') }}">Post an Ad</a></li>
+                            @if ($loggedIn)
+                            <li><a href="{{ URL::to('ad/create') }}">Post an Ad</a></li>
+                            <li><a href="{{ URL::to('/logout') }}">Logout</a></li>
+                            @endif
                         </ul>
                     </div>
+                    
                 </div>
             </div>
         </div>
