@@ -4,9 +4,9 @@
 <div id="static-pages" class="row">
     <div class="col-sm-3">
         <ul class="nav nav-pills nav-stacked">
-            <li><a href="{{ URL::to('about-us') }}">{{ Lang::get('general.about_us') }</a></li>
+            <li><a href="{{ URL::to('about-us') }}">{{ Lang::get('general.about_us') }}</a></li>
             <li class="active"><a href="{{ URL::to('/vision-mission') }}">Vision and Mission</a></li>
-            <li><a href="{{ URL::to('our-story') }}">{{ Lang::get('general.our_story') }</a></li>
+            <li><a href="{{ URL::to('our-story') }}">{{ Lang::get('general.our_story') }}</a></li>
             <li><a href="{{ URL::to('privacy-policy') }}">{{ Lang::get('general.privacy_policy') }}</a></li>
             <li><a href="{{ URL::to('terms-and-condition') }}">{{ Lang::get('general.terms_and_conditions') }}</a></li>
         </ul>

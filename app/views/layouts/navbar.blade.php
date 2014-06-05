@@ -53,7 +53,7 @@
                             <li>
                                 <a href="{{ URL::to('ad/create') }}">{{ Lang::get('ads.post_an_ad') }}</a>
                             </li>
-                            <li><a href="{{ URL::to('/logout') }}">Logout</a></li>
+                            <li><a href="{{ URL::to('/logout') }}">{{ Lang::get('general.logout') }}</a></li>
                             @endif
                         </ul>
                     </div>

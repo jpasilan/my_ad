@@ -6,24 +6,24 @@
         <div id="side-affix">
             <ul class="nav list-unstyled">
                 <li><a href="#privacy-policy">{{ Lang::get('general.privacy_policy') }}</a></li>
-                <li><a href="#sites-covered">{{ Lang::get('general.pp_menu_2') }}</a></li>
-                <li><a href="#childrens-privacy">{{ Lang::get('general.pp_menu_3') }}</a></li>
-                <li><a href="#links-to">{{ Lang::get('general.pp_menu_4') }}</a></li>
-                <li><a href="#types-of">{{ Lang::get('general.pp_menu_5') }}</a>
+                <li><a href="#sites-covered">{{ Lang::get('general.sites_covered') }}</a></li>
+                <li><a href="#childrens-privacy">{{ Lang::get('general.childrens_privacy') }}</a></li>
+                <li><a href="#links-to">{{ Lang::get('general.links_non_op_websites') }}</a></li>
+                <li><a href="#types-of">{{ Lang::get('general.types_of_info') }}</a>
                     <ul class="nav list-unstyled indented">
-                        <li><a href="#non-personal-information">{{ Lang::get('general.pp_menu_5_1') }}</a></li>
-                        <li><a href="#aggregate-information">{{ Lang::get('general.pp_menu_5_2') }}</a></li>
-                        <li><a href="#log-files">{{ Lang::get('general.pp_menu_5_3') }}</a></li>
-                        <li><a href="#cookies">{{ Lang::get('general.pp_menu_5_4') }}</a></li>
-                        <li><a href="#beacons">{{ Lang::get('general.pp_menu_5_5') }}</a></li>
-                        <li><a href="#personal-information">{{ Lang::get('general.pp_menu_5_6') }}</a></li>
-                        <li><a href="#members-only-web">{{ Lang::get('general.pp_menu_5_7') }}</a></li>
+                        <li><a href="#non-personal-information">{{ Lang::get('general.non_personal_info') }}</a></li>
+                        <li><a href="#aggregate-information">{{ Lang::get('general.aggregate_info') }}</a></li>
+                        <li><a href="#log-files">{{ Lang::get('general.log_files') }}</a></li>
+                        <li><a href="#cookies">{{ Lang::get('general.cookies') }}</a></li>
+                        <li><a href="#beacons">{{ Lang::get('general.web_beacons') }}</a></li>
+                        <li><a href="#personal-information">{{ Lang::get('general.personal_info') }}</a></li>
+                        <li><a href="#members-only-web">{{ Lang::get('general.members_only_sites') }}</a></li>
                     </ul>
-                <li><a href="#how-we-use">{{ Lang::get('general.pp_menu_6') }}</a></li>
-                <li><a href="#information-sharing">{{ Lang::get('general.pp_menu_7') }}</a></li>
-                <li><a href="#access-to-and-accuracy">{{ Lang::get('general.pp_menu_8') }}</a></li>
-                <li><a href="#security">{{ Lang::get('general.pp_menu_9') }}</a></li>
-                <li><a href="#opting-out">{{ Lang::get('general.pp_menu_10') }}</a></li>
+                <li><a href="#how-we-use">{{ Lang::get('general.how_we_use_info') }}</a></li>
+                <li><a href="#information-sharing">{{ Lang::get('general.info_sharing') }}</a></li>
+                <li><a href="#access-to-and-accuracy">{{ Lang::get('general.access_accuracy') }}</a></li>
+                <li><a href="#security">{{ Lang::get('general.security') }}</a></li>
+                <li><a href="#opting-out">{{ Lang::get('general.opting_out') }}</a></li>
             </ul>
          </div>
     </div>
@@ -40,43 +40,43 @@
                     </p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h3 id="sites-covered">{{ Lang::get('general.pp_menu_2') }}</h3>
+                    <h3 id="sites-covered">{{ Lang::get('general.sites_covered') }}</h3>
                     <p>{{ Lang::get('general.pp_texts_4') }}</p>
                     <p><a href="#header-logo">Back to top</a></p>
 
-                    <h3 id="childrens-privacy">{{ Lang::get('general.pp_menu_3') }}</h3>
+                    <h3 id="childrens-privacy">{{ Lang::get('general.childrens_privacy') }}</h3>
                     <p>
                     {{ Lang::get('general.pp_texts_5') }}
                     </p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h3 id="links-to">{{ Lang::get('general.pp_menu_4') }}</h3>
+                    <h3 id="links-to">{{ Lang::get('general.links_non_op_websites') }}</h3>
                     <p>
                     {{ Lang::get('general.pp_texts_6') }}
                     </p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h3 id="types-of">{{ Lang::get('general.pp_menu_5') }}</h3>
+                    <h3 id="types-of">{{ Lang::get('general.types_of_info') }}</h3>
 
-                    <h4 id="non-personal-information">{{ Lang::get('general.pp_menu_5_1') }}</h4>
+                    <h4 id="non-personal-information">{{ Lang::get('general.non_personal_info') }}</h4>
                     <p>
                     {{ Lang::get('general.pp_texts_7') }}
                     </p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h4 id="aggregate-information">{{ Lang::get('general.pp_menu_5_2') }}</h4>
+                    <h4 id="aggregate-information">{{ Lang::get('general.aggregate_info') }}</h4>
                     <p>
                     {{ Lang::get('general.pp_texts_8') }}
                     </p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h4 id="log-files">{{ Lang::get('general.pp_menu_5_3') }}</h4>
+                    <h4 id="log-files">{{ Lang::get('general.log_files') }}</h4>
                     <p>
                     {{ Lang::get('general.pp_texts_9') }}
                     </p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h4 id="cookies">{{ Lang::get('general.pp_menu_5_4') }}</h4>
+                    <h4 id="cookies">{{ Lang::get('general.cookies') }}</h4>
                     <p>
                     {{ Lang::get('general.pp_texts_10') }}
                     </p>
@@ -85,25 +85,25 @@
                     </p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h4 id="beacons">{{ Lang::get('general.pp_menu_5_5') }}</h4>
+                    <h4 id="beacons">{{ Lang::get('general.web_beacons') }}</h4>
                     <p>
                     {{ Lang::get('general.pp_texts_12') }}
                     </p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h4 id="personal-information">{{ Lang::get('general.pp_menu_5_6') }}</h4>
+                    <h4 id="personal-information">{{ Lang::get('general.personal_info') }}</h4>
                     <p>
                     {{ Lang::get('general.pp_texts_13') }}
                     </p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h4 id="members-only-web">{{ Lang::get('general.pp_menu_5_7') }}</h4>
+                    <h4 id="members-only-web">{{ Lang::get('general.members_only_sites') }}</h4>
                     <p>
                     {{ Lang::get('general.pp_texts_14') }}
                     </p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h3 id="how-we-use">{{ Lang::get('general.pp_menu_6') }}</h3>
+                    <h3 id="how-we-use">{{ Lang::get('general.how_we_use_info') }}</h3>
                     <p>
                     {{ Lang::get('general.pp_texts_15') }}
                     </p>
@@ -115,7 +115,7 @@
                     </p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h3 id="information-sharing">{{ Lang::get('general.pp_menu_7') }}</h3>
+                    <h3 id="information-sharing">{{ Lang::get('general.info_sharing') }}</h3>
                     <p>
                     {{ Lang::get('general.pp_texts_18') }}
                     </p>
@@ -139,19 +139,19 @@
                     </p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h3 id="access-to-and-accuracy">{{ Lang::get('general.pp_menu_8') }}</h3>
+                    <h3 id="access-to-and-accuracy">{{ Lang::get('general.access_accuracy') }}</h3>
                     <p>
                     {{ Lang::get('general.pp_texts_25') }}
                     </p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h3 id="security">{{ Lang::get('general.pp_menu_9') }}</h3>
+                    <h3 id="security">{{ Lang::get('general.security') }}</h3>
                     <p>
                     {{ Lang::get('general.pp_texts_26') }}
                     </p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h3 id="opting-out">{{ Lang::get('general.pp_menu_10') }}</h3>
+                    <h3 id="opting-out">{{ Lang::get('general.opting_out') }}</h3>
                     <p>
                     {{ Lang::get('general.pp_texts_27') }}
                     </p>
