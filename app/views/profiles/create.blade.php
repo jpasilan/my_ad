@@ -44,8 +44,9 @@
                             }
                         }
                     ?>
-
+                    @if ($photo)
                     {{ Form::hidden('photo', $photo, ['id' => $id, 'data-size' => $size, 'data-file-path' => $path]) }}
+                    @endif
                 </div>
                 <div class="col-md-12" id="image-dropzone" data-max-files="1" data-token="{{ csrf_token() }}"
                     data-input-name="photo">
@@ -56,32 +57,33 @@
             </div>
             <div class="form-group">
                 <label for="address1">Address (Line 1)</label>
-                {{ Form::text('address1', $update ? $user->profile->address1 : '',
+                {{ Form::text('address1', $update && $user->address ? $user->address->address1 : '',
                     ['class' => 'form-control', 'id' => 'address1']) }}
             </div>
             <div class="form-group">
                 <label for="address2">Address (Line 2)</label>
-                {{ Form::text('address2', $update ? $user->profile->address2 : '',
+                {{ Form::text('address2', $update && $user->address ? $user->address->address2 : '',
                 ['class' => 'form-control', 'id' => 'address2']) }}
             </div>
             <div class="form-group">
                 <label for="city">City</label>
-                {{ Form::text('city', $update ? $user->profile->city : '',
+                {{ Form::text('city', $update && $user->address ? $user->address->city : '',
                 ['class' => 'form-control', 'id' => 'city']) }}
             </div>
             <div class="form-group">
                 <label for="province">State/Province</label>
-                {{ Form::text('province', $update ? $user->profile->province : '',
+                {{ Form::text('province', $update && $user->address ? $user->address->province : '',
                 ['class' => 'form-control', 'id' => 'province']) }}
             </div>
             <div class="form-group">
                 <label for="country">Country</label>
-                {{ Form::select('country', ['' => 'Select Country'] + Country::getList(), $update ? $user->profile->country
-                    : '', ['class' => 'form-control combobox', 'id' => 'country', 'autocomplete' => 'off']) }}
+                {{ Form::select('country', ['' => 'Select Country'] + Country::getList(), $update && $user->address
+                    ? $user->address->country : '',
+                    ['class' => 'form-control combobox', 'id' => 'country', 'autocomplete' => 'off']) }}
             </div>
             <div class="form-group">
                 <label for="postal_code">Postal Code</label>
-                {{ Form::text('postal_code', $update ? $user->profile->postal_code : '',
+                {{ Form::text('postal_code', $update && $user->address ? $user->address->postal_code : '',
                     ['class' => 'form-control', 'id' => 'postal_code']) }}
             </div>
             <div class="form-group">

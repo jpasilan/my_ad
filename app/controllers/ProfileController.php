@@ -43,21 +43,20 @@ class ProfileController extends BaseController
                 // TODO: Move profile image to /assets/images/profile
 
                 // Create the Profile object, set the data, then save.
-                $profile = new Profile([
-                    'photo' => $data['photo'],
-                    'address1' => $data['address1'],
-                    'address2' => $data['address2'],
-                    'city' => $data['city'],
-                    'province' => $data['province'],
-                    'country' => $data['country'],
-                    'postal_code' => $data['postal_code'],
-                    'mobile' => $data['mobile'],
-                    'birth_date' => $data['birth_date'],
-                    'gender' => $data['gender'],
-                ]);
+                $profile = new Profile(Libraries\ModelHelper::buildArray($data, [
+                        'photo', 'mobile', 'birth_date', 'gender'], true));
                 $user->profile()->save($profile);
 
-                return Redirect::back()->withMessage(['success' => 'Profile saved.']);
+                // Save the address data. This will be optional.
+                $address = Libraries\ModelHelper::buildArray($data, [
+                    // TODO: Add the latitude and longitude when working with the Geolocation feature.
+                    'address1', 'address2', 'city', 'province', 'country', 'postal_code'
+                ]);
+                if (!empty($address)) {
+                    $user->address()->create($address);
+                }
+
+                return Redirect::to('profile/update')->withMessage(['success' => 'Profile saved.']);
             }
 
             return Redirect::back()->withErrors($validator)->withInput();
@@ -90,20 +89,24 @@ class ProfileController extends BaseController
                 // Update the user's full name
                 $user->first_name = $data['first_name'];
                 $user->last_name = $data['last_name'];
+                $user->save();
 
                 // Update profile data
-                $user->profile->photo = $data['photo'];
-                $user->profile->address1 = $data['address1'];
-                $user->profile->address2 = $data['address2'];
-                $user->profile->city = $data['city'];
-                $user->profile->province = $data['province'];
-                $user->profile->country = $data['country'];
-                $user->profile->postal_code = $data['postal_code'];
-                $user->profile->mobile = $data['mobile'];
-                $user->profile->birth_date = $data['birth_date'];
-                $user->profile->gender = $data['gender'];
+                $user->profile()->update(Libraries\ModelHelper::buildArray($data, [
+                    'photo', 'mobile', 'birth_date', 'gender'], true));
 
-                $user->push(); // Save user and related models. In this case, the profile model.
+                // Update or save the address data. This will be optional.
+                $address = Libraries\ModelHelper::buildArray($data, [
+                    // TODO: Add the latitude and longitude when working with the Geolocation feature.
+                    'address1', 'address2', 'city', 'province', 'country', 'postal_code'
+                ]);
+                if (!empty($address)) {
+                    if ($user->address) {
+                        $user->address()->update($address);
+                    } else {
+                        $user->address()->create($address);
+                    }
+                }
 
                 return Redirect::back()->withMessage(['success' => 'Profile updated.']);
             }
@@ -141,5 +144,6 @@ class ProfileController extends BaseController
 
         return ['validator' => $validator, 'data' => $input];
     }
+
 
 }

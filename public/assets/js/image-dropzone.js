@@ -6,8 +6,7 @@ jQuery(function() {
     var dataMaxFiles = imgDropzone.data('max-files');  // Set to NULL for unlimited uploads
     var dataToken = imgDropzone.data('token');
 
-    var dataInputName = typeof(imgDropzone.data('input-name')) !== "undefined"
-        ? imgDropzone.data('input-name') : 'image';
+    var dataInputName = typeof(imgDropzone.data('input-name')) !== "undefined" ? imgDropzone.data('input-name') : 'image';
     var inputName = (dataMaxFiles !== null && dataMaxFiles == 1) ? dataInputName : dataInputName + '[]';
 
     // Disable Dropzone auto discover.
@@ -69,12 +68,24 @@ jQuery(function() {
         file.serverFile = response.filename;
 
         if (dataMaxFiles == 1) {
-            // Make a backup of the old input first.
             var singleInput = jQuery('input[name="' + inputName + '"]');
-            jQuery('#ad-images').append('<input type="hidden" name="'+ inputName
-                + '_old" value="' + singleInput.val() + '" />');
 
-            singleInput.val(response.filename);
+            if (singleInput.length == 1) {
+                // If hidden input is already present make a backup of it first.
+                var oldInput = jQuery('input[name="' + inputName + '_old"]');
+
+                if (oldInput.length == 1) {
+                    oldInput.val(singleInput.val());
+                } else {
+                    jQuery('#ad-images').append('<input type="hidden" name="'+ inputName
+                        + '_old" value="' + singleInput.val() + '" />');
+                }
+
+                singleInput.val(response.filename);
+            } else {
+                jQuery('#ad-images').append('<input type="hidden" name="'+ inputName
+                    + '" value="' + response.filename + '" />');
+            }
         } else {
             jQuery('#ad-images').append('<input type="hidden" name="'+ inputName
                 + '" id="' + response.id + '" value="' + response.filename + '" />');

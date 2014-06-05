@@ -4,10 +4,13 @@
 <div id="dashboard" class="row">
     <div class="col-md-3">
         <div class="container-fluid gray-panel">
-            <h3 class="no-line">MY PROFILE</h3>
+            <h3 class="no-line">
+                <a href="{{ URL::to('profile/update') }} "><span class="glyphicon glyphicon-pencil"></span></a>
+                MY PROFILE
+            </h3>
             <img src="{{ URL::asset('assets/css/images/generic-profile-image.png') }}" class="img-responsive img-rounded" />
             <div class="col-sm-12 text-center">
-                <h2 class="no-line name">Jhon Doe</h2>
+                <h2 class="no-line name">{{ $user->first_name }} {{ $user->last_name }}</h2>
             </div>
             <div class="col-sm-12">
                 <ul class="list-group profile-list">
@@ -31,7 +34,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="container-fluid red-panel">
-                    <a href="#">
+                    <a href="{{ URL::to('ad/create') }}">
                         <h3 class="no-line">POST AN AD</h3>
                         <img src="{{ URL::asset('assets/css/images/add.png') }}" class="img-responsive img-rounded" width="125"/>
                     </a>

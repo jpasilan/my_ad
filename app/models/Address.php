@@ -1,6 +1,6 @@
 <?php
 
-class Profile extends Eloquent
+class Address extends Eloquent
 {
 
 
@@ -9,7 +9,7 @@ class Profile extends Eloquent
      *
      * @var string
      */
-    protected $table = 'profiles';
+    protected $table = 'addresses';
 
 
     /**
@@ -21,14 +21,14 @@ class Profile extends Eloquent
 
 
     /**
-     * Relation to User model.
+     * Polymorphic relation to several models.
      *
      * @return mixed
      */
-    public function user()
+    public function addressable()
     {
-        return $this->belongsTo('User');
+        return $this->morphTo();
     }
 
 
-}
+} 

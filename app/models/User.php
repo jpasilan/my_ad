@@ -9,11 +9,22 @@ class User extends SentryUser
     /**
      * Relation to the Profile model.
      *
-     * @return mixed
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function profile()
     {
         return $this->hasOne('Profile');
+    }
+
+
+    /**
+     * Polymorphic relation to the Address model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function address()
+    {
+        return $this->morphOne('Address', 'addressable');
     }
 
 

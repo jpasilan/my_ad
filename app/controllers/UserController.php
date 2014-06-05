@@ -233,7 +233,9 @@ class UserController extends BaseController
      */
     public function showDashboard()
     {
-        return View::make('users.dashboard');
+        return View::make('users.dashboard', [
+            'user' => Sentry::getUser(),
+        ]);
     }
 
 } 
