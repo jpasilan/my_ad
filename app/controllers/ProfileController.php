@@ -40,15 +40,25 @@ class ProfileController extends BaseController
                 $user->last_name = $data['last_name'];
                 $user->save();
 
-                // TODO: Move profile image to /assets/images/profile
+                // Save the profile photo.
+                if (isset($data['photo'])) {
+                    $photo = json_decode($data['photo']);
+                    if (Libraries\Helper\Image::move($photo->name, 'profile')) {
+                        $user->photo()->create([
+                            'original_name' => $photo->original_name,
+                            'name' => $photo->name,
+                            'type' => $photo->type,
+                        ]);
+                    }
+                }
 
                 // Create the Profile object, set the data, then save.
-                $profile = new Profile(Libraries\ModelHelper::buildArray($data, [
-                        'photo', 'mobile', 'birth_date', 'gender'], true));
+                $profile = new Profile(Libraries\Helper\Model::buildArray($data,
+                    ['mobile', 'birth_date', 'gender'], true));
                 $user->profile()->save($profile);
 
                 // Save the address data. This will be optional.
-                $address = Libraries\ModelHelper::buildArray($data, [
+                $address = Libraries\Helper\Model::buildArray($data, [
                     // TODO: Add the latitude and longitude when working with the Geolocation feature.
                     'address1', 'address2', 'city', 'province', 'country', 'postal_code'
                 ]);
@@ -91,12 +101,32 @@ class ProfileController extends BaseController
                 $user->last_name = $data['last_name'];
                 $user->save();
 
+                // Update or save the profile photo.
+                if (isset($data['photo'])) {
+                    $photo = json_decode($data['photo']);
+                    if (Libraries\Helper\Image::move($photo->name, 'profile')) {
+                        if ($user->photo) {
+                            $user->photo()->update([
+                                'original_name' => $photo->original_name,
+                                'name' => $photo->name,
+                                'type' => $photo->type,
+                            ]);
+                        } else {
+                            $user->photo()->create([
+                                'original_name' => $photo->original_name,
+                                'name' => $photo->name,
+                                'type' => $photo->type,
+                            ]);
+                        }
+                    }
+                }
+
                 // Update profile data
-                $user->profile()->update(Libraries\ModelHelper::buildArray($data, [
-                    'photo', 'mobile', 'birth_date', 'gender'], true));
+                $user->profile()->update(Libraries\Helper\Model::buildArray($data,
+                    ['mobile', 'birth_date', 'gender'], true));
 
                 // Update or save the address data. This will be optional.
-                $address = Libraries\ModelHelper::buildArray($data, [
+                $address = Libraries\Helper\Model::buildArray($data, [
                     // TODO: Add the latitude and longitude when working with the Geolocation feature.
                     'address1', 'address2', 'city', 'province', 'country', 'postal_code'
                 ]);

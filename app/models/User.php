@@ -29,6 +29,17 @@ class User extends SentryUser
 
 
     /**
+     * Polymorphic relation to the Photo model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function photo()
+    {
+        return $this->morphOne('Photo', 'photoable');
+    }
+
+
+    /**
      * Relation to the Ad model.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

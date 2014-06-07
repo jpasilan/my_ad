@@ -25,28 +25,39 @@ jQuery(function() {
                 var _this = this;
                 var fileCount = 0;
                 if (dataMaxFiles == 1) {
-                    var file = jQuery(selector);
-                    var id = file.attr('id');
-                    var filename = file.val();
-                    var filesize = file.data('size');
-                    var filepath = file.data('file-path');
-                    var mock = { name: id, size: filesize, serverId: id, serverFile: filename, path: filepath};
+                    var file = JSON.parse(jQuery(selector).val());
+                    var mock = {
+                        name: typeof(file.original_name) !== 'undefined' ? file.original_name : file.name,
+                        size: file.size,
+                        serverId: file.name.split('.')[0],
+                        path: file.path,
+                        type: file.type
+                    };
+
+                    // Set the id attribute.
+                    jQuery(selector).attr('id', mock.serverId);
 
                     this.emit('addedfile', mock);
-                    this.emit('thumbnail', mock, filepath + filename);
+                    this.emit('thumbnail', mock, file.path);
                     this.emit('success', mock, {});
                     this.files.push(mock);
                     this.options.maxFiles = this.options.maxFiles - 1;
                 } else {
                     jQuery(selector).each(function(i) {
-                        var file = jQuery(this);
-                        var id = file.attr('id');
-                        var filename = file.val();
-                        var filesize = file.data('size');
-                        var mock = { name: id, size: filesize, serverId: id, serverFile: filename };
+                        var file = JSON.parse(jQuery(this).val());
+                        var mock = {
+                            name: typeof(file.original_name) !== 'undefined' ? file.original_name : file.name,
+                            size: file.size,
+                            serverId: file.name.split('.')[0],
+                            path: file.path,
+                            type: file.type
+                        };
+
+                        // Set the id attribute.
+                        jQuery(this).attr('id', mock.serverId);
 
                         _this.emit('addedfile', mock);
-                        _this.emit('thumbnail', mock, '/assets/uploads/images/' + filename);
+                        _this.emit('thumbnail', mock, file.path);
                         _this.emit('success', mock, {});
                         _this.files.push(mock);
 
@@ -64,58 +75,35 @@ jQuery(function() {
     });
 
     dropzone.on('success', function(file, response) {
-        file.serverId = response.id;
-        file.serverFile = response.filename;
+        // Get only the string before the dot(.) of the file name.
+        file.serverId = response.file.name.split('.')[0];
 
-        if (dataMaxFiles == 1) {
-            var singleInput = jQuery('input[name="' + inputName + '"]');
-
-            if (singleInput.length == 1) {
-                // If hidden input is already present make a backup of it first.
-                var oldInput = jQuery('input[name="' + inputName + '_old"]');
-
-                if (oldInput.length == 1) {
-                    oldInput.val(singleInput.val());
-                } else {
-                    jQuery('#ad-images').append('<input type="hidden" name="'+ inputName
-                        + '_old" value="' + singleInput.val() + '" />');
-                }
-
-                singleInput.val(response.filename);
-            } else {
-                jQuery('#ad-images').append('<input type="hidden" name="'+ inputName
-                    + '" value="' + response.filename + '" />');
-            }
-        } else {
-            jQuery('#ad-images').append('<input type="hidden" name="'+ inputName
-                + '" id="' + response.id + '" value="' + response.filename + '" />');
-        }
+        jQuery('#ad-images').append(jQuery('<input>', {
+            name: inputName,
+            id: file.serverId,
+            value: JSON.stringify(response.file),
+            type: 'hidden'
+        }));
     });
 
     dropzone.on('removedfile', function(file) {
-        if (dataMaxFiles == 1) {
-            var oldInputField = jQuery('input[name="' + inputName + '_old"]');
-            var oldInput = '';
-            if (oldInputField.length > 0) {
-                // Get the previous value and delete.
-                oldInput = oldInputField.val();
-                oldInputField.remove();
-            }
+        var data = JSON.parse(jQuery('#' + file.serverId).val());
 
-            jQuery('input[name="' + inputName + '"]').val(oldInput);
-        } else {
-            // Remove the input field.
-            jQuery('#' + file.serverId).remove();
-        }
+        // Remove regardless of the ajax response.
+        jQuery('#' + file.serverId).remove();
 
-        // Increase the dropzone maxFiles if needed.
+        // Increase the dropzone maxFiles if necessary.
         if (dropzone.options.maxFiles < dataMaxFiles) dropzone.options.maxFiles += 1;
 
         // Delete the file in the server.
         jQuery.ajax({
             url: '/image/delete',
             type: 'POST',
-            data: { filename: file.serverFile, _token: dataToken }
+            data: {
+                path: data.path,
+                model_id: typeof(data.model_id) !== 'undefined' ?  data.model_id : null,
+                _token: dataToken
+            }
         });
     })
 });

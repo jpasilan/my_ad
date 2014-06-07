@@ -460,6 +460,7 @@ div#dashboard .name{
 
 /* Dropzone styles */
 div#image-dropzone {
+    min-height: 150px;
     margin-bottom: 15px;
 }
 

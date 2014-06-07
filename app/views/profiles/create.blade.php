@@ -24,30 +24,15 @@
             </div>
             <div class="form-group">
                 <label for="photo">Photo/Avatar</label>
-                <div id="ad-images">
-                    <?php
-                        $photo = Input::old('photo') ? : ($update ? $user->profile->photo : '');
-                        if ($photo) {
-                            list($id, $ext) = explode('.', $photo);
-                            // TODO: Refactor the following lines.
-                            $uploadPath = DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR .
-                                'uploads' . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR;
-                            $profileImagePath = DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR .
-                                'images' . DIRECTORY_SEPARATOR . 'profile' . DIRECTORY_SEPARATOR;
-                            $path = $uploadPath;
-                            $size = 0;
-                            if (File::exists(public_path() . $uploadPath . $photo)) {
-                                $size = File::size(public_path() . $uploadPath . $photo);
-                            } else if (File::exists(public_path() . $profileImagePath . $photo)) {
-                                $path = $profileImagePath;
-                                $size = File::size(public_path() . $profileImagePath . $photo);
-                            }
-                        }
-                    ?>
-                    @if ($photo)
-                    {{ Form::hidden('photo', $photo, ['id' => $id, 'data-size' => $size, 'data-file-path' => $path]) }}
-                    @endif
-                </div>
+                <?php
+                    $photo = false;
+                    if (Input::old('photo')) {
+                        $photo = Input::old('photo');
+                    } else if ($update && $user->photo) {
+                        $photo = json_encode(Libraries\Helper\Image::getInfoById($user->photo->id));
+                    }
+                ?>
+                <div id="ad-images">{{ $photo ? Form::hidden('photo', $photo) : '' }}</div>
                 <div class="col-md-12" id="image-dropzone" data-max-files="1" data-token="{{ csrf_token() }}"
                     data-input-name="photo">
                         <div class="dz-message">
@@ -55,6 +40,9 @@
                         </div>
                 </div>
             </div>
+            <h4>Address</h4>
+            <hr />
+            <p>Providing your address may help in improving the visibility of your advertisements.</p>
             <div class="form-group">
                 <label for="address1">Address (Line 1)</label>
                 {{ Form::text('address1', $update && $user->address ? $user->address->address1 : '',

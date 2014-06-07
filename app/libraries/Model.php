@@ -1,7 +1,7 @@
-<?php namespace Libraries;
+<?php namespace Libraries\Helper;
 
 
-class ModelHelper
+class Model
 {
 
 

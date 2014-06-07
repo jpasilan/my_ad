@@ -24,7 +24,7 @@ class CreateAddressTable extends Migration {
             $table->string('country', 2)->nullable();
             $table->string('postal_code', 20)->nullable();
             $table->decimal('latitude', 10, 2)->nullable();
-            $table->decimal('longitude', 10, 2);
+            $table->decimal('longitude', 10, 2)->nullable();
 
             $table->timestamps();
         });
