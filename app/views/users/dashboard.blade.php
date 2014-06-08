@@ -8,23 +8,20 @@
                 <a href="{{ URL::to('profile/update') }} "><span class="glyphicon glyphicon-pencil"></span></a>
                 MY PROFILE
             </h3>
-            <img src="{{ URL::asset('assets/css/images/generic-profile-image.png') }}" class="img-responsive img-rounded" />
+            <?php
+                $profileImage = $user->photo
+                    ? Libraries\Helper\Image::getPath($user->photo->name, 'profile')
+                    : 'assets/css/images/generic-profile-image.png';
+            ?>
+            <img src="{{ URL::asset($profileImage) }}" class="img-responsive img-rounded" />
             <div class="col-sm-12 text-center">
                 <h2 class="no-line name">{{ $user->first_name }} {{ $user->last_name }}</h2>
             </div>
             <div class="col-sm-12">
                 <ul class="list-group profile-list">
                     <li class="list-group-item">
-                        <span class="badge">25</span>
-                        <a href="#">Posted Ads</a>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="badge red">5</span>
-                        <a href="#">Bumped Ads</a>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="badge">10</span>
-                        <a href="#">Pending Ads</a>
+                        <a href="{{ URL::to('ad?' . http_build_query(['owned' => true])) }}">Posted Ads</a>
+                        <span class="badge">{{ $user->ads->count() }}</span>
                     </li>
                 </ul>
             </div>
@@ -42,186 +39,26 @@
             </div>
             <div class="col-md-8">
                 <div class="container-fluid gray-panel">
-                    <h3>BUMPED AD's</h3>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="#">For sale Dell Latitude e4310</a>
+                    <h3>POSTED ADS</h3>
+                    @if ($user->ads->count())
+                        @foreach($user->ads as $ad)
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="{{ URL::to('ad', $ad->id)}}">{{ $ad->title }}</a>
+                            </div>
+                            <div class="col-md-3">{{ $ad->status }}</div>
+                            <div class="col-md-3">
+                                <span class="time pull-right moment-humanize">{{ $ad->created_at }}</span>
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                            Sold
+                        @endforeach
+                    @else
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>You have not posted any ad yet.</p>
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                            <span class="time pull-right">2 sec ago</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="#">Shihpoo puppies for sale</a>
-                        </div>
-                        <div class="col-md-3">
-                            Sold
-                        </div>
-                        <div class="col-md-3">
-                            <span class="time pull-right">2 sec ago</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="#">Shihpoo puppies for sale</a>
-                        </div>
-                        <div class="col-md-3">
-                            Sold
-                        </div>
-                        <div class="col-md-3">
-                            <span class="time pull-right">5 mins ago</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="#">For lease subdivided lot in Arkansas</a>
-                        </div>
-                        <div class="col-md-3">
-                            Sold
-                        </div>
-                        <div class="col-md-3">
-                            <span class="time pull-right">15 mins ago</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="#">For sale Dell Latitude e4310</a>
-                        </div>
-                        <div class="col-md-3">
-                            Sold
-                        </div>
-                        <div class="col-md-3">
-                            <span class="time pull-right">1 day ago</span>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="container-fluid gray-panel">
-                    <h3>POSTED AD's</h3>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="#">For sale Dell Latitude e4310</a>
-                        </div>
-                        <div class="col-md-3">
-                            Sold
-                        </div>
-                        <div class="col-md-3">
-                            <span class="time pull-right">2 sec ago</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="#">Shihpoo puppies for sale</a>
-                        </div>
-                        <div class="col-md-3">
-                            Sold
-                        </div>
-                        <div class="col-md-3">
-                            <span class="time pull-right">2 sec ago</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="#">Shihpoo puppies for sale</a>
-                        </div>
-                        <div class="col-md-3">
-                            Sold
-                        </div>
-                        <div class="col-md-3">
-                            <span class="time pull-right">5 mins ago</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="#">For lease subdivided lot in Arkansas</a>
-                        </div>
-                        <div class="col-md-3">
-                            Sold
-                        </div>
-                        <div class="col-md-3">
-                            <span class="time pull-right">15 mins ago</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="#">For sale Dell Latitude e4310</a>
-                        </div>
-                        <div class="col-md-3">
-                            Sold
-                        </div>
-                        <div class="col-md-3">
-                            <span class="time pull-right">1 day ago</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="container-fluid gray-panel">
-                    <h3>RECENT POSTED AD's</h3>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="#">For sale Dell Latitude e4310</a>
-                        </div>
-                        <div class="col-md-3">
-                            Sold
-                        </div>
-                        <div class="col-md-3">
-                            <span class="time pull-right">2 sec ago</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="#">Shihpoo puppies for sale</a>
-                        </div>
-                        <div class="col-md-3">
-                            Sold
-                        </div>
-                        <div class="col-md-3">
-                            <span class="time pull-right">2 sec ago</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="#">Shihpoo puppies for sale</a>
-                        </div>
-                        <div class="col-md-3">
-                            Sold
-                        </div>
-                        <div class="col-md-3">
-                            <span class="time pull-right">5 mins ago</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="#">For lease subdivided lot in Arkansas</a>
-                        </div>
-                        <div class="col-md-3">
-                            Sold
-                        </div>
-                        <div class="col-md-3">
-                            <span class="time pull-right">15 mins ago</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="#">For sale Dell Latitude e4310</a>
-                        </div>
-                        <div class="col-md-3">
-                            Sold
-                        </div>
-                        <div class="col-md-3">
-                            <span class="time pull-right">1 day ago</span>
-                        </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>

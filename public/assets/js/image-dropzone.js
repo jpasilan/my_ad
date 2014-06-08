@@ -43,8 +43,8 @@ jQuery(function() {
                     this.files.push(mock);
                     this.options.maxFiles = this.options.maxFiles - 1;
                 } else {
-                    jQuery(selector).each(function(i) {
-                        var file = JSON.parse(jQuery(this).val());
+                    jQuery(selector).each(function(i, input) {
+                        var file = JSON.parse(jQuery(input).val());
                         var mock = {
                             name: typeof(file.original_name) !== 'undefined' ? file.original_name : file.name,
                             size: file.size,
@@ -54,7 +54,7 @@ jQuery(function() {
                         };
 
                         // Set the id attribute.
-                        jQuery(this).attr('id', mock.serverId);
+                        jQuery(input).attr('id', mock.serverId);
 
                         _this.emit('addedfile', mock);
                         _this.emit('thumbnail', mock, file.path);

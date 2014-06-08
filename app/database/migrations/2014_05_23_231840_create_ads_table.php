@@ -22,6 +22,7 @@ class CreateAdsTable extends Migration {
             $table->text('description');
             $table->enum('ad_condition', ['used', 'brand_new']);
             $table->boolean('copy_address')->default(0);
+            $table->enum('status', ['open', 'sold', 'closed'])->default('open');
 
             $table->timestamps();
         });

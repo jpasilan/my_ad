@@ -62,7 +62,7 @@ class ProfileController extends BaseController
                     // TODO: Add the latitude and longitude when working with the Geolocation feature.
                     'address1', 'address2', 'city', 'province', 'country', 'postal_code'
                 ]);
-                if (!empty($address)) {
+                if ( ! empty($address)) {
                     $user->address()->create($address);
                 }
 

@@ -9,12 +9,14 @@ class AdController extends BaseController
      */
     public function __construct()
     {
-        // Set the necessary route filters for the AdController.
+         // Set the auth filter.
+        $this->beforeFilter('sentryAuth', [
+            'except' => ['index', 'show']
+        ]);
+
+        // Then set the other necessary route filters.
         $this->beforeFilter('csrf', [
             'only' => ['store', 'update', 'destroy']
-        ]);
-        $this->beforeFilter('allowed:ad.view', [
-            'only' => ['index', 'show']
         ]);
         $this->beforeFilter('allowed:ad.create', [
             'only' => ['create', 'store']
@@ -34,7 +36,17 @@ class AdController extends BaseController
 	 */
 	public function index()
 	{
-        $ads = Ad::all();
+        $ads = null;
+        if (Input::has('owned') && Input::get('owned')) {
+            $ads = Sentry::getUser()->ads;
+        } else if (Input::has('owner') && $id = Input::get('owner')) {
+            $user = User::find($id);
+            if ($user) {
+                $ads = $user->ads;
+            }
+        } else {
+            $ads = Ad::all();
+        }
 
 		return View::make('ads.index', ['ads' => $ads]);
 	}
@@ -69,25 +81,54 @@ class AdController extends BaseController
                 $ad = Ad::create([
                     'title'         => $data['title'],
                     'price'         => $data['price'],
-                    'description'   => $data['description'],
+                    'description'   => nl2br($data['description']), // TODO: Find a better implementation.
                     'ad_condition'  => $data['ad_condition'],
+                    'copy_address'  => isset($data['copy_address']) && $data['copy_address'] ? 1 : 0,
+                    'status'        => 'open',
                 ]);
 
-                // Save images and associate to ad.
-                foreach ($data['photos'] as $image) {
-                    // TODO: Refactor the following lines.
-                    $uploadPath = public_path() . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR
-                        . 'uploads' . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR;
-                    $adImagePath = public_path() . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR
-                        . 'images' . DIRECTORY_SEPARATOR . 'ad' . DIRECTORY_SEPARATOR;
-                    if (File::exists($uploadPath . $image)) {
-                        File::move($uploadPath . $image, $adImagePath . $image);
+                // Save photos and associate to ad.
+                foreach ($data['photos'] as $photo) {
+                    $image = json_decode($photo);
+                    if (Libraries\Helper\Image::move($image->name, 'ad')) {
+                        $ad->photos()->create([
+                            'original_name' =>  $image->original_name,
+                            'name' => $image->name,
+                            'type' => $image->type,
+                        ]);
                     }
-
-                    $ad->photos()->create(['path' => $image]);
                 }
 
-                // Then, associate to user.
+                $rawAddress = (isset($data['copy_address']) && $data['copy_address'])
+                    ? [
+                        'address1' => $user->address->address1,
+                        'address2' => $user->address->address2,
+                        'city' => $user->address->city,
+                        'province' => $user->address->province,
+                        'country' => $user->address->country,
+                        'postal_code' => $user->address->postal_code,
+                        // TODO: Add the latitude and longitude when working with the Geolocation feature.
+                        //'latitude' => $user->address->latitude,
+                        //'longitude' => $user->address->longitude,
+                    ]
+                    : [
+                        'address1' => $data['address1'],
+                        'address2' => $data['address2'],
+                        'city' => $data['city'],
+                        'province' => $data['province'],
+                        'country' => $data['country'],
+                        'postal_code' => $data['postal_code'],
+                        // TODO: Add the latitude and longitude when working with the Geolocation feature.
+                    ];
+                $address = Libraries\Helper\Model::buildArray($rawAddress, [
+                    // TODO: Add the latitude and longitude when working with the Geolocation feature.
+                    'address1', 'address2', 'city', 'province', 'country', 'postal_code'
+                ]);
+                if ( ! empty($address)) {
+                    $ad->address()->create($address);
+                }
+
+                // Then, associate ad to user.
                 $user->ads()->save($ad);
 
                 // Get the ad category and associate the ad to it.
@@ -168,11 +209,11 @@ class AdController extends BaseController
             'description' => 'required',
             'ad_condition' => 'required|in:used,brand_new',
             'ad_category_id' => 'required',
-            'address' => 'required_in_category:ad_category_id,real_estate',
-            'city' => 'required_in_category:ad_category_id,real_estate',
-            'country' => 'required_in_category:ad_category_id,real_estate',
-            'province' => 'required_in_category:ad_category_id,real_estate',
-            'postal_code' => 'required_in_category:ad_category_id,real_estate',
+            'address1' => 'required_in_category:ad_category_id,real_estate,copy_address',
+            'city' => 'required_in_category:ad_category_id,real_estate,copy_address',
+            'country' => 'required_in_category:ad_category_id,real_estate,copy_address',
+            'province' => 'required_in_category:ad_category_id,real_estate,copy_address',
+            'postal_code' => 'required_in_category:ad_category_id,real_estate,copy_address',
         ];
 
         return ['validator' => Validator::make($input, $rules), 'data' => $input];

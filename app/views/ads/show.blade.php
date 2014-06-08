@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col-md-5 col-md-offset-3">
-        @if (!$ad)
+        @if ( ! $ad)
         <p class="text-danger">Advertisement not found.</p>
         @else
         <h3>{{ $ad->title }}</h3>
@@ -17,14 +17,13 @@
         <div class="row">
             <div class="col-md-12">
                 <h5>Photos</h5>
-                <style type="text/css">
-                    .ad-image {
-                        width: 150px;
-                    }
-                </style>
+                <div class="row">
                 @foreach ($ad->photos as $photo)
-                <img class="ad-image" src="{{ URL::asset('assets/images/ad/' . $photo->path) }}" />
+                    <div class="col-md-6">
+                        <img class="img-thumbnail" src="{{ URL::asset('assets/images/ad/' . $photo->name) }}" />
+                    </div>
                 @endforeach
+                </div>
             </div>
         </div>
         @endif

@@ -149,7 +149,7 @@ class Image
      * @param string $prefix
      * @return string
      */
-    private static function getPath($file, $type, $prefix = '')
+    public static function getPath($file, $type, $prefix = '')
     {
         $path = '';
 

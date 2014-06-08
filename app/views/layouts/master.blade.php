@@ -35,7 +35,20 @@
 
         <script type="text/javascript">
             jQuery(function() {
+                // Turn elements with the .combobox class to combobox.
                 jQuery('.combobox').combobox();
+
+                // Humanize elements that have the .moment-humanize class.
+                jQuery('.moment-humanize').each(function(i, el) {
+                    var elTime = moment.utc(jQuery(el).text());
+                    if (elTime.isValid()) {
+                        var now = moment.utc();
+                        var humanized = moment.duration(elTime - now).humanize(true);
+
+                        // Set the element with the humanized text.
+                        jQuery(el).text(humanized);
+                    }
+                });
             });
         </script>
         @yield('more-footer-scripts')

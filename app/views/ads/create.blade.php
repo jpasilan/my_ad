@@ -9,25 +9,22 @@
         {{ Form::open(['url' => URL::to('ad'), 'role' => 'form']) }}
             <div class="form-group">
                 <label for="photo">Photos</label>
-                <?php
-                    $photos = null;
-                    if (Input::old('photos')) {
-                        $photos = Input::old('photos');
-                    }
-                ?>
                 <div id="ad-images">
-                @if ($photos)
-                    <?php $count = 0 ?>
-                    @foreach ($photos as $photo)
-                    <?php $name = "photos[" . ++$count . "]" ?>
-                    {{ Form::hidden($name, $photo) }}
+                @if (Input::old('photos'))
+                    @foreach (Input::old('photos') as $photo)
+                        {{-- There seems to be a problem with Form::hidden so using good 'ol input --}}
+                        <input type="hidden" name="photos[]" value="{{ htmlentities($photo) }}" />
                     @endforeach
                 @endif
                 </div>
-                <span class="help-block">Upload photos of the item you want to sell. Maximum file size per image is 1MB.</span>
+                <span class="help-block">
+                    Upload photos of the items you want to sell. Maximum file size per image is 1MB.
+                </span>
                 <div class="col-md-12" id="image-dropzone" data-input-name="photos"
                      data-max-files="4" data-token="{{ csrf_token() }}">
-                    <div class="dz-message"><span class="glyphicon glyphicon-cloud-upload"></span> Drop files here to upload.</div>
+                    <div class="dz-message">
+                        <span class="glyphicon glyphicon-cloud-upload"></span> Drop files here to upload.
+                    </div>
                 </div>
             </div>
             <div class="form-group">
@@ -37,8 +34,11 @@
             </div>
             <div class="form-group">
                 <label for="ad-price">Price</label>
-                {{ Form::text('price', '', ['class' => 'form-control', 'id' => 'ad-price']) }}
-                <span class="help-block">Set a price that is appropriate for the item to be sold.</span>
+                <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    {{ Form::text('price', '', ['class' => 'form-control', 'id' => 'ad-price']) }}
+                </div>
+                <span class="help-block">Set a reasonable price for the items to be sold.</span>
             </div>
             <div class="form-group">
                 <label for="ad-description">Description</label>
@@ -58,19 +58,26 @@
             </div>
             <fieldset id="ad-location">
                 <legend>Location</legend>
-                <span class="help-block">A location is required for real estate advertisements.</span>
+                <span class="help-block">
+                    Providing the address information will help in improving the visibility of your ad. This, though,
+                    is a requirement for Real Estate ads.
+                </span>
                 @if (Sentry::getUser()->address)
                 <div class="form-group">
                     <label for="copy-user-address">
                         {{ Form::checkbox('copy_address', null) }}
-                        Use my profile address
+                        Use address from my profile
                     </label>
                 </div>
                 @endif
                 <div id="ad-location-address">
                     <div class="form-group">
-                        <label for="ad-address">Address</label>
-                        {{ Form::text('address', '', ['class' => 'form-control', 'id' => 'ad-address']) }}
+                        <label for="ad-address-1">Address (Line 1)</label>
+                        {{ Form::text('address1', '', ['class' => 'form-control', 'id' => 'ad-address-1']) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="ad-address-2">Address (Line 2)</label>
+                        {{ Form::text('address2', '', ['class' => 'form-control', 'id' => 'ad-address-2']) }}
                     </div>
                     <div class="form-group">
                         <label for="ad-city">City</label>
@@ -108,36 +115,12 @@
 <script type="text/javascript">
     jQuery(function() {
         /**
-         * Show or hide location input fields.
+         * Enable or disable the location fields.
          *
-         * @param val
-         * @param obj
+         * @param bool disable
          */
-        function showHideLocation(val, obj) {
-            if (obj.hasOwnProperty(val)) {
-                jQuery('#ad-location').show();
-            } else {
-                jQuery('#ad-location').hide();
-            }
-        }
-
-        var realEstateChildren = {};
-        jQuery.ajax({
-            url: '/ad/data/category-children',
-            type: 'GET',
-            data: { category: 'Real Estate' },
-            success: function(data) {
-                showHideLocation(jQuery('#ad-category').val(), data);
-                realEstateChildren = data;
-            }
-        });
-
-        jQuery('#ad-category').change(function() {
-            showHideLocation(jQuery(this).val(), realEstateChildren);
-        });
-
-        jQuery('input[name="copy_address"]').click(function(){
-            if (jQuery(this).is(':checked')) {
+        function disableLocation(disable) {
+            if (disable) {
                 jQuery('#ad-location-address').find(':input').each(function(){
                     jQuery(this).val('');
                     jQuery(this).prop('disabled', true);
@@ -147,6 +130,11 @@
                     jQuery(this).prop('disabled', false);
                 });
             }
+        }
+
+        disableLocation(jQuery('input[name="copy_address"]').is(':checked'));
+        jQuery('input[name="copy_address"]').click(function(){
+            disableLocation(jQuery(this).is(':checked'));
         });
     });
 </script>

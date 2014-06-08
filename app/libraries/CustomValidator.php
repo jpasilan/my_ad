@@ -48,13 +48,16 @@ class CustomValidator extends \Illuminate\Validation\Validator
     {
         $this->requireParameterCount(2, $parameters, 'required_in_category');
 
+        // Address fields validators may have a third parameter which check if the copy user profile address is toggled
+        // on. This field should only be a checkbox and laravel returns an "on" value if checked and NULL if not.
+        $skip = isset($parameters[2]) && $this->getValue($parameters[2]) ? true : false;
+
         $other = $parameters[0];
         $otherValue = $this->getValue($other);
-        $categoryType = $parameters[1];
-
-        if ($this->validateRequired($other, $otherValue)) {
+        if ( ! $skip && $this->validateRequired($other, $otherValue)) {
             $children = null;
 
+            $categoryType = $parameters[1];
             switch ($categoryType) {
                 case 'real_estate':
                     $realEstate = \AdCategory::where('name', '=', 'Real Estate')->first();

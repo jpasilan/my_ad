@@ -54,9 +54,6 @@ Route::group(['before' => 'sentryAuth'], function()
     Route::get('profile/update', ['before' => ['allowed:profile.update'], 'uses' => 'ProfileController@update']);
     Route::post('profile/update', ['before' => ['csrf', 'allowed:profile.update'], 'uses' => 'ProfileController@update']);
 
-    // Advertisement resource. Filters for this resource are set in the constructor.
-    Route::resource('ad', 'AdController');
-
     // Image routes
     Route::post('image', ['before' => 'csrf', 'uses' => 'ImageController@store']);
     Route::post('image/delete', ['before' => 'csrf', 'uses' => 'ImageController@destroy']);
@@ -66,3 +63,8 @@ Route::group(['before' => 'sentryAuth'], function()
 
 // Routes available to both internal and external users.
 Route::controller('ad/data', 'AdDataController');
+
+// Advertisement resource. Note that since this is exposed, make sure the proper filters
+// including sentryAuth are set in the constructor.
+Route::resource('ad', 'AdController');
+
