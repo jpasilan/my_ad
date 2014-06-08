@@ -39,6 +39,7 @@ return array(
     */
     
     'back_to_top'           => 'Back to top',
+    'vission_mission'       => 'Vission Mission',
     'contact_us'            => 'contact us',
     'sites_covered'         => 'Sites Covered by this Privacy Policy',
     'childrens_privacy'     => 'Children\'s Privacy',

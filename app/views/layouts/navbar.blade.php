@@ -69,15 +69,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h3 class="modal-title" id="resetModalLabel">Password Reset</h3>
+                <h3 class="modal-title" id="resetModalLabel">{{ Lang::get('flash.pass_reset') }}</h3>
             </div>
             {{ Form::open(['url' => 'password/request']) }}
             <div class="modal-body">
-                <p>Please enter your e-mail address so that we can send you the instructions.</p>
+                <p>{{ Lang::get('flash.enter_email') }}</p>
                 <div class="form-group">
                     {{ Form::email('email', '', ['class' => 'form-control input-lg', 'placeholder' => 'Email']) }}
                 </div>
-                {{ Form::submit('Reset My Password', ['class' => 'btn btn-primary btn-lg btn-block']) }}
+                {{ Form::submit(Lang::get('flash.reset_my_pass'), ['class' => 'btn btn-primary btn-lg btn-block']) }}
             </div>
             {{ Form::close() }}
         </div>

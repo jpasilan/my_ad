@@ -10,9 +10,9 @@
         <hr />
         <p>{{ $ad->description }}</p>
         <ul class="list-unstyled">
-            <li><strong>Price:</strong> {{ $ad->price }}</li>
-            <li><strong>Condition:</strong> {{ Lang::get('ads.' . $ad->ad_condition) }}</li>
-            <li><strong>Category:</strong> {{ $ad->category->parent->name }} / {{ $ad->category->name }}</li>
+            <li><strong>{{ Lang::get('ads.price') }}:</strong> {{ $ad->price }}</li>
+            <li><strong>{{ Lang::get('ads.condition') }}:</strong> {{ Lang::get('ads.' . $ad->ad_condition) }}</li>
+            <li><strong>{{ Lang::get('ads.category') }}:</strong> {{ $ad->category->parent->name }} / {{ $ad->category->name }}</li>
         </ul>
         <div class="row">
             <div class="col-md-12">

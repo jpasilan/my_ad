@@ -105,7 +105,7 @@ class ProfileController extends BaseController
 
                 $user->push(); // Save user and related models. In this case, the profile model.
 
-                return Redirect::back()->withMessage(['success' => 'Profile updated.']);
+                return Redirect::back()->withMessage(['success' => Lang::get('flash.profile_updated')]);
             }
 
             return Redirect::back()->withErrors($validator)->withInput();

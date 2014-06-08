@@ -25,10 +25,10 @@ class ImageController extends BaseController
 
             if ($image->save($uploadPath . $fileName)) {
                 return Response::json(['id' => $fileId, 'filename' => $fileName,
-                    'status' => 'success', 'message' => 'Image added.'], 200);
+                    'status' => 'success', 'message' => Lang::get('flash.image_added')], 200);
             }
 
-            return Response::json(['message' => 'An error occurred when saving the image.', 'status' => 'error'], 400);
+            return Response::json(['message' => Lang::get('flash.error_save_image'), 'status' => 'error'], 400);
         }
 
         return Response::json(['error' => $validator->messages()->first('file'), 'status' => 'error'], 400);

@@ -39,6 +39,7 @@ return array(
     */
     
     'back_to_top'           => 'Haut de page',
+    'vission_mission'       => 'Vision et Mission',
     'sites_covered'         => 'Sites couverts par cette politique de confidentialité',
     'childrens_privacy'     => 'Protection des enfants',
     'links_non_op_websites' => 'Liens aux non-exploitants de sites Web',

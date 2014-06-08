@@ -16,4 +16,10 @@ return array(
     'error_save_image'          => 'An error occurred when saving the image.',
     'image_added'               => 'Image added.',
     'profile_updated'           => 'Profile updated.',
+    'error_in_fields'           => 'There were errors with the following fields',
+    'pass_reset'                => 'Password Reset',
+    'enter_email'               => 'Please enter your e-mail address so that we can send you the instructions.',
+    'reset_my_pass'             => 'Reset My Password',
+    'img_deleted'               => 'Image deleted',
+    'img_not_exist'             => 'Image does not exist or there was an error in deleting the image.',
 );
