@@ -1,15 +1,15 @@
 <nav class="navbar navbar-static-top" role="navigation">
     <div class="container">
         <div class="row">
-            <div class="col-sm-2 hidden-xs">
+            <div class="col-sm-2">
                 <div class="navbar-header">
                     <a href="{{ URL::to('/') }}" class="navbar-brand"><img id="header-logo" src="{{ URL::asset('assets/css/images/logo.png') }}" height="147"></a>
                 </div>
             </div>
-            <div class="col-sm-10">
+            <div class="col-sm-10 no-padding-right">
                 <div class="container-fluid">
                     <?php $loggedIn = Sentry::check() ?>
-                    <div class="row{{ isset($hide_login) || $loggedIn ? ' hide-sign-in' : ''}}">
+                    <div class="row inline-login-form{{ isset($hide_login) || $loggedIn ? ' hide-sign-in' : ''}}">
                         {{ Form::open(['url' => 'login', 'class' => 'navbar-form navbar-right', 'role' => 'form']) }}
                             {{ Form::email('email', '', ['placeholder' => 'Email', 'class' => 'form-control']) }}
                             {{ Form::password('password', ['placeholder' => 'Password', 'class' => 'form-control']) }}
@@ -17,7 +17,7 @@
                             <a href="{{ URL::to('register') }}" class="btn btn-register" role="button">Register</a>
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <div class="checkbox"><label>{{ Form::checkbox('remember_me') }} Remember me</label></div>
+                                    <div class="checkbox remember"><label>{{ Form::checkbox('remember_me') }} <span class="remember-text">Remember me</span></label></div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="checkbox">
@@ -41,8 +41,8 @@
                     </div>
                     <div class="row">
                         <ul class="nav nav-tabs navbar-right nav-fix">
-                            <li class="active"><a href="{{ URL::to('ad') }}">Classifieds</a></li>
-                            <li><a href="{{ URL::to('/') }}">Vehicles</a></li>
+                            <li {{ Request::is('/') ? 'class="active"' : '' }}><a href="{{ URL::to('/') }}">Classifieds</a></li>
+                            <li {{ Request::is('search-vehicles') ? 'class="active"' : '' }}><a href="{{ URL::to('/search-vehicles') }}">Vehicles</a></li>
                             <li><a href="{{ URL::to('/') }}">Real Estate</a></li>
                             <li><a href="{{ URL::to('/') }}">My-Ad</a></li>
                             @if ($loggedIn)
