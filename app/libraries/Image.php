@@ -70,12 +70,14 @@ class Image
         $newName = $id . '.' . $file->getClientOriginalExtension();
         $oldName = $file->getClientOriginalName();
 
-        if ($image->save(self::getFullPath($newName, 'upload'))) {
+        $fullPath = self::getFullPath($newName, 'upload');
+        if ($image->save($fullPath)) {
             return [
                 'original_name' => $oldName,
                 'name' => $newName,
                 'path' => self::getPath($newName, 'upload'),
                 'type' => $file->getMimeType(),
+                'size' => File::size($fullPath),
             ];
         }
 

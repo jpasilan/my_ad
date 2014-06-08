@@ -52,4 +52,15 @@ class Ad extends Eloquent
     }
 
 
+    /**
+     * A hasOne polymorphic relation to the Address model.
+     *
+     * @return mixed
+     */
+    public function address()
+    {
+        return $this->morphOne('Address', 'addressable');
+    }
+
+
 } 

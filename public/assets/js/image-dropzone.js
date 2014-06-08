@@ -20,7 +20,7 @@ jQuery(function() {
         maxFiles: dataMaxFiles,
         maxFilesize: 1,
         init: function() {
-            var selector = 'input[name="' + inputName + '"]';
+            var selector = 'input[name^="' + dataInputName + '"]';
             if (jQuery(selector).length > 0) {
                 var _this = this;
                 var fileCount = 0;

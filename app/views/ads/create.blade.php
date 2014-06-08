@@ -9,22 +9,20 @@
         {{ Form::open(['url' => URL::to('ad'), 'role' => 'form']) }}
             <div class="form-group">
                 <label for="photo">Photos</label>
+                <?php
+                    $photos = null;
+                    if (Input::old('photos')) {
+                        $photos = Input::old('photos');
+                    }
+                ?>
                 <div id="ad-images">
-                    @if ($photos = Input::old('photos'))
-                        @foreach ($photos as $photo)
-                        <?php
-                            list($id, $ext) = explode('.', $photo);
-                            // TODO: Refactor the 3 lines following this comment.
-                            $uploadPath = public_path() . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR .
-                                'uploads' . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR;
-                            $size = 0;
-                            if (File::exists($uploadPath . $photo)) {
-                                $size = File::size($uploadPath. $photo);
-                            }
-                        ?>
-                        <input type="hidden" name="photos[]" id="{{ $id }}" value="{{ $photo }}" data-size="{{ $size }}" />
-                        @endforeach
-                    @endif
+                @if ($photos)
+                    <?php $count = 0 ?>
+                    @foreach ($photos as $photo)
+                    <?php $name = "photos[" . ++$count . "]" ?>
+                    {{ Form::hidden($name, $photo) }}
+                    @endforeach
+                @endif
                 </div>
                 <span class="help-block">Upload photos of the item you want to sell. Maximum file size per image is 1MB.</span>
                 <div class="col-md-12" id="image-dropzone" data-input-name="photos"
@@ -61,27 +59,37 @@
             <fieldset id="ad-location">
                 <legend>Location</legend>
                 <span class="help-block">A location is required for real estate advertisements.</span>
+                @if (Sentry::getUser()->address)
                 <div class="form-group">
-                    <label for="ad-address">Address</label>
-                    {{ Form::text('address', '', ['class' => 'form-control', 'id' => 'ad-address']) }}
+                    <label for="copy-user-address">
+                        {{ Form::checkbox('copy_address', null) }}
+                        Use my profile address
+                    </label>
                 </div>
-                <div class="form-group">
-                    <label for="ad-city">City</label>
-                    {{ Form::text('city', '', ['class' => 'form-control', 'id' => 'ad-city']) }}
-                </div>
-                <div class="form-group">
-                    <label for="ad-province">State/Province</label>
-                    {{ Form::text('province', '', ['class' => 'form-control', 'id' => 'ad-province']) }}
-                </div>
-                <div class="form-group">
-                    <label for="ad-country">Country</label>
-                    {{ Form::select('country',
-                        ['' => 'Select Country'] + Country::getList(), '',
-                        ['class' => 'form-control combobox', 'id' => 'ad-country', 'autocomplete' => 'off']) }}
-                </div>
-                <div class="form-group">
-                    <label for="ad-postal-code">Postal Code</label>
-                    {{ Form::text('postal_code', '', ['class' => 'form-control', 'id' => 'ad-postal-code']) }}
+                @endif
+                <div id="ad-location-address">
+                    <div class="form-group">
+                        <label for="ad-address">Address</label>
+                        {{ Form::text('address', '', ['class' => 'form-control', 'id' => 'ad-address']) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="ad-city">City</label>
+                        {{ Form::text('city', '', ['class' => 'form-control', 'id' => 'ad-city']) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="ad-province">State/Province</label>
+                        {{ Form::text('province', '', ['class' => 'form-control', 'id' => 'ad-province']) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="ad-country">Country</label>
+                        {{ Form::select('country',
+                            ['' => 'Select Country'] + Country::getList(), '',
+                            ['class' => 'form-control combobox', 'id' => 'ad-country', 'autocomplete' => 'off']) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="ad-postal-code">Postal Code</label>
+                        {{ Form::text('postal_code', '', ['class' => 'form-control', 'id' => 'ad-postal-code']) }}
+                    </div>
                 </div>
             </fieldset>
             {{ Form::submit('Save', ['class' => 'btn btn-primary']) }}
@@ -126,6 +134,19 @@
 
         jQuery('#ad-category').change(function() {
             showHideLocation(jQuery(this).val(), realEstateChildren);
+        });
+
+        jQuery('input[name="copy_address"]').click(function(){
+            if (jQuery(this).is(':checked')) {
+                jQuery('#ad-location-address').find(':input').each(function(){
+                    jQuery(this).val('');
+                    jQuery(this).prop('disabled', true);
+                });
+            } else {
+                jQuery('#ad-location-address').find(':input').each(function(){
+                    jQuery(this).prop('disabled', false);
+                });
+            }
         });
     });
 </script>

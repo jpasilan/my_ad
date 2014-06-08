@@ -20,12 +20,8 @@ class CreateAdsTable extends Migration {
             $table->string('title', 100);
             $table->decimal('price', 10, 2);
             $table->text('description');
-            $table->string('address', 255)->nullable();
-            $table->string('city', 180)->nullable();
-            $table->string('province', 100)->nullable();
-            $table->char('country', 2)->nullable();
-            $table->string('postal_code', 20)->nullable();
             $table->enum('ad_condition', ['used', 'brand_new']);
+            $table->boolean('copy_address')->default(0);
 
             $table->timestamps();
         });
