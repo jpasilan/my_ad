@@ -41,13 +41,15 @@
                     </div>
                     <div class="row">
                         <ul class="nav nav-tabs navbar-right nav-fix">
-                            <li {{ Request::is('/') ? 'class="active"' : '' }}><a href="{{ URL::to('/') }}">Classifieds</a></li>
+                            <li {{ Request::is('ad') ? 'class="active"' : '' }}>
+                                <a href="{{ Request::is('ad') ? '#' : URL::to('ad') }}">Classifieds</a>
+                            </li>
                             <li {{ Request::is('search-vehicles') ? 'class="active"' : '' }}><a href="{{ URL::to('/search-vehicles') }}">Vehicles</a></li>
                             <li><a href="{{ URL::to('/') }}">Real Estate</a></li>
                             <li><a href="{{ URL::to('/') }}">My-Ad</a></li>
                             @if ($loggedIn)
                             <li><a href="{{ URL::to('ad/create') }}">Post an Ad</a></li>
-                            <li><a href="{{ URL::to('/logout') }}">Logout</a></li>
+                            <li><a href="{{ URL::to('logout') }}">Logout</a></li>
                             @endif
                         </ul>
                     </div>

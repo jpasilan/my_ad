@@ -151,25 +151,33 @@ class Image
      */
     public static function getPath($file, $type, $prefix = '')
     {
-        $path = '';
-
+        $directory = '';
         switch ($type) {
             case 'upload':
-                $path = $prefix . self::UPLOAD_PATH . $file;
+                $directory = self::UPLOAD_PATH;
                 break;
             case 'profile':
-                $path = $prefix . self::PROFILE_PATH . $file;
+                $directory = self::PROFILE_PATH;
                 break;
             case 'ad':
-                $path = $prefix . self::AD_PATH . $file;
+                $directory = self::AD_PATH;
                 break;
             default:
                 break;
         }
 
-        // Make the path Windows compatible.
-        return str_replace('/', DIRECTORY_SEPARATOR, $path);
-    }
+        $path = '';
+        if ( ! empty($directory)) {
+            // Make the path Windows compatible.
+            $path = str_replace('/', DIRECTORY_SEPARATOR, $prefix . $directory . $file);
+
+            // Check if the directory exists, otherwise create it.
+            if ( ! File::isDirectory(public_path() . $directory)) {
+                File::makeDirectory(public_path() . $directory, 0775, true);
+            }
+        }
+
+        return $path;    }
 
 
     /**
