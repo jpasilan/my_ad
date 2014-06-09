@@ -6,58 +6,58 @@
         <div class="container-fluid ctm-categories">
             <div class="row ctm-categories-row">
                 <div class="ctm-categories-autos">
-                    <div class="ctm-categories-category-title">Vehicles</div>
+                    <div class="ctm-categories-category-title">{{ Lang::choice('ads.vehicles', 2); }}</div>
                 </div>
                 <div class="ctm-categories-realstate">
-                    <div class="ctm-categories-category-title">Real Estate</div>
+                    <div class="ctm-categories-category-title">{{ Lang::get('ads.real_estate') }}</div>
                 </div>
                 <div class="ctm-categories-electronic">
-                    <div class="ctm-categories-category-title">Electronics</div>
+                    <div class="ctm-categories-category-title">{{ Lang::get('ads.electronics') }}</div>
                 </div>
                 <div class="ctm-categories-computer">
-                    <div class="ctm-categories-category-title">Computers</div>
+                    <div class="ctm-categories-category-title">{{ Lang::choice('ads.computers', 2) }}</div>
                 </div>
             </div>
             <div class="row ctm-categories-row">
                 <div class="ctm-categories-furniture">
-                    <div class="ctm-categories-category-title">Furniture</div>
+                    <div class="ctm-categories-category-title">{{ Lang::choice('ads.furniture', 1) }}</div>
                 </div>
                 <div class="ctm-categories-tools">
-                    <div class="ctm-categories-category-title">Tools</div>
+                    <div class="ctm-categories-category-title">{{ Lang::choice('ads.tools', 2) }}</div>
                 </div>
                 <div class="ctm-categories-pets">
-                    <div class="ctm-categories-category-title">Pets</div>
+                    <div class="ctm-categories-category-title">{{ Lang::choice('ads.pets', 2) }}</div>
                 </div>
                 <div class="ctm-categories-jobs">
-                    <div class="ctm-categories-category-title">Jobs</div>
+                    <div class="ctm-categories-category-title">{{ Lang::choice('ads.jobs', 2) }}</div>
                 </div>
             </div>
             <div class="row ctm-categories-row">
                 <div class="ctm-categories-travel">
-                    <div class="ctm-categories-category-title">Travel</div>
+                    <div class="ctm-categories-category-title">{{ Lang::get('ads.travel') }}</div>
                 </div>
                 <div class="ctm-categories-sports">
-                    <div class="ctm-categories-category-title">Sports</div>
+                    <div class="ctm-categories-category-title">{{ Lang::choice('ads.sports', 2) }}</div>
                 </div>
                 <div class="ctm-categories-family">
-                    <div class="ctm-categories-category-title">Family</div>
+                    <div class="ctm-categories-category-title">{{ Lang::get('ads.family') }}</div>
                 </div>
                 <div class="ctm-categories-services">
-                    <div class="ctm-categories-category-title">Services</div>
+                    <div class="ctm-categories-category-title">{{ Lang::choice('ads.services', 2) }}</div>
                 </div>
             </div>
             <div class="row ctm-categories-row">
                 <div class="ctm-categories-food">
-                    <div class="ctm-categories-category-title">Food</div>
+                    <div class="ctm-categories-category-title">{{ Lang::get('ads.food') }}</div>
                 </div>
                 <div class="ctm-categories-community">
-                    <div class="ctm-categories-category-title">Community</div>
+                    <div class="ctm-categories-category-title">{{ Lang::get('ads.community') }}</div>
                 </div>
                 <div class="ctm-categories-dating">
-                    <div class="ctm-categories-category-title">Dating</div>
+                    <div class="ctm-categories-category-title">{{ Lang::get('ads.dating') }}</div>
                 </div>
                 <div class="ctm-categories-others">
-                    <div class="ctm-categories-category-title">Others</div>
+                    <div class="ctm-categories-category-title">{{ Lang::get('ads.others') }}</div>
                 </div>
             </div>
         </div>

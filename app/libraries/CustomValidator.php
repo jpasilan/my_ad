@@ -60,11 +60,12 @@ class CustomValidator extends \Illuminate\Validation\Validator
             $categoryType = $parameters[1];
             switch ($categoryType) {
                 case 'real_estate':
-                    $realEstate = \AdCategory::where('name', '=', 'Real Estate')->first();
+                    $realEstate = \AdCategory::where('name', '=', 'real_estate')->first();
                     $children = $realEstate->children()->lists('id');
                     break;
-                case 'vehicle':
-                    // @TODO Implement later.
+                case 'vehicles':
+                    $vehicles = \AdCategory::where('name', '=', 'vehicles')->first();
+                    $children = $vehicles->children()->lists('id');
                     break;
                 default:
                     break;
@@ -90,7 +91,7 @@ class CustomValidator extends \Illuminate\Validation\Validator
      */
     protected function replaceRequiredInCategory($message, $attribute, $rule, $parameters)
     {
-        return str_replace(':type', Lang::get('terms.' . $parameters[1]), $message);
+        return str_replace(':type', Lang::get('ads.' . $parameters[1]), $message);
     }
 
 

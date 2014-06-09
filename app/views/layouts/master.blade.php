@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>my-ad.ca</title>
+        <title>{{ Lang::get('general.site_base_name') }}</title>
         <link rel="icon" href="" />
         {{ HTML::style('assets/bootstrap/css/bootstrap.min.css') }}
         {{ HTML::style('assets/bootstrap/css/bootstrap-theme.min.css') }}

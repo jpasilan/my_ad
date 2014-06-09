@@ -10,13 +10,15 @@
         <hr />
         <p>{{ $ad->description }}</p>
         <ul class="list-unstyled">
-            <li><strong>Price:</strong> {{ $ad->price }}</li>
-            <li><strong>Condition:</strong> {{ Lang::get('terms.' . $ad->ad_condition) }}</li>
-            <li><strong>Category:</strong> {{ $ad->category->parent->name }} / {{ $ad->category->name }}</li>
+            <li><strong>{{ Lang::get('ads.price') }}:</strong> {{ $ad->price }}</li>
+            <li><strong>{{ Lang::get('ads.condition') }}:</strong> {{ Lang::get('ads.' . $ad->ad_condition) }}</li>
+            <li><strong>{{ Lang::get('ads.category') }}:</strong>
+                {{ Lang::choice('ads.' . $ad->category->parent->name, 2) }} / {{ Lang::choice('ads.' . $ad->category->name, 2) }}
+            </li>
         </ul>
         <div class="row">
             <div class="col-md-12">
-                <h5>Photos</h5>
+                <h5>{{ Lang::choice('ads.photos', 2) }}</h5>
                 <div class="row">
                 @foreach ($ad->photos as $photo)
                     <div class="col-md-6">

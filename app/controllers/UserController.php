@@ -41,9 +41,9 @@ class UserController extends BaseController
                     );
 
                     return Redirect::to('/')->withMessage(['success'
-                        => 'Registration successful. We sent your activation code to your email.']);
+                        => Lang::get('flash.registration_success') ]);
                 } catch (Exception $e) {
-                    return Redirect::back()->withMessage(['danger' => 'An error has occurred. Please try again.']);
+                    return Redirect::back()->withMessage(['danger' => Lang::get('flash.error_occured')]);
                 }
             } else {
                 return Redirect::back()->withErrors($validator)->withInput();
@@ -65,13 +65,13 @@ class UserController extends BaseController
             $user = Sentry::findUserByActivationCode($key);
 
             if ($user->attemptActivation($key)) {
-                return Redirect::to('login')->withMessage(['success' => 'Account activated. You can login now.']);
+                return Redirect::to('login')->withMessage(['success' => Lang::get('flash.account_activated')]);
             }
         } catch (Exception $e) {
             // Nothing here, so just fall through.
         }
 
-        return Redirect::to('/')->withMessage(['danger' => 'Invalid activation code.']);
+        return Redirect::to('/')->withMessage(['danger' => Lang::get('flash.invalid_code')]);
     }
 
     /**
@@ -81,7 +81,7 @@ class UserController extends BaseController
      */
     public function requestPassword()
     {
-        $flash = ['danger' => 'No e-mail address provided.'];
+        $flash = ['danger' => Lang::get('flash.no_email')];
 
         if (Request::isMethod('post')) {
             if (Input::has('email')) {
@@ -96,9 +96,9 @@ class UserController extends BaseController
                         }
                     );
 
-                    $flash = ['success' => 'Password reset instructions sent to your e-mail.'];
+                    $flash = ['success' => Lang::get('flash.pass_reset_sent')];
                 } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
-                    $flash = ['danger' => 'Invalid e-mail address provided.'];
+                    $flash = ['danger' => Lang::get('flash.invalid_email')];
                 }
             }
         }
@@ -124,7 +124,7 @@ class UserController extends BaseController
             $validator = Validator::make(Input::all(), $rules);
 
             if ($validator->passes()) {
-                $message = ['danger' => 'There was an error in changing your password.'];
+                $message = ['danger' => Lang::get('flash.error_password')];
 
                 try {
                     $user = Sentry::findUserByLogin(Input::get('email'));
@@ -133,13 +133,13 @@ class UserController extends BaseController
                     if ($user->checkResetPasswordCode($key)) {
                         // Attempt to reset the user password.
                         if ($user->attemptResetPassword($key, Input::get('password'))) {
-                            return Redirect::to('login')->withMessage(['success' => 'Password reset success. You can now login.']);
+                            return Redirect::to('login')->withMessage(['success' => Lang::get('flash.pass_reset_success')]);
                         }
                     } else {
-                        $message = ['danger' => 'Invalid password reset code.'];
+                        $message = ['danger' => Lang::get('flash.invalid_passcode')];
                     }
                 } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
-                    $message = ['danger' => 'User was not found.'];
+                    $message = ['danger' => Lang::get('flash.user_not_found')];
                 }
 
                 return Redirect::back()->withMessage($message);
@@ -207,7 +207,7 @@ class UserController extends BaseController
 
                 return Redirect::to('dashboard');
             } catch (Exception $e) {
-                return Redirect::to('login')->withMessage(['danger' => 'Invalid email address or password.']);
+                return Redirect::to('login')->withMessage(['danger' => Lang::get('flash.invalid_email_pass')]);
             }
         }
 

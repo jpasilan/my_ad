@@ -58,7 +58,8 @@ class AdCategory extends Eloquent
         foreach ($collection as $item) {
             if (!$item->parent_id) {
                 foreach ($item->children()->orderBy('name')->get() as $child) {
-                    $list[$item->name][$child->id] = $child->name;
+                    // Translate names to the plural translations.
+                    $list[Lang::choice("ads.{$item->name}", 2)][$child->id] = Lang::choice("ads.{$child->name}", 2);
                 }
             }
         }

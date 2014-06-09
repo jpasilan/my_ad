@@ -113,6 +113,7 @@ return array(
         'province'          => 'State/Province',
         'country'           => 'Country',
         'postal_code'       => 'Postal Code',
+        'ad_condition'      => 'Condition',
     ),
 
 );

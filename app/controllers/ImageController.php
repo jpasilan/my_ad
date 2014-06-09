@@ -21,19 +21,19 @@ class ImageController extends BaseController
             if ($file) {
                 return Response::json([
                     'file' => $file,
-                    'status' => 'success',
-                    'message' => 'Image added.'
+                    'message' => Lang::get('flash.image_added'),
+                    'status' => 'success'
                 ], 200);
             }
 
             return Response::json([
-                'message' => 'An error occurred when saving the image.',
+                'message' => Lang::get('flash.error_save_image'),
                 'status' => 'error'
             ], 400);
         }
 
         return Response::json([
-            'error' => $validator->messages()->first('file'),
+            'message' => $validator->messages()->first('file'),
             'status' => 'error'
         ], 400);
 	}
@@ -55,14 +55,14 @@ class ImageController extends BaseController
         if ($validator->passes()) {
             if (Libraries\Helper\Image::delete(Input::get('path'), '', Input::get('model_id'))) {
                 return Response::json([
-                    'message' => 'Image deleted.',
+                    'message' => Lang::get('flash.img_deleted'),
                     'status' => 'success'
                 ], 200);
             }
 
             return Response::json([
-                'message' => 'Image does not exist or there was an error in deleting the image.'
-                , 'status' => 'error'
+                'message' => Lang::get('flash.img_not_exist'),
+                'status' => 'error'
             ], 400);
         }
 

@@ -537,6 +537,7 @@ div.container .affix-bottom
 div.container .affix
 {
     top: 10px;
+    width: 19%;
 }
 select.form-control:focus,
 textarea:focus, 
