@@ -38,7 +38,12 @@ return array(
     |--------------------------------------------------------------------------
     */
 
+    'email'                 => 'Email',
+    'mobile_phone'          => 'Mobile Phone',
+
+    'profile'               => 'Profile',
     'my_profile'            => 'My Profile',
+    'change_password'       => 'Change Password',
     'posted_ads'            => 'Posted Ads',
     'not_posted_ad'         => 'You have not posted any ad yet.',
 
@@ -49,7 +54,6 @@ return array(
     'country'               => 'Country',
     'select_country'        => 'Select Country',
     'postal_code'           => 'Postal Code',
-    'mobile_number'         => 'Mobile Number',
     'update'                => 'Update',
     'save'                  => 'Save',
 

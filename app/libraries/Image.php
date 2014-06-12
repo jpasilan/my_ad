@@ -168,7 +168,7 @@ class Image
 
         $path = '';
         if ( ! empty($directory)) {
-            // Make the path Windows compatible.
+            // Build the path.
             $path = $prefix . $directory . $file;
 
             // Check if the directory exists, otherwise create it.

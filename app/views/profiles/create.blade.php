@@ -2,7 +2,24 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-3">
+        <h3 class="full-name">{{ $user->first_name }} {{ $user->last_name }}</h3>
+        <p>
+            <strong>{{ Lang::get('profile.joined') }}</strong>
+            <span class="moment-humanize">{{ $user->created_at }}</span>
+        </p>
+        <address>
+            <abbr title="{{ Lang::get('general.email') }}">E:</abbr> {{ $user->email }}<br />
+            @if ($edit && $user->profile->mobile)
+            <abbr title="{{ Lang::get('general.mobile_phone') }}">P:</abbr> {{ $user->profile->mobile }}
+            @endif
+        </address>
+        <div class="list-group">
+            <a href="#" class="list-group-item active">{{ Lang::get('general.profile') }}</a>
+            <a href="#" class="list-group-item">{{ Lang::get('general.change_password') }}</a>
+        </div>
+    </div>
+    <div class="col-md-9">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 {{ $edit ? Lang::get('profile.update_profile') : Lang::get('profile.add_profile') }}
@@ -50,7 +67,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="mobile">{{ Lang::get('general.mobile_number') }}</label>
+                                <label for="mobile">{{ Lang::get('general.mobile_phone') }}</label>
                                 {{ Form::text('mobile', $edit ? $user->profile->mobile : '',
                                     ['class' => 'form-control', 'id' => 'mobile']) }}
                             </div>

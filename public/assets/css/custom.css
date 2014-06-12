@@ -761,7 +761,7 @@ div.ads-on-side img
 /* End: Side Ads Styles*/
 
 /* Profile Styles */
-h1.full-name {
+.full-name {
     color: black;
     margin-top: 0;
 }
@@ -806,6 +806,13 @@ div.thumbnail h5 {
     background-color: #d9534f;
 }
 /* End Profile Styles */
+
+/* Panel Styles */
+.panel-heading {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+/* End Panel Styles */
 
 
 
