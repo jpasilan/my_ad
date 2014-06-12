@@ -51,11 +51,12 @@ Route::group(['before' => 'sentryAuth'], function()
     Route::get('dashboard', 'UserController@showDashboard');
 
     // User profile
-    Route::get('profile', 'ProfileController@index');
+    Route::get('profile/{id}', ['before' => ['allowed:profile.view'], 'uses' => 'ProfileController@show'])
+        ->where(['id' => '[0-9]+']);
     Route::get('profile/create', ['before' => ['allowed:profile.create'], 'uses' => 'ProfileController@create']);
     Route::post('profile/create', ['before' => ['csrf', 'allowed:profile.create'], 'uses' => 'ProfileController@create']);
-    Route::get('profile/update', ['before' => ['allowed:profile.update'], 'uses' => 'ProfileController@update']);
-    Route::post('profile/update', ['before' => ['csrf', 'allowed:profile.update'], 'uses' => 'ProfileController@update']);
+    Route::get('profile/edit', ['before' => ['allowed:profile.update'], 'uses' => 'ProfileController@edit']);
+    Route::post('profile/edit', ['before' => ['csrf', 'allowed:profile.update'], 'uses' => 'ProfileController@edit']);
 
     // Image routes
     Route::post('image', ['before' => 'csrf', 'uses' => 'ImageController@store']);

@@ -90,18 +90,18 @@ class Image
      *
      * @param string $file
      * @param string $type
-     * @param int $model
+     * @param int $id Photo Id
      * @return bool
      */
-    public static function delete($file, $type = '', $model = 0)
+    public static function delete($file, $type = '', $id = 0)
     {
         $filePath = !empty($type) ? self::getFullPath($file, $type) : public_path() . $file;
 
         if (File::exists($filePath) && File::delete($filePath)) {
-            // Remove from the Photo model if model id is given.
-            if ($model) {
+            // Remove from the Photo model data if id is given.
+            if ($id) {
                 $pathInfo = pathinfo($file);
-                \Photo::where('id', '=', $model)
+                \Photo::where('id', '=', $id)
                     ->where('name', '=', $pathInfo['basename'])
                     ->delete();
             }
@@ -169,7 +169,7 @@ class Image
         $path = '';
         if ( ! empty($directory)) {
             // Make the path Windows compatible.
-            $path = str_replace('/', DIRECTORY_SEPARATOR, $prefix . $directory . $file);
+            $path = $prefix . $directory . $file;
 
             // Check if the directory exists, otherwise create it.
             if ( ! File::isDirectory(public_path() . $directory)) {
@@ -177,7 +177,8 @@ class Image
             }
         }
 
-        return $path;    }
+        return $path;
+    }
 
 
     /**

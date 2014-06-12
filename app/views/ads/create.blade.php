@@ -110,6 +110,9 @@
 {{ HTML::script('assets/js/image-dropzone.js') }}
 <script type="text/javascript">
     jQuery(function() {
+        // Transform ad-description textarea to ckeditor
+        CKEDITOR.replace('ad-description');
+
         /**
          * Enable or disable the location fields.
          *

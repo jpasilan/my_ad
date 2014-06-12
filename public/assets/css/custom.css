@@ -741,6 +741,7 @@ div#image-dropzone {
     min-height: 150px;
     margin-bottom: 15px;
 }
+
 div#image-dropzone .dz-message 
 {
     font-family: Georgia, "Times New Roman", serif;
@@ -758,6 +759,53 @@ div.ads-on-side img
     margin-bottom: 18px;
 }
 /* End: Side Ads Styles*/
+
+/* Profile Styles */
+h1.full-name {
+    color: black;
+    margin-top: 0;
+}
+
+h3.section-heading {
+    margin-top: 0;
+}
+
+div.thumbnail h5 {
+    margin: 0;
+}
+
+.info-well {
+    /* Override the .well background so that a custom
+     * background can be applied.
+     */
+    background: none;
+    text-align: center;
+
+}
+
+.info-well h1,
+.info-well p {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+.info-well h1 {
+    font-weight: 700;
+}
+
+.info-well-primary {
+    background-color: #428bca;
+}
+
+.info-well-success {
+    background-color: #5cb85c;
+}
+
+.info-well-danger {
+    background-color: #d9534f;
+}
+/* End Profile Styles */
 
 
 

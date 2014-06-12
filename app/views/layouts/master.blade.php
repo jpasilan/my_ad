@@ -31,7 +31,14 @@
         {{ HTML::script('assets/bootstrap/js/bootstrap.min.js') }}
         {{ HTML::script('assets/bootstrap/combobox/js/bootstrap-combobox.js') }}
 
+        {{-- Delegate the date/time formatting and conversion to momentjs. --}}
         {{ HTML::script('assets/js/moment.min.js') }}
+        @if ('fr' == App::getLocale())
+        {{ HTML::script('assets/js/moment-fr-ca.js') }}
+        @endif
+
+        {{-- Loading the ckeditor --}}
+        {{ HTML::script('assets/ckeditor/ckeditor.js') }}
 
         <script type="text/javascript">
             jQuery(function() {
@@ -40,13 +47,10 @@
 
                 // Humanize elements that have the .moment-humanize class.
                 jQuery('.moment-humanize').each(function(i, el) {
-                    var elTime = moment.utc(jQuery(el).text());
-                    if (elTime.isValid()) {
-                        var now = moment.utc();
-                        var humanized = moment.duration(elTime - now).humanize(true);
-
+                    var dt = moment.utc(jQuery(el).text());
+                    if (dt.isValid()) {
                         // Set the element with the humanized text.
-                        jQuery(el).text(humanized);
+                        jQuery(el).text(dt.fromNow());
                     }
                 });
             });

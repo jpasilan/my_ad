@@ -31,7 +31,29 @@ return array(
     'click_to_login'        => 'Click here to login.',
     'user_login'            => 'User Login',
     'logout'                => 'Logout',
-    
+
+    /*
+    |--------------------------------------------------------------------------
+    | Tokens Shared By Several Pages
+    |--------------------------------------------------------------------------
+    */
+
+    'my_profile'            => 'My Profile',
+    'posted_ads'            => 'Posted Ads',
+    'not_posted_ad'         => 'You have not posted any ad yet.',
+
+    'address_1'             => 'Address (Line 1)',
+    'address_2'             => 'Address (Line 2)',
+    'city'                  => 'City',
+    'state_province'        => 'State/Province',
+    'country'               => 'Country',
+    'select_country'        => 'Select Country',
+    'postal_code'           => 'Postal Code',
+    'mobile_number'         => 'Mobile Number',
+    'update'                => 'Update',
+    'save'                  => 'Save',
+
+
     /*
     |--------------------------------------------------------------------------
     | Privacy Policy Page

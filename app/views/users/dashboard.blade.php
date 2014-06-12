@@ -5,8 +5,8 @@
     <div class="col-md-3">
         <div class="container-fluid gray-panel">
             <h3 class="no-line">
-                <a href="{{ URL::to('profile/update') }} "><span class="glyphicon glyphicon-pencil"></span></a>
-                MY PROFILE
+                <a href="{{ URL::to('profile/edit') }} "><span class="glyphicon glyphicon-pencil"></span></a>
+                <a href="{{ URL::to('profile', $user->id) }}">{{ Lang::get('general.my_profile') }}</a>
             </h3>
             <?php
                 $profileImage = $user->photo
@@ -32,14 +32,14 @@
             <div class="col-md-4">
                 <div class="container-fluid red-panel">
                     <a href="{{ URL::to('ad/create') }}">
-                        <h3 class="no-line">POST AN AD</h3>
+                        <h3 class="no-line">{{ Lang::get('ads.post_an_ad') }}</h3>
                         <img src="{{ URL::asset('assets/css/images/add.png') }}" class="img-responsive img-rounded" width="125"/>
                     </a>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="container-fluid gray-panel">
-                    <h3>POSTED ADS</h3>
+                    <h3>{{ Lang::get('general.posted_ads') }}</h3>
                     @if ($user->ads->count())
                         @foreach($user->ads as $ad)
                         <div class="row">
@@ -55,7 +55,7 @@
                     @else
                         <div class="row">
                             <div class="col-md-12">
-                                <p>You have not posted any ad yet.</p>
+                                <p>{{ Lang::get('general.not_posted_ad') }}</p>
                             </div>
                         </div>
                     @endif

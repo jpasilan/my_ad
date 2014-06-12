@@ -3,17 +3,37 @@
 class ProfileController extends BaseController
 {
 
+    /**
+     * Shows the listing of profiles.
+     *
+     */
     public function index()
     {
-        $user = Sentry::getUser();
+        // Show the profile listing for admins.
+    }
 
-        // Redirect to profile update if user has one already.
-        if (!$user->profile) {
+
+    /**
+     * Render the profile of a user with id $id.
+     *
+     * @param int $id
+     * @return mixed
+     */
+    public function show($id)
+    {
+        $user = User::find($id);
+
+        if ( ! $user) {
+            return Redirect::to('dashboard')->withMessage(['danger' => 'User not found.']);
+        } else if ($user->id == Sentry::getUser()->id && ! $user->profile) {
             return Redirect::to('profile/create');
+        } else if ( ! $user->profile) {
+            return Redirect::to('dashboard')->withMessage(['danger' => 'User does not have a profile yet.']);
         }
 
         return View::make('profiles.index', ['user' => $user]);
     }
+
 
     /**
      * Create user profile.
@@ -26,7 +46,7 @@ class ProfileController extends BaseController
 
         // Redirect to profile update if user has one already.
         if ($user->profile) {
-            return Redirect::to('profile/update');
+            return Redirect::to('profile/edit');
         }
 
         if (Request::isMethod('post')) {
@@ -34,58 +54,30 @@ class ProfileController extends BaseController
             $validator = $validate['validator'];
 
             if ($validator->passes()) {
-                $data = $validate['data'];
+                // Save the profile data.
+                $this->save($user, $validate['data']);
 
-                $user->first_name = $data['first_name'];
-                $user->last_name = $data['last_name'];
-                $user->save();
-
-                // Save the profile photo.
-                if (isset($data['photo'])) {
-                    $photo = json_decode($data['photo']);
-                    if (Libraries\Helper\Image::move($photo->name, 'profile')) {
-                        $user->photo()->create([
-                            'original_name' => $photo->original_name,
-                            'name' => $photo->name,
-                            'type' => $photo->type,
-                        ]);
-                    }
-                }
-
-                // Create the Profile object, set the data, then save.
-                $profile = new Profile(Libraries\Helper\Model::buildArray($data,
-                    ['mobile', 'birth_date', 'gender'], true));
-                $user->profile()->save($profile);
-
-                // Save the address data. This will be optional.
-                $address = Libraries\Helper\Model::buildArray($data, [
-                    // TODO: Add the latitude and longitude when working with the Geolocation feature.
-                    'address1', 'address2', 'city', 'province', 'country', 'postal_code'
-                ]);
-                if ( ! empty($address)) {
-                    $user->address()->create($address);
-                }
-
-                return Redirect::to('profile/update')->withMessage(['success' => 'Profile saved.']);
+                return Redirect::to('profile/edit')->withMessage(['success' => 'Profile saved.']);
             }
 
             return Redirect::back()->withErrors($validator)->withInput();
         }
 
-        return View::make('profiles.create', ['user' => $user, 'update' => false]);
+        return View::make('profiles.create', ['user' => $user, 'edit' => false]);
     }
 
+
     /**
-     * Update user profile.
+     * Edit user profile.
      *
      * @return mixed
      */
-    public function update()
+    public function edit()
     {
         $user = Sentry::getUser();
 
         // Redirect to create profile if user has none yet.
-        if (!$user->profile) {
+        if ( ! $user->profile) {
             return Redirect::to('profile/create');
         }
 
@@ -94,49 +86,8 @@ class ProfileController extends BaseController
             $validator = $validate['validator'];
 
             if ($validator->passes()) {
-                $data = $validate['data'];
-
-                // Update the user's full name
-                $user->first_name = $data['first_name'];
-                $user->last_name = $data['last_name'];
-                $user->save();
-
-                // Update or save the profile photo.
-                if (isset($data['photo'])) {
-                    $photo = json_decode($data['photo']);
-                    if (Libraries\Helper\Image::move($photo->name, 'profile')) {
-                        if ($user->photo) {
-                            $user->photo()->update([
-                                'original_name' => $photo->original_name,
-                                'name' => $photo->name,
-                                'type' => $photo->type,
-                            ]);
-                        } else {
-                            $user->photo()->create([
-                                'original_name' => $photo->original_name,
-                                'name' => $photo->name,
-                                'type' => $photo->type,
-                            ]);
-                        }
-                    }
-                }
-
-                // Update profile data
-                $user->profile()->update(Libraries\Helper\Model::buildArray($data,
-                    ['mobile', 'birth_date', 'gender'], true));
-
-                // Update or save the address data. This will be optional.
-                $address = Libraries\Helper\Model::buildArray($data, [
-                    // TODO: Add the latitude and longitude when working with the Geolocation feature.
-                    'address1', 'address2', 'city', 'province', 'country', 'postal_code'
-                ]);
-                if (!empty($address)) {
-                    if ($user->address) {
-                        $user->address()->update($address);
-                    } else {
-                        $user->address()->create($address);
-                    }
-                }
+                // Update the profile data.
+                $this->update($user, $validate['data']);
 
                 return Redirect::back()->withMessage(['success' => Lang::get('flash.profile_updated')]);
             }
@@ -144,13 +95,88 @@ class ProfileController extends BaseController
             return Redirect::back()->withErrors($validator)->withInput();
         }
 
-        return View::make('profiles.create', ['user' => $user, 'update' => true]);
+        return View::make('profiles.create', ['user' => $user, 'edit' => true]);
     }
+
+
+    /**
+     * Update the profile data. This is just a wrapper of the save method.
+     *
+     * @param User $user
+     * @param array $data
+     * @return void
+     */
+    private function update($user, $data)
+    {
+        return $this->save($user, $data, true);
+    }
+
+
+    /**
+     * Save or update the profile data.
+     *
+     * @param User $user
+     * @param array $data
+     * @param bool $isUpdate
+     * @return void
+     */
+    private function save($user, $data, $isUpdate = false)
+    {
+        // Update the user's full name
+        $user->first_name = $data['first_name'];
+        $user->last_name = $data['last_name'];
+        $user->save();
+
+        // Update or save the profile photo.
+        if (isset($data['photo'])) {
+            $photo = json_decode($data['photo']);
+            if (Libraries\Helper\Image::move($photo->name, 'profile')) {
+                if ($isUpdate && $user->photo) {
+                    $user->photo()->update([
+                        'original_name' => $photo->original_name,
+                        'name' => $photo->name,
+                        'type' => $photo->type,
+                    ]);
+                } else {
+                    $user->photo()->create([
+                        'original_name' => $photo->original_name,
+                        'name' => $photo->name,
+                        'type' => $photo->type,
+                    ]);
+                }
+            }
+        }
+
+        // Update or save profile data
+        if ($isUpdate) {
+            $user->profile()->update(Libraries\Helper\Model::buildArray($data,
+                ['mobile', 'birth_date', 'gender'], true));
+        } else {
+            $user->profile()->create(Libraries\Helper\Model::buildArray($data,
+                ['mobile', 'birth_date', 'gender'], true));
+        }
+
+        // Update or save the address data. This will be optional.
+        $address = Libraries\Helper\Model::buildArray($data, [
+            // TODO: Add the latitude and longitude when working with the Geolocation feature.
+            'address1', 'address2', 'city', 'province', 'country', 'postal_code'
+        ]);
+        if ( ! empty($address)) {
+            if ($isUpdate && $user->address) {
+                $user->address()->update($address);
+            } else {
+                $user->address()->create($address);
+            }
+        }
+
+        return;
+    }
+
 
     /**
      * Validate the input data.
      *
-     * @param $input Input array
+     * @param Input $input Input object
      * @return array Returns the validator object and data.
      */
     private function validateInput($input)
