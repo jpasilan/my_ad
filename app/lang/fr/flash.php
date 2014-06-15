@@ -20,6 +20,9 @@ return array(
     'pass_reset'                => 'Restauration du mot de passe',
     'enter_email'               => 'S\'il vous plaît, entrez votre adresse courriel pour recevoir les instructions.',
     'reset_my_pass'             => 'Réinitialiser mon mot de passe',
-    'img_deleted'               => '',
-    'img_not_exist'             => '',
+    'img_deleted'               => 'Image supprimée ',
+    'img_not_exist'             => 'l\'image n\'existe pas d\'image ou il y avait une erreur dans la suppression de l\'image. ',
+    'add_added'                 => '',
+    'user_no_profile'           => '',
+    'profile_saved'             => '',
 );

@@ -22,4 +22,7 @@ return array(
     'reset_my_pass'             => 'Reset My Password',
     'img_deleted'               => 'Image deleted.',
     'img_not_exist'             => 'Image does not exist or there was an error in deleting the image.',
+    'add_added'                 => 'Advertisement successfully added.',
+    'user_no_profile'           => 'User does not have a profile yet.',
+    'profile_saved'             => 'Profile saved.',
 );

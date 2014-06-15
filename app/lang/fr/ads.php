@@ -18,7 +18,9 @@ return array(
     'select_category'       => 'Sélectionnez la catégorie',
     'location'              => 'Emplacement',
     'location_help_text'    => 'Un emplacement est nécessaire pour les annonces immobilières.',
-    'address'               => 'Adresse',
+    'copy_user_address'     => '',
+    'address_1'             => 'Adresse (Ligne 1)',
+    'address_2'             => 'Adresse (ligne 2)',
     'city'                  => 'Ville',
     'state_province'        => 'Province',
     'country'               => 'Pays',
@@ -34,6 +36,8 @@ return array(
     'new'                   => 'Nouveau',
     'used'                  => 'Usagé',
     'certified_used'        => 'Certifiés',
+    'classified_ads'        => 'Petites annonces',
+    'no_ads'                => 'Il n\'y a pas d\'annonces disponibles en ce moment.',
 
     /*
     |--------------------------------------------------------------------------

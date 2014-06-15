@@ -5,17 +5,17 @@
     <div class="col-sm-3">
         <div id="side-affix">
             <ul class="nav list-unstyled">
-                <li><a href="#terms-and-condition">{{ Lang::get('general.terms_and_condition') }}</a></li>
-                <li><a href="#permitted-and-prohibited">{{ Lang::get('general.permitted_prohibited') }}</a></li>
-                <li><a href="#user-submissions">{{ Lang::get('general.user_submissions') }}</a></li>
-                <li><a href="#user-discussion">{{ Lang::get('general.user_discussion') }}</a></li>
-                <li><a href="#use-of-personally">{{ Lang::get('general.use_identifiable_info') }}</a></li>
-                <li><a href="#indemnification">{{ Lang::get('general.idemnification') }}</a></li>
-                <li><a href="#termination">{{ Lang::get('general.termination') }}</a></li>
-                <li><a href="#warranty-disclaimer">{{ Lang::get('general.warranty_disclaimer') }}</a></li>
-                <li><a href="#general">{{ Lang::get('general.general') }}</a></li>
-                <li><a href="#links-to-other">{{ Lang::get('general.links_to_materials') }}</a></li>
-                <li><a href="#notification-of-possible">{{ Lang::get('general.notification_copyright') }}</a></li>
+                <li><a href="#terms-and-condition">{{ Lang::get('terms-condition.terms_and_condition') }}</a></li>
+                <li><a href="#permitted-and-prohibited">{{ Lang::get('terms-condition.permitted_prohibited') }}</a></li>
+                <li><a href="#user-submissions">{{ Lang::get('terms-condition.user_submissions') }}</a></li>
+                <li><a href="#user-discussion">{{ Lang::get('terms-condition.user_discussion') }}</a></li>
+                <li><a href="#use-of-personally">{{ Lang::get('terms-condition.use_identifiable_info') }}</a></li>
+                <li><a href="#indemnification">{{ Lang::get('terms-condition.idemnification') }}</a></li>
+                <li><a href="#termination">{{ Lang::get('terms-condition.termination') }}</a></li>
+                <li><a href="#warranty-disclaimer">{{ Lang::get('terms-condition.warranty_disclaimer') }}</a></li>
+                <li><a href="#general">{{ Lang::get('terms-condition.general') }}</a></li>
+                <li><a href="#links-to-other">{{ Lang::get('terms-condition.links_to_materials') }}</a></li>
+                <li><a href="#notification-of-possible">{{ Lang::get('terms-condition.notification_copyright') }}</a></li>
             </ul>
          </div>
     </div>
@@ -23,91 +23,91 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12" id="scroll-able">
-                    <h1 id="terms-and-condition">{{ Lang::get('general.terms_and_condition') }}</h1>
+                    <h1 id="terms-and-condition">{{ Lang::get('terms-condition.terms_and_condition') }}</h1>
 
-                    <p>{{ Lang::get('general.tc_texts_1') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_1') }}</p>
 
-                    <p>{{ Lang::get('general.tc_texts_2') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_2') }}</p>
 
-                    <p>{{ Lang::get('general.tc_texts_3') }} <a href="{{ URL::to('privacy-policy') }}">{{ Lang::get('general.privacy_policy') }}</a>, {{ Lang::get('general.tc_texts_4') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_3') }} <a href="{{ URL::to('privacy-policy') }}">{{ Lang::get('general.privacy_policy') }}</a>, {{ Lang::get('terms-condition.paragraph_4') }}</p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h3 id="permitted-and-prohibited">{{ Lang::get('general.permitted_prohibited') }}</h3>
+                    <h3 id="permitted-and-prohibited">{{ Lang::get('terms-condition.permitted_prohibited') }}</h3>
 
-                    <p>{{ Lang::get('general.tc_texts_5') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_5') }}</p>
 
-                    <p>{{ Lang::get('general.tc_texts_6') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_6') }}</p>
 
-                    <p>{{ Lang::get('general.tc_texts_7') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_7') }}</p>
 
-                    <p>{{ Lang::get('general.tc_texts_8') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_8') }}</p>
 
-                    <p>{{ Lang::get('general.tc_texts_9') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_9') }}</p>
 
-                    <p>{{ Lang::get('general.tc_texts_10') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_10') }}</p>
 
-                    <p>{{ Lang::get('general.tc_texts_11') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_11') }}</p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h3 id="user-submissions">{{ Lang::get('general.user_submissions') }}</h3>
+                    <h3 id="user-submissions">{{ Lang::get('terms-condition.user_submissions') }}</h3>
 
-                    <p>{{ Lang::get('general.tc_texts_12') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_12') }}</p>
 
-                    <p>{{ Lang::get('general.tc_texts_13') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_13') }}</p>
 
-                    <p>{{ Lang::get('general.tc_texts_14') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_14') }}</p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h3 id="user-discussion">{{ Lang::get('general.user_discussion') }}</h3>
+                    <h3 id="user-discussion">{{ Lang::get('terms-condition.user_discussion') }}</h3>
 
-                    <p>{{ Lang::get('general.tc_texts_15') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_15') }}</p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h3 id="use-of-personally">{{ Lang::get('general.use_identifiable_info') }}</h3>
+                    <h3 id="use-of-personally">{{ Lang::get('terms-condition.use_identifiable_info') }}</h3>
 
-                    <p>{{ Lang::get('general.tc_texts_16') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_16') }}</p>
 
-                    <p>{{ Lang::get('general.tc_texts_17') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_17') }}</p>
 
-                    <p>{{ Lang::get('general.tc_texts_18') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_18') }}</p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h3 id="indemnification">{{ Lang::get('general.idemnification') }}</h3>
+                    <h3 id="indemnification">{{ Lang::get('terms-condition.idemnification') }}</h3>
 
-                    <p>{{ Lang::get('general.tc_texts_19') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_19') }}</p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h3 id="termination">{{ Lang::get('general.termination') }}</h3>
+                    <h3 id="termination">{{ Lang::get('terms-condition.termination') }}</h3>
 
-                    <p>{{ Lang::get('general.tc_texts_20') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_20') }}</p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h3 id="warranty-disclaimer">{{ Lang::get('general.warranty_disclaimer') }}</h3>
+                    <h3 id="warranty-disclaimer">{{ Lang::get('terms-condition.warranty_disclaimer') }}</h3>
 
-                    <p>{{ Lang::get('general.tc_texts_21') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_21') }}</p>
 
-                    <p>{{ Lang::get('general.tc_texts_22') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_22') }}</p>
 
-                    <p>{{ Lang::get('general.tc_texts_23') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_23') }}</p>
 
-                    <p>{{ Lang::get('general.tc_texts_24') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_24') }}</p>
 
-                    <p>{{ Lang::get('general.tc_texts_25') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_25') }}</p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h3 id="general">{{ Lang::get('general.general') }}</h3>
+                    <h3 id="general">{{ Lang::get('terms-condition.general') }}</h3>
 
-                    <p>{{ Lang::get('general.tc_texts_26') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_26') }}</p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h3 id="links-to-other">{{ Lang::get('general.links_to_materials') }}</h3>
+                    <h3 id="links-to-other">{{ Lang::get('terms-condition.links_to_materials') }}</h3>
 
-                    <p>{{ Lang::get('general.tc_texts_27') }}</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_27') }}</p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
 
-                    <h3 id="notification-of-possible">{{ Lang::get('general.notification_copyright') }}</h3>
+                    <h3 id="notification-of-possible">{{ Lang::get('terms-condition.notification_copyright') }}</h3>
 
-                    <p>{{ Lang::get('general.tc_texts_28') }} <a href="#">{{ Lang::get('general.contact_us') }}</a>.</p>
+                    <p>{{ Lang::get('terms-condition.paragraph_28') }} <a href="#">{{ Lang::get('general.contact_us') }}</a>.</p>
                     <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
                 </div>
             </div>

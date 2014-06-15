@@ -33,11 +33,12 @@ return array(
     'model'                 => 'Model',
     'year'                  => 'Year',
     'mileage'               => 'Mileage',
-    'price'                 => 'Price',
     'all'                   => 'All',
     'new'                   => 'New',
     'used'                  => 'Used',
     'certified_used'        => 'Certified Used',
+    'classified_ads'        => 'Classified Ads',
+    'no_ads'                => 'There are no advertisements available at this time.',
 
     /*
     |--------------------------------------------------------------------------

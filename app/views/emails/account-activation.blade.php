@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 </head>
 <body>
-<h2>My-Ad Account Registration</h2>
+<h2>{{ Lang::get('emails.my_ad_reg') }}</h2>
 
 <?php $link = URL::to('confirm', [$activationCode]) ?>
 <p>To activate your account, follow this link: <a href="{{ $link }}">{{ $link }}</a>.</p>

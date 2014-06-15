@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col-md-5 col-md-offset-3">
-        <h3>Classified Ads</h3>
+        <h3>{{ Lang::get('ads.classified_ads') }}</h3>
         <hr />
         @if ($ads && $ads->count())
             @foreach ($ads as $ad)
@@ -16,7 +16,7 @@
             @endforeach
         @else
         <div class="row">
-            <p>There are no advertisements available at this time.</p>
+            <p>{{ Lang::get('ads.no_ads') }}</p>
         </div>
         @endif
     </div>

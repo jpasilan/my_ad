@@ -28,7 +28,7 @@ class ProfileController extends BaseController
         } else if ($user->id == Sentry::getUser()->id && ! $user->profile) {
             return Redirect::to('profile/create');
         } else if ( ! $user->profile) {
-            return Redirect::to('dashboard')->withMessage(['danger' => 'User does not have a profile yet.']);
+            return Redirect::to('dashboard')->withMessage(['danger' => Lang::get('flash.user_no_profile')]);
         }
 
         return View::make('profiles.index', ['user' => $user]);
@@ -57,7 +57,7 @@ class ProfileController extends BaseController
                 // Save the profile data.
                 $this->save($user, $validate['data']);
 
-                return Redirect::to('profile/edit')->withMessage(['success' => 'Profile saved.']);
+                return Redirect::to('profile/edit')->withMessage(['success' => Lang::get('flash.profile_saved')]);
             }
 
             return Redirect::back()->withErrors($validator)->withInput();

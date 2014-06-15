@@ -135,7 +135,7 @@ class AdController extends BaseController
                 $category = AdCategory::find($data['ad_category_id']);
                 $category->ads()->save($ad);
 
-                return Redirect::back()->withMessage(['success' => 'Advertisement successfully added.']);
+                return Redirect::back()->withMessage(['success' => Lang::get('flash.add_added')]);
             }
 
             return Redirect::back()->withErrors($validator)->withInput();
