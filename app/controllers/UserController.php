@@ -237,16 +237,6 @@ class UserController extends BaseController
             'user' => Sentry::getUser(),
         ]);
     }
-    
-    /**
-     * Render search vehicle.
-     *
-     * @return mixed
-     */
-    public function searchVehicle()
-    {
-        return View::make('users.search-vehicles');
-    }
-    
+
 
 } 

@@ -5,7 +5,7 @@
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="full-name">{{ $user->first_name }} {{ $user->last_name }}</h1>
+                <h2 class="full-name">{{ $user->first_name }} {{ $user->last_name }}</h1>
                 <p>
                     <strong>{{ Lang::get('profile.joined') }}</strong>
                     <span class="moment-humanize">{{ $user->created_at }}</span>
@@ -75,20 +75,13 @@
                             </div>
                         </div>
                         {{-- Show only the 12 recent ads. That is 3 rows with 4 ads each. --}}
-                        <?php $rows = $postedAds > 12 ? 4 : ceil($postedAds / 4) ?>
-                        @for ($i = 1; $i <= $rows; $i++)
                         <div class="row">
-                            <?php
-                                $recentAds = $i == 1
-                                    ? $user->ads()->whereStatus('open')->orderBy('created_at', 'DESC')->take(4)->get()
-                                    : $user->ads()->whereStatus('open')->orderBy('created_at', 'DESC')
-                                        ->skip(($i - 1)*4)->take(4)->get();
-                            ?>
+                            <?php $recentAds = $user->ads()->whereStatus('open')->recent()->limit(12)->get(); ?>
                             @foreach ($recentAds as $ad)
                             <div class="col-md-3">
                                 <?php $image = $ad->photos()->first() ?>
                                 <img src="{{ URL::asset(\Libraries\Helper\Image::getPath($image->name, 'ad')) }}"
-                                    class="img-responsive"/>
+                                     class="img-responsive"/>
                                 <div class="thumbnail">
                                     <div class="caption">
                                         <a href="{{ URL::to('ad', $ad->id) }}"><h5>{{ $ad->title }}</h5></a>
@@ -98,7 +91,6 @@
                             </div>
                             @endforeach
                         </div>
-                        @endfor
                     </div>
                 </div>
                 @else

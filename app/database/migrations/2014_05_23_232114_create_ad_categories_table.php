@@ -22,20 +22,25 @@ class CreateAdCategoriesTable extends Migration {
         if (Schema::hasTable('ad_categories')) {
             $categories = [
                 [
-                    'parent' => 'general',
+                    'parent' => 'classified_ads',
                     'sub' => [
                         'appliances',
                         'arts_and_crafts',
-                        'audio_and_video',
                         'books',
                         'clothing',
                         'computers',
+                        'electronics',
+                        'food',
                         'furniture',
                         'health_and_beauty',
+                        'jobs',
                         'pets',
                         'phones_and_handhelds',
+                        'services',
                         'sports_and_hobbies',
-                        'toys_and_videos'
+                        'toys_and_videos',
+                        'travel',
+                        'others',
                     ],
                 ],
                 [
@@ -48,7 +53,7 @@ class CreateAdCategoriesTable extends Migration {
                         'house_and_lot',
                         'land_and_farm',
                         'real_estate_rent',
-                        'rooms_and_beds'
+                        'rooms_and_beds',
                     ],
                 ],
                 [

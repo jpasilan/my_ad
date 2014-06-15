@@ -46,6 +46,9 @@ return array(
     'change_password'       => 'Change Password',
     'posted_ads'            => 'Posted Ads',
     'not_posted_ad'         => 'You have not posted any ad yet.',
+    'no_ads_found'          => 'No advertisements found at this time.',
+    'posted_by'             => 'Posted by',
+
 
     'address_1'             => 'Address (Line 1)',
     'address_2'             => 'Address (Line 2)',

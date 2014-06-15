@@ -45,7 +45,7 @@ return array(
     |--------------------------------------------------------------------------
     */
 
-    'general'               => 'General',
+    'classified_ads'        => 'Classified Ads',
     'real_estate'           => 'Real Estate',
     'vehicles'              => 'Vehicle|Vehicles',
     'electronics'           => 'Electronics',
@@ -86,6 +86,4 @@ return array(
     'vans'                  => 'Van|Vans',
     'vehicles_rent'         => 'Vehicles For Rent',
     'other_vehicles'        => 'Other Vehicles',
-    'recreational_vehicles' => 'Recreational Vehicles',
-    'off_road'              => 'Off Road',
 );
