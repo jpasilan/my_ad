@@ -2,8 +2,9 @@
 
 @section('content')
 <div id="static-pages" class="row">
-    <div class="col-sm-3">
-        <div id="side-affix">
+    <h1 class="with-affix red">{{ Lang::get('general.terms_and_condition') }}</h1>
+    <div class="col-sm-3 no-padding-left">
+        <div id="side-affix" class="red-affix">
             <ul class="nav list-unstyled">
                 <li><a href="#terms-and-condition">{{ Lang::get('general.terms_and_condition') }}</a></li>
                 <li><a href="#permitted-and-prohibited">{{ Lang::get('general.permitted_prohibited') }}</a></li>
@@ -21,9 +22,8 @@
     </div>
     <div class="col-sm-9">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row" id="terms-and-condition">
                 <div class="col-sm-12" id="scroll-able">
-                    <h1 id="terms-and-condition">{{ Lang::get('general.terms_and_condition') }}</h1>
 
                     <p>{{ Lang::get('general.tc_texts_1') }}</p>
 
@@ -108,7 +108,7 @@
                     <h3 id="notification-of-possible">{{ Lang::get('general.notification_copyright') }}</h3>
 
                     <p>{{ Lang::get('general.tc_texts_28') }} <a href="#">{{ Lang::get('general.contact_us') }}</a>.</p>
-                    <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
+                    <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a><a class="contact-us" href="#">{{ ucfirst(Lang::get('general.contact_us')) }}</a></p>
                 </div>
             </div>
 

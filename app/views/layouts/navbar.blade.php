@@ -4,9 +4,10 @@
             <div class="col-sm-2">
                 <div class="navbar-header">
                     <a href="{{ URL::to('/') }}" class="navbar-brand"><img id="header-logo" src="{{ URL::asset('assets/images/'.App::getLocale().'/logo.png') }}" height="147"></a>
+                    <span class="lang-switch"><a href="#">FR</a> - <a href="#">EN</a></span>
                 </div>
             </div>
-            <div class="col-sm-10 no-padding-right">
+            <div class="col-sm-10">
                 <div class="container-fluid">
                     <?php $loggedIn = Sentry::check() ?>
                     <div class="row inline-login-form{{ isset($hide_login) || $loggedIn ? ' hide-sign-in' : ''}}">
@@ -14,7 +15,7 @@
                             {{ Form::email('email', '', ['placeholder' => 'Email', 'class' => 'form-control']) }}
                             {{ Form::password('password', ['placeholder' => Lang::get('general.password'), 'class' => 'form-control']) }}
                             {{ Form::submit(Lang::get('general.sign_in'), ['class' => 'btn btn-primary']) }}
-                            <a href="{{ URL::to('register') }}" class="btn btn-register" role="button">{{ Lang::get('general.register') }}</a>
+                            <a href="{{ URL::to('register') }}" class="btn btn-yellow" role="button">{{ Lang::get('general.register') }}</a>
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="checkbox remember"><label>{{ Form::checkbox('remember_me') }} <span class="remember-text">{{ Lang::get('general.remember_me') }}</span></label></div>
@@ -41,6 +42,7 @@
                     </div>
                     <div class="row">
                         <ul class="nav nav-tabs navbar-right nav-fix">
+                            <!--
                             <?php
                                 $categoryRequest = Request::query('category', 'classified_ads');
 
@@ -68,6 +70,19 @@
                                 </a>
                             </li>
                             <li><a href="{{ URL::to('/') }}">{{ Lang::get('general.my_ad') }}</a></li>
+                            -->
+                            <li>
+                                <a href="#">Garage Sale</a>
+                            </li>
+                            <li>
+                                <a href="#">Flea Market</a>
+                            </li>
+                            <li>
+                                <a href="#">Flyers</a>
+                            </li>
+                            <li>
+                                <a href="#">My Account</a>
+                            </li>
                             @if ($loggedIn)
                             <li>
                                 <a href="{{ URL::to('ad/create') }}">{{ Lang::get('ads.post_an_ad') }}</a>

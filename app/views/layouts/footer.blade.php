@@ -13,7 +13,7 @@
                         <h4>Info</h4>
                     </div>
                     <div class="col-sm-3 text-left">
-                        <h4>{{ Lang::get('general.contact_us') }}</h4>
+                        <h4>{{ ucfirst(Lang::get('general.contact_us')) }}</h4>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-danger btn-very-red pull-right">{{ Lang::get('general.send') }}</button>
+                            <button type="submit" class="btn btn-danger btn-red pull-right">{{ Lang::get('general.send') }}</button>
                         </form>
                     </div>
                 </div>

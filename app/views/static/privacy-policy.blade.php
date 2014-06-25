@@ -2,8 +2,9 @@
 
 @section('content')
 <div id="static-pages" class="row">
-    <div class="col-sm-3">
-        <div id="side-affix">
+    <h1 class="with-affix">{{ Lang::get('general.privacy_policy') }}</h1>
+    <div class="col-sm-3 no-padding-left">
+        <div id="side-affix" class="blue-affix">
             <ul class="nav list-unstyled">
                 <li><a href="#privacy-policy">{{ Lang::get('general.privacy_policy') }}</a></li>
                 <li><a href="#sites-covered">{{ Lang::get('general.sites_covered') }}</a></li>
@@ -28,10 +29,9 @@
          </div>
     </div>
     <div class="col-sm-9" data-spy="scroll" data-target="#side-affix">
-        <div class="container-fluid" >
-            <h1 id="privacy-policy">{{ Lang::get('general.privacy_policy') }}</h1>
-            <div class="row">
-                <div class="col-sm-12">
+        <div class="container-fluid">
+            <div class="row" id="privacy-policy">
+                <div class="col-sm-12" id="scroll-able">
                     <p>
                         {{ Lang::get('general.pp_texts_1') }} <a href="/contact">{{ Lang::get('general.contact_us') }}</a>; {{ Lang::get('general.pp_texts_2') }}
                     </p>
