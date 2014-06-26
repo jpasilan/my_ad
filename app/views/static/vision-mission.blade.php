@@ -1,26 +1,38 @@
 @extends('layouts.master')
 
 @section('content')
-<div id="static-pages" class="row">
-    <div class="col-sm-3">
-        <ul class="nav nav-pills nav-stacked">
-            <li><a href="{{ URL::to('about-us') }}">{{ Lang::get('general.about_us') }}</a></li>
-            <li class="active"><a href="{{ URL::to('/vision-mission') }}">{{ Lang::get('general.vission_mission') }}</a></li>
-            <li><a href="{{ URL::to('our-story') }}">{{ Lang::get('general.our_story') }}</a></li>
-            <li><a href="{{ URL::to('privacy-policy') }}">{{ Lang::get('general.privacy_policy') }}</a></li>
-            <li><a href="{{ URL::to('terms-and-condition') }}">{{ Lang::get('general.terms_and_conditions') }}</a></li>
-        </ul>
+<div id="static-pages">
+    <div class="row">
+        <div class="col-md-5">
+                <h1>{{ Lang::get('general.vision_mission') }}</h1>
+        </div>
+        <div class="col-md-7">
+                <nav class="pull-right">
+                    <a href="{{ URL::to('vision-mission') }}">{{ Lang::get('general.vision_mission') }}</a>
+                    <a href="{{ URL::to('our-story') }}">{{ Lang::get('general.our_story') }}</a>
+                    <a href="{{ URL::to('privacy-policy') }}">{{ Lang::get('general.privacy_policy') }}</a>
+                    <a href="{{ URL::to('terms-and-condition') }}">{{ Lang::get('general.terms_and_conditions') }}</a>
+                </nav>
+        </div>
     </div>
-    <div class="col-sm-9">
-        <div class="container-fluid">
-            <div class="row text-center">
-                <h1>Vision</h1>
-                <p class="lead">
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et orci interdum, placerat felis eget, blandit elit."
+    <div class="row">
+        <div class="team-profile clearfix">
+            <div class="col-sm-12 no-padding-left">
+                <h2>Vision</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et orci interdum, placerat felis eget, blandit elit. Phasellus velit ligula, iaculis a velit vel, accumsan suscipit massa. Vivamus aliquam venenatis condimentum. Curabitur ut sapien sed libero bibendum tristique ut eu libero. Mauris pretium imperdiet velit eu congue. Suspendisse vitae diam augue. Proin porta est vitae luctus facilisis. Morbi scelerisque at arcu ut iaculis. Proin aliquet erat vel enim vehicula eleifend. Aliquam ut nunc mi. Mauris molestie condimentum tellus, eget feugiat felis tempor ac. Curabitur sed porttitor neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc dignissim in tortor non facilisis. Phasellus id purus nunc.
                 </p>
-                <h1>Mission</h1>
-                <p class="lead">
-                    "Ut feugiat elit vel ipsum egestas hendrerit. Etiam quis felis nec augue consequat lacinia in a nunc. Proin vel augue risus."
+                <p>
+                    Ut feugiat elit vel ipsum egestas hendrerit. Etiam quis felis nec augue consequat lacinia in a nunc. Proin vel augue risus. Aenean urna erat, consequat vel augue in, rutrum auctor diam. Aenean egestas tortor quis est euismod, et facilisis tortor blandit. Nullam suscipit odio odio, eleifend congue nibh laoreet vel. Phasellus ut nulla ac arcu blandit sollicitudin in eu tortor. Vestibulum mattis risus congue nisl faucibus lacinia. In aliquet tellus eu fringilla sagittis. Cras dapibus ipsum sit amet odio facilisis eleifend id vitae nunc. Sed libero lacus, varius eget turpis nec, rutrum semper erat.
+                </p>
+            </div>
+            <div class="col-sm-12 no-padding-left">
+                <h2>Mission</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et orci interdum, placerat felis eget, blandit elit. Phasellus velit ligula, iaculis a velit vel, accumsan suscipit massa. Vivamus aliquam venenatis condimentum. Curabitur ut sapien sed libero bibendum tristique ut eu libero. Mauris pretium imperdiet velit eu congue. Suspendisse vitae diam augue. Proin porta est vitae luctus facilisis. Morbi scelerisque at arcu ut iaculis. Proin aliquet erat vel enim vehicula eleifend. Aliquam ut nunc mi. Mauris molestie condimentum tellus, eget feugiat felis tempor ac. Curabitur sed porttitor neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc dignissim in tortor non facilisis. Phasellus id purus nunc.
+                </p>
+                <p>
+                    Ut feugiat elit vel ipsum egestas hendrerit. Etiam quis felis nec augue consequat lacinia in a nunc. Proin vel augue risus. Aenean urna erat, consequat vel augue in, rutrum auctor diam. Aenean egestas tortor quis est euismod, et facilisis tortor blandit. Nullam suscipit odio odio, eleifend congue nibh laoreet vel. Phasellus ut nulla ac arcu blandit sollicitudin in eu tortor. Vestibulum mattis risus congue nisl faucibus lacinia. In aliquet tellus eu fringilla sagittis. Cras dapibus ipsum sit amet odio facilisis eleifend id vitae nunc. Sed libero lacus, varius eget turpis nec, rutrum semper erat.
                 </p>
             </div>
         </div>

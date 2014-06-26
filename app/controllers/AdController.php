@@ -36,19 +36,38 @@ class AdController extends BaseController
 	 */
 	public function index()
 	{
-        $ads = null;
-        if (Input::has('owned') && Input::get('owned')) {
-            $ads = Sentry::getUser()->ads;
-        } else if (Input::has('owner') && $id = Input::get('owner')) {
-            $user = User::find($id);
-            if ($user) {
-                $ads = $user->ads;
+        $ads = Ad::search()->recent()->get();
+
+        $category = [
+            'parent'    => 'classified_ads',
+            'child'     => null,
+        ];
+        if (Input::has('category')) {
+            $category = Input::get('category');
+
+            // Get the category model.
+            if (is_numeric($category)) {
+                $adCategory = AdCategory::find((int)$category);
+            } else {
+                $adCategory = AdCategory::where('name', '=', $category)->first();
             }
-        } else {
-            $ads = Ad::all();
+
+            // Set the parent and child category array.
+            if ($adCategory) {
+                $parent = $adCategory->parent ? $adCategory->parent->name : $adCategory->name;
+                $child = $adCategory->parent ? $adCategory->name : null;
+
+                $category = [
+                    'parent'    => $parent,
+                    'child'     => $child,
+                ];
+            }
         }
 
-		return View::make('ads.index', ['ads' => $ads]);
+		return View::make('ads.index', [
+            'ads'       => $ads,
+            'category'  => $category,
+        ]);
 	}
 
 
@@ -81,7 +100,7 @@ class AdController extends BaseController
                 $ad = Ad::create([
                     'title'         => $data['title'],
                     'price'         => $data['price'],
-                    'description'   => nl2br($data['description']), // TODO: Find a better implementation.
+                    'description'   => $data['description'],
                     'ad_condition'  => $data['ad_condition'],
                     'copy_address'  => isset($data['copy_address']) && $data['copy_address'] ? 1 : 0,
                     'status'        => 'open',
@@ -93,33 +112,24 @@ class AdController extends BaseController
                     if (Libraries\Helper\Image::move($image->name, 'ad')) {
                         $ad->photos()->create([
                             'original_name' =>  $image->original_name,
-                            'name' => $image->name,
-                            'type' => $image->type,
+                            'name'          => $image->name,
+                            'type'          => $image->type,
                         ]);
                     }
                 }
 
-                $rawAddress = (isset($data['copy_address']) && $data['copy_address'])
-                    ? [
-                        'address1' => $user->address->address1,
-                        'address2' => $user->address->address2,
-                        'city' => $user->address->city,
-                        'province' => $user->address->province,
-                        'country' => $user->address->country,
-                        'postal_code' => $user->address->postal_code,
-                        // TODO: Add the latitude and longitude when working with the Geolocation feature.
-                        //'latitude' => $user->address->latitude,
-                        //'longitude' => $user->address->longitude,
-                    ]
-                    : [
-                        'address1' => $data['address1'],
-                        'address2' => $data['address2'],
-                        'city' => $data['city'],
-                        'province' => $data['province'],
-                        'country' => $data['country'],
-                        'postal_code' => $data['postal_code'],
-                        // TODO: Add the latitude and longitude when working with the Geolocation feature.
-                    ];
+                $copyAddress = (bool)(isset($data['copy_address']) && $data['copy_address']);
+                $rawAddress = [
+                    'address1'      => $copyAddress ? $user->address->address1 : $data['address1'],
+                    'address2'      => $copyAddress ? $user->address->address2 : $data['address2'],
+                    'city'          => $copyAddress ? $user->address->city : $data['city'],
+                    'province'      => $copyAddress ? $user->address->province : $data['province'],
+                    'country'       => $copyAddress ? $user->address->country : $data['country'],
+                    'postal_code'   => $copyAddress ? $user->address->postal_code : $data['postal_code'],
+                    // TODO: Add the latitude and longitude when working with the Geolocation feature.
+                    // 'latitude'    => $user->address->latitude,
+                    // 'longitude'   => $user->address->longitude,
+                ];
                 $address = Libraries\Helper\Model::buildArray($rawAddress, [
                     // TODO: Add the latitude and longitude when working with the Geolocation feature.
                     'address1', 'address2', 'city', 'province', 'country', 'postal_code'

@@ -10,7 +10,6 @@ return array(
     'sign_in_using'         => 'Connectez-vous en utilisant',
     'reviews'               => 'Commentaires',
     'contact_us'            => 'Contactez-nous',
-    'search_now'            => 'Rechercher Maintenant',
     'password'              => 'Mot de passe',
     'post_an_ad'            => 'Pubier une annonce',
     'about_us'              => 'Qui sommes-nous',
@@ -57,7 +56,7 @@ return array(
     'update'                => '',
     'save'                  => '',
     'back_to_top'           => 'Haut de Page',
-    'vission_mission'       => 'Vision et Mission',
+    'vision_mission'        => 'Vision et Mission',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,5 +64,8 @@ return array(
     |--------------------------------------------------------------------------
     */
     
-    'classifieds'           => 'Petites Annonces',
+    'garage_sale'           => '',
+    'flea_market'           => '',
+    'flyers'                => '',
+    'my_account'            => ''
 );

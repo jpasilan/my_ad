@@ -1,6 +1,3 @@
-@extends('layouts.master')
-
-@section('content')
 <div class="row">
     <div class="col-md-6">
         <div class="container-fluid ctm-categories">
@@ -62,16 +59,38 @@
             </div>
         </div>
     </div>
-    @yield('search-category-form')
-    <div class="col-md-2 ads-on-side no-padding-right">
-        <img src="assets/css/images/noad-thumb.png" class="img-responsive"/>  
-        <img src="assets/css/images/noad-thumb.png" class="img-responsive"/>  
-        <img src="assets/css/images/noad-thumb.png" class="img-responsive"/>          
+    <div class="col-md-6">
+        <div class="row well well-lg">
+            <div class="col-sm-12">
+                {{ Form::open(['url' => 'ad', 'method' => 'get', 'class' => 'form', 'role' => 'form']) }}
+                    <div class="form-group">
+                        {{ Form::text('title', Input::get('title') ? : '',
+                            ['class' => 'form-control', 'placeholder' => 'Title']) }}
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                {{ Form::text('price_low', Input::get('price_low') ? : '',
+                                    ['class' => 'form-control', 'placeholder' => 'Lowest Price']) }}
+                            </div>
+                            <div class="col-sm-6">
+                                {{ Form::text('price_high', Input::get('price_high') ? : '',
+                                    ['class' => 'form-control', 'placeholder' => 'Highest Price']) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ Form::select('condition',
+                            ['' => Lang::get('ads.select_condition'), 'used' => Lang::get('ads.used'),
+                            'brand_new' => Lang::get('ads.brand_new')], Input::get('condition') ? : '',
+                            ['class' => 'form-control combobox', 'id' => 'ad-condition', 'autocomplete' => 'off']) }}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::submit(Lang::get('general.search'),
+                            ['class' => 'btn btn-danger btn-very-red pull-right']) }}
+                    </div>
+                {{ Form::close() }}
+            </div>
+        </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-sm-12">
-        <img src="assets/css/images/google-map.png" class="img-responsive content-map" />
-    </div>
-</div>
-@stop

@@ -13,7 +13,7 @@
                         <h4>Info</h4>
                     </div>
                     <div class="col-sm-3 text-left">
-                        <h4>{{ Lang::get('general.contact_us') }}</h4>
+                        <h4>{{ ucfirst(Lang::get('general.contact_us')) }}</h4>
                     </div>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                         <div>
                             <ul class="list-unstyled">
                                 <li><a href="{{ URL::to('about-us') }}">{{ Lang::get('general.about_us') }}</a></li>
-                                <li><a href="{{ URL::to('/vision-mission') }}">{{ Lang::get('general.vission_mission') }}</a></li>
+                                <li><a href="{{ URL::to('/vision-mission') }}">{{ Lang::get('general.vision_mission') }}</a></li>
                                 <li><a href="{{ URL::to('our-story') }}">{{ Lang::get('general.our_story') }}</a></li>
                                 <li><a href="{{ URL::to('privacy-policy') }}">{{ Lang::get('general.privacy_policy') }}</a></li>
                                 <li><a href="{{ URL::to('terms-and-condition') }}">{{ Lang::get('general.terms_and_conditions') }}</a></li>
@@ -93,7 +93,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-danger btn-very-red pull-right">{{ Lang::get('general.send') }}</button>
+                            <button type="submit" class="btn btn-danger btn-red pull-right">{{ Lang::get('general.send') }}</button>
                         </form>
                     </div>
                 </div>

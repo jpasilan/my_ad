@@ -53,6 +53,9 @@
                         jQuery(el).text(dt.fromNow());
                     }
                 });
+                
+                // Enable Bootstrap tooltip
+                jQuery("[data-toggle='tooltip']").tooltip()
             });
         </script>
         @yield('more-footer-scripts')

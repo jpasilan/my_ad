@@ -10,7 +10,6 @@ return array(
     'sign_in_using'         => 'Sign in using',
     'reviews'               => 'Reviews',
     'contact_us'            => 'Contact Us',
-    'search_now'            => 'Search Now',
     'password'              => 'Password',
     'post_an_ad'            => 'Post an Ad',
     'about_us'              => 'About Us',
@@ -46,6 +45,9 @@ return array(
     'change_password'       => 'Change Password',
     'posted_ads'            => 'Posted Ads',
     'not_posted_ad'         => 'You have not posted any ad yet.',
+    'no_ads_found'          => 'No advertisements found at this time.',
+    'posted_by'             => 'Posted by',
+
 
     'address_1'             => 'Address (Line 1)',
     'address_2'             => 'Address (Line 2)',
@@ -57,7 +59,7 @@ return array(
     'update'                => 'Update',
     'save'                  => 'Save',
     'back_to_top'           => 'Back to top',
-    'vission_mission'       => 'Vission Mission',
+    'vision_mission'        => 'Vission Mission',
     
     /*
     |--------------------------------------------------------------------------
@@ -65,5 +67,8 @@ return array(
     |--------------------------------------------------------------------------
     */
     
-    'classifieds'           => 'Classifieds',
+    'garage_sale'           => 'Garage Sale',
+    'flea_market'           => 'Flea Market',
+    'flyers'                => 'Flyers',
+    'my_account'            => 'My Account'
 );
