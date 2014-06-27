@@ -1,23 +1,5 @@
 <footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-sm-3 text-left">
-                        <h4>{{ Lang::get('general.reviews') }}</h4>
-                    </div>
-                    <div class="col-sm-3 text-left">
-                        <h4>{{ Lang::get('general.my_ad') }}</h4>
-                    </div>
-                    <div class="col-sm-3 text-left">
-                        <h4>Info</h4>
-                    </div>
-                    <div class="col-sm-3 text-left">
-                        <h4>{{ ucfirst(Lang::get('general.contact_us')) }}</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="ft-h-container">
     </div>
     <hr />
     <div class="container">
@@ -25,12 +7,14 @@
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-sm-3 text-left">
+                        <h4 class="ft-headings">{{ Lang::get('general.reviews') }}</h4>
                         <p>"Lorem ipsum dolor sit amet, dicat mollis deseruisse ea per, habemus fuisset reformidans per at. Vel graeco scriptorem in, eu mea diceret utroque pertinacia, sea dolor nusquam dissentiet et."</p>
                         <p>~ Bryan Adams</p>
                         <p>"Minim tritani no ius, vel alterum posidonium deterruisset an. Per eu volutpat efficiantur mediocritatem, mel an facer virtute constituto. Nec id laudem habemus iracundia."</p>
                         <p>~ Celine Dion</p>
                     </div>
                     <div class="col-sm-3 text-left">
+                        <h4 class="ft-headings">{{ Lang::get('general.my_ad') }}</h4>
                         <ul class="list-unstyled ctm-sitemap-list">
                             <li>{{ Lang::get('general.my_ad') }}</li>
                             <li>{{ Lang::get('general.post_an_ad') }}</li>
@@ -56,6 +40,7 @@
                         </ul>
                     </div>
                     <div class="col-sm-3 text-left">
+                        <h4 class="ft-headings">Info</h4>
                         <div>
                             <ul class="list-unstyled">
                                 <li><a href="{{ URL::to('about-us') }}">{{ Lang::get('general.about_us') }}</a></li>
@@ -75,6 +60,7 @@
                         </div>
                     </div>
                     <div class="col-sm-3">
+                        <h4 class="ft-headings">{{ ucfirst(Lang::get('general.contact_us')) }}</h4>
                         <form role="form">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="form-contact-name" placeholder="{{ Lang::get('general.name') }}">

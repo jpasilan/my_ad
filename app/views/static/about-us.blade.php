@@ -6,7 +6,7 @@
         <div class="col-md-5">
                 <h1>About Us</h1>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-7 {{ App::getLocale() }}">
                 <nav class="pull-right">
                     <a href="{{ URL::to('vision-mission') }}">Vision Mission</a>
                     <a href="{{ URL::to('our-story') }}">Our Story</a>

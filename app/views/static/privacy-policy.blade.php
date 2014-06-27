@@ -3,7 +3,7 @@
 @section('content')
 <div id="static-pages" class="row">
     <h1 class="with-affix">{{ Lang::get('general.privacy_policy') }}</h1>
-    <div class="col-sm-3 no-padding-left">
+    <div class="col-sm-3 no-padding-left hidden-sm hidden-xs">
         <div id="side-affix" class="blue-affix">
             <ul class="nav list-unstyled">
                 <li><a href="#privacy-policy">{{ Lang::get('general.privacy_policy') }}</a></li>
@@ -38,23 +38,23 @@
                     <p>
                         {{ Lang::get('general.pp_texts_3') }}
                     </p>
-                    <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
+                    <p><a href="#header-logo-{{ App::getLocale() }}">{{ Lang::get('general.back_to_top') }}</a></p>
 
                     <h3 id="sites-covered">{{ Lang::get('general.sites_covered') }}</h3>
                     <p>{{ Lang::get('general.pp_texts_4') }}</p>
-                    <p><a href="#header-logo">Back to top</a></p>
+                    <p><a href="#header-logo-{{ App::getLocale() }}">Back to top</a></p>
 
                     <h3 id="childrens-privacy">{{ Lang::get('general.childrens_privacy') }}</h3>
                     <p>
                     {{ Lang::get('general.pp_texts_5') }}
                     </p>
-                    <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
+                    <p><a href="#header-logo-{{ App::getLocale() }}">{{ Lang::get('general.back_to_top') }}</a></p>
 
                     <h3 id="links-to">{{ Lang::get('general.links_non_op_websites') }}</h3>
                     <p>
                     {{ Lang::get('general.pp_texts_6') }}
                     </p>
-                    <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
+                    <p><a href="#header-logo-{{ App::getLocale() }}">{{ Lang::get('general.back_to_top') }}</a></p>
 
                     <h3 id="types-of">{{ Lang::get('general.types_of_info') }}</h3>
 
@@ -62,19 +62,19 @@
                     <p>
                     {{ Lang::get('general.pp_texts_7') }}
                     </p>
-                    <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
+                    <p><a href="#header-logo-{{ App::getLocale() }}">{{ Lang::get('general.back_to_top') }}</a></p>
 
                     <h4 id="aggregate-information">{{ Lang::get('general.aggregate_info') }}</h4>
                     <p>
                     {{ Lang::get('general.pp_texts_8') }}
                     </p>
-                    <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
+                    <p><a href="#header-logo-{{ App::getLocale() }}">{{ Lang::get('general.back_to_top') }}</a></p>
 
                     <h4 id="log-files">{{ Lang::get('general.log_files') }}</h4>
                     <p>
                     {{ Lang::get('general.pp_texts_9') }}
                     </p>
-                    <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
+                    <p><a href="#header-logo-{{ App::getLocale() }}">{{ Lang::get('general.back_to_top') }}</a></p>
 
                     <h4 id="cookies">{{ Lang::get('general.cookies') }}</h4>
                     <p>
@@ -83,25 +83,25 @@
                     <p>
                     {{ Lang::get('general.pp_texts_11') }}
                     </p>
-                    <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
+                    <p><a href="#header-logo-{{ App::getLocale() }}">{{ Lang::get('general.back_to_top') }}</a></p>
 
                     <h4 id="beacons">{{ Lang::get('general.web_beacons') }}</h4>
                     <p>
                     {{ Lang::get('general.pp_texts_12') }}
                     </p>
-                    <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
+                    <p><a href="#header-logo-{{ App::getLocale() }}">{{ Lang::get('general.back_to_top') }}</a></p>
 
                     <h4 id="personal-information">{{ Lang::get('general.personal_info') }}</h4>
                     <p>
                     {{ Lang::get('general.pp_texts_13') }}
                     </p>
-                    <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
+                    <p><a href="#header-logo-{{ App::getLocale() }}">{{ Lang::get('general.back_to_top') }}</a></p>
 
                     <h4 id="members-only-web">{{ Lang::get('general.members_only_sites') }}</h4>
                     <p>
                     {{ Lang::get('general.pp_texts_14') }}
                     </p>
-                    <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
+                    <p><a href="#header-logo-{{ App::getLocale() }}">{{ Lang::get('general.back_to_top') }}</a></p>
 
                     <h3 id="how-we-use">{{ Lang::get('general.how_we_use_info') }}</h3>
                     <p>
@@ -113,7 +113,7 @@
                     <p>
                     {{ Lang::get('general.pp_texts_17') }}
                     </p>
-                    <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
+                    <p><a href="#header-logo-{{ App::getLocale() }}">{{ Lang::get('general.back_to_top') }}</a></p>
 
                     <h3 id="information-sharing">{{ Lang::get('general.info_sharing') }}</h3>
                     <p>
@@ -137,19 +137,19 @@
                     <p>
                     {{ Lang::get('general.pp_texts_24') }}
                     </p>
-                    <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
+                    <p><a href="#header-logo-{{ App::getLocale() }}">{{ Lang::get('general.back_to_top') }}</a></p>
 
                     <h3 id="access-to-and-accuracy">{{ Lang::get('general.access_accuracy') }}</h3>
                     <p>
                     {{ Lang::get('general.pp_texts_25') }}
                     </p>
-                    <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
+                    <p><a href="#header-logo-{{ App::getLocale() }}">{{ Lang::get('general.back_to_top') }}</a></p>
 
                     <h3 id="security">{{ Lang::get('general.security') }}</h3>
                     <p>
                     {{ Lang::get('general.pp_texts_26') }}
                     </p>
-                    <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
+                    <p><a href="#header-logo-{{ App::getLocale() }}">{{ Lang::get('general.back_to_top') }}</a></p>
 
                     <h3 id="opting-out">{{ Lang::get('general.opting_out') }}</h3>
                     <p>
@@ -158,7 +158,7 @@
                     <p>
                     {{ Lang::get('general.pp_texts_28') }} <a href="/contact">{{ Lang::get('general.contact_us') }}</a>.
                     </p>
-                    <p><a href="#header-logo">{{ Lang::get('general.back_to_top') }}</a></p>
+                    <p><a href="#header-logo-{{ App::getLocale() }}">{{ Lang::get('general.back_to_top') }}</a></p>
                 </div>
             </div>
         </div>

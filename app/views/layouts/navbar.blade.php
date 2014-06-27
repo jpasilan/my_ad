@@ -1,9 +1,9 @@
-<nav class="navbar navbar-static-top" role="navigation">
+<nav id="navbar-{{ App::getLocale() }}" class="navbar navbar-static-top" role="navigation">
     <div class="container">
         <div class="row">
             <div class="col-sm-2">
                 <div class="navbar-header">
-                    <a href="{{ URL::to('/') }}" class="navbar-brand"><img id="header-logo" src="{{ URL::asset('assets/images/'.App::getLocale().'/logo.png') }}" height="147"></a>
+                    <a href="{{ URL::to('/') }}" class="navbar-brand"><img id="header-logo-{{ App::getLocale() }}" src="{{ URL::asset('assets/images/'.App::getLocale().'/logo.png') }}" height="147"></a>
                     <span class="lang-switch"><a href="#">FR</a> - <a href="#">EN</a></span>
                 </div>
             </div>

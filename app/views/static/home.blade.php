@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-sm-11">
+    <div class="col-md-11">
         <div class="paid-ad-slide">
             <ul>
                 <li class="prev"></li>
@@ -138,13 +138,13 @@
     </div>
 </div>
 <div class="row top-offset-2">
-    <div class="col-md-4">
+    <div class="col-md-4 map">
         <img src="assets/css/images/map.jpg" class="img-responsive"/>  
     </div>
-    <div class="col-md-4 no-padding-left no-padding-right">
+    <div class="col-md-4 no-padding-left no-padding-right h_video">
         <iframe src="//player.vimeo.com/video/49217125" width="390" height="387" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 max-ad">
         <img src="assets/css/images/full-ad.jpg" class="img-responsive"/>  
     </div>
 </div>
