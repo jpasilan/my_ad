@@ -23,109 +23,135 @@
         <img src="assets/css/images/ad_4.jpg" class="img-responsive"/>  
     </div>
     <div class="col-md-4 no-padding-left no-padding-right">
-        <div class="container-fluid ctm-categories">
-            <div class="row ctm-categories-row">
-                <div class="ctm-categories-pane">
-                    <a href="#">
-                        <i class="ctm-categories-autos"></i>
-                        <p class="ctm-categories-category-title">{{ Lang::choice('ads.vehicles', 2); }}</p>
-                    </a>
+        <div class="container-fluid myad-categories">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="pane">
+                        <a href="#">
+                            <i class="ctm-categories-autos"></i>
+                            <span>{{ Lang::choice('ads.vehicles', 2); }}</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="ctm-categories-pane">
-                    <a href="#">
-                        <i class="ctm-categories-realstate"></i>
-                        <p class="ctm-categories-category-title">{{ Lang::get('ads.real_estate') }}</p>
-                    </a>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="pane">
+                        <a href="#">
+                            <i class="ctm-categories-realstate"></i> 
+                            <span>{{ Lang::get('ads.real_estate') }}</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="ctm-categories-pane">
-                    <a href="#">
-                        <i class="ctm-categories-electronic"></i>
-                        <p class="ctm-categories-category-title">{{ Lang::get('ads.electronics') }}</p>
-                    </a>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="pane">
+                        <a href="#">
+                            <i class="ctm-categories-electronic"></i>
+                            <span>{{ Lang::get('ads.electronics') }}</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="ctm-categories-pane">
-                    <a href="#">
-                        <i class="ctm-categories-computer"></i>
-                        <p class="ctm-categories-category-title">{{ Lang::choice('ads.computers', 2) }}</p>
-                    </a>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="pane">
+                        <a href="#">
+                            <i class="ctm-categories-computer"></i>
+                            <span>{{ Lang::choice('ads.computers', 2) }}</span>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="row ctm-categories-row">
-                <div class="ctm-categories-pane">
-                    <a href="#">
-                        <i class="ctm-categories-furniture"></i>
-                        <p class="ctm-categories-category-title">{{ Lang::choice('ads.furniture', 1) }}</p>
-                    </a>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="pane">
+                        <a href="#">
+                            <i class="ctm-categories-furniture"></i>
+                            <span>{{ Lang::choice('ads.furniture', 1) }}</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="ctm-categories-pane">
-                    <a href="#">
-                        <i class="ctm-categories-tools"></i>
-                        <p class="ctm-categories-category-title">{{ Lang::choice('ads.tools', 2) }}</p>
-                    </a>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="pane">
+                        <a href="#">
+                            <i class="ctm-categories-tools"></i>
+                            <span>{{ Lang::choice('ads.tools', 2) }}</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="ctm-categories-pane">
-                    <a href="#">
-                        <i class="ctm-categories-pets"></i>
-                        <p class="ctm-categories-category-title">{{ Lang::choice('ads.pets', 2) }}</p>
-                    </a>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="pane">
+                        <a href="#">
+                            <i class="ctm-categories-pets"></i>
+                            <span>{{ Lang::choice('ads.pets', 2) }}</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="ctm-categories-pane">
-                    <a href="#">
-                        <i class="ctm-categories-jobs"></i>
-                        <p class="ctm-categories-category-title">{{ Lang::choice('ads.jobs', 2) }}</p>
-                    </a>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="pane">
+                        <a href="#">
+                            <i class="ctm-categories-jobs"></i>
+                            <span>{{ Lang::choice('ads.jobs', 2) }}</span>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="row ctm-categories-row">
-                <div class="ctm-categories-pane">
-                    <a href="#">
-                        <i class="ctm-categories-travel"></i>
-                        <p class="ctm-categories-category-title">{{ Lang::get('ads.travel') }}</p>
-                    </a>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="pane">
+                        <a href="#">
+                            <i class="ctm-categories-travel"></i>
+                            <span>{{ Lang::get('ads.travel') }}</span>
+                        </a>
+                    </div>
+                 </div>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="pane">
+                        <a href="#">
+                            <i class="ctm-categories-sports"></i>
+                            <span>{{ Lang::choice('ads.sports', 2) }}</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="ctm-categories-pane">
-                    <a href="#">
-                        <i class="ctm-categories-sports"></i>
-                        <p class="ctm-categories-category-title">{{ Lang::choice('ads.sports', 2) }}</p>
-                    </a>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="pane">
+                        <a href="#">
+                            <i class="ctm-categories-family"></i>
+                            <span>{{ Lang::get('ads.family') }}</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="ctm-categories-pane">
-                    <a href="#">
-                        <i class="ctm-categories-family"></i>
-                        <p class="ctm-categories-category-title">{{ Lang::get('ads.family') }}</p>
-                    </a>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="pane">
+                        <a href="#">
+                            <i class="ctm-categories-services"></i>
+                            <span>{{ Lang::choice('ads.services', 2) }}</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="ctm-categories-pane">
-                    <a href="#">
-                        <i class="ctm-categories-services"></i>
-                        <p class="ctm-categories-category-title">{{ Lang::choice('ads.services', 2) }}</p>
-                    </a>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="pane">
+                        <a href="#">
+                            <i class="ctm-categories-food"></i>
+                            <span>{{ Lang::get('ads.food') }}</span>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="row ctm-categories-row">
-                <div class="ctm-categories-pane">
-                    <a href="#">
-                        <i class="ctm-categories-food"></i>
-                        <p class="ctm-categories-category-title">{{ Lang::get('ads.food') }}</p>
-                    </a>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="pane">
+                        <a href="#">
+                            <i class="ctm-categories-community"></i>
+                            <span>{{ Lang::get('ads.community') }}</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="ctm-categories-pane">
-                    <a href="#">
-                        <i class="ctm-categories-community"></i>
-                        <p class="ctm-categories-category-title">{{ Lang::get('ads.community') }}</p>
-                    </a>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="pane">
+                        <a href="#">
+                            <i class="ctm-categories-dating"></i>
+                            <span>{{ Lang::get('ads.dating') }}</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="ctm-categories-pane">
-                    <a href="#">
-                        <i class="ctm-categories-dating"></i>
-                        <p class="ctm-categories-category-title">{{ Lang::get('ads.dating') }}</p>
-                    </a>
-                </div>
-                <div class="ctm-categories-pane">
-                    <a href="#">
-                        <i class="ctm-categories-others"></i>
-                        <p class="ctm-categories-category-title">{{ Lang::get('ads.others') }}</p>
-                    </a>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="pane">
+                        <a href="#">
+                            <i class="ctm-categories-others"></i>
+                            <span>{{ Lang::get('ads.others') }}</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
