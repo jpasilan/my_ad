@@ -13,7 +13,7 @@
                         <p>"Minim tritani no ius, vel alterum posidonium deterruisset an. Per eu volutpat efficiantur mediocritatem, mel an facer virtute constituto. Nec id laudem habemus iracundia."</p>
                         <p>~ Celine Dion</p>
                     </div>
-                    <div class="col-sm-3 text-left">
+                    <div class="col-sm-2 col-md-offset-1 text-left">
                         <h4 class="ft-headings">{{ Lang::get('general.my_ad') }}</h4>
                         <ul class="list-unstyled ctm-sitemap-list">
                             <li>{{ Lang::get('general.my_ad') }}</li>
@@ -39,7 +39,7 @@
                             </ul>
                         </ul>
                     </div>
-                    <div class="col-sm-3 text-left">
+                    <div class="col-sm-2 text-left">
                         <h4 class="ft-headings">Info</h4>
                         <div>
                             <ul class="list-unstyled">
@@ -59,7 +59,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                         <h4 class="ft-headings">{{ ucfirst(Lang::get('general.contact_us')) }}</h4>
                         <form role="form">
                             <div class="form-group">
