@@ -15,7 +15,7 @@
     <body>
         @include('layouts.navbar')
 
-        <div id="content-{{ App::getLocale() }}" class="content container">
+        <div id="content-{{ App::getLocale() }}" class="content container-fluid">
             @if (Session::has('message'))
             <div class="alert alert-{{ key(Session::get('message')) }} alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>

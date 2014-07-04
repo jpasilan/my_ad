@@ -6,7 +6,7 @@
         <h3>{{ Lang::get('registration.register_subheader') }}</h3>
         <p>{{ Lang::get('general.complete_fields_text') }}</p>
         @include('partials.form-errors', $errors)
-        {{ Form::open(['url' => 'register', 'role' => 'form']) }}
+        {{ Form::open(['url' => 'register', 'role' => 'form', 'class' => 'ma-form']) }}
             <div class="form-group">
                 <label for="first_name">{{ Lang::get('general.first_name') }}</label>
                 {{ Form::text('first_name', '', ['class' => 'form-control', 'id' => 'first_name']) }}

@@ -2,8 +2,24 @@
 
 @section('content')
 <div id="static-pages" class="row">
-    <h1 class="with-affix red">{{ Lang::get('general.terms_and_condition') }}</h1>
-    <div class="col-sm-3 no-padding-left hidden-sm hidden-xs">
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="col-sm-12">
+                <h1 class="with-affix red">{{ Lang::get('general.terms_and_condition') }}</h1>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="col-sm-12">
+                <nav class="pull-right">
+                    <a href="{{ URL::to('about-us') }}">About Us</a>
+                    <a href="{{ URL::to('our-story') }}">Our Story</a>
+                    <a href="{{ URL::to('privacy-policy') }}">Privacy Policy</a>
+                    <a href="{{ URL::to('vision-mission') }}">Vision Mission</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3 hidden-sm hidden-xs">
         <div id="side-affix" class="red-affix">
             <ul class="nav list-unstyled">
                 <li><a href="#terms-and-condition">{{ Lang::get('general.terms_and_condition') }}</a></li>

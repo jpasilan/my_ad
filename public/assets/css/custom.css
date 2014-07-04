@@ -9,6 +9,24 @@ form
     font-family: Helvetica, Arial, sans-serif;
 }
 
+/* My-ad Form Styles*/
+form.ma-form
+{
+    background: #fff;
+    padding: 20px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border-bottom: solid 3px #E0E0E0;
+}
+
+form.ma-form input,
+form.ma-form select
+{
+    background-color: #f3f3f3;
+}
+/* End My-ad Form Syles*/
+
 /* Start: Global Styles */
 .red 
 {
@@ -467,141 +485,6 @@ a.yellow-text
     text-decoration: none;
 }
 
-i[class^="ctm-categories-"],
-i[class^="ctm-categories-"]
-{
-    position: absolute;
-    top: 9px;
-    background-size: 298px;
-}
-.ctm-categories-autos
-{
-    background: url("images/sprite-categories.png") no-repeat center;
-    background-position: -93px 0px;
-    padding: 23px 30px;
-    left: 13px;
-}
-
-.ctm-categories-realstate
-{	
-    background: url("images/sprite-categories.png") no-repeat center;
-    background-position: -149px -51px;
-    padding: 23px 23px;
-    left: 22px;
-}
-
-.ctm-categories-furniture
-{
-    background: url("images/sprite-categories.png") no-repeat center;
-    background-position: -152px -3px;
-    padding: 23px 22px;
-    left: 25px;
-}
-
-.ctm-categories-tools
-{
-    background: url("images/sprite-categories.png") no-repeat center;
-    background-position: -148px -100px;
-    padding: 23px 30px;
-    left: 21px;
-}
-
-.ctm-categories-pets
-{
-    background: url("images/sprite-categories.png") no-repeat center;
-    background-position: 0px -99px;
-    padding: 23px 30px;
-    left: 21px;
-}
-
-.ctm-categories-jobs
-{	
-    background: url("images/sprite-categories.png") no-repeat center;
-    background-position: -52px 2px;
-    padding: 23px 23px;
-    left: 24px;
-}
-
-.ctm-categories-travel
-{
-    background: url("images/sprite-categories.png") no-repeat center;
-    background-position: -1px -1px;
-    padding: 23px 23px;
-    left: 21px;
-}
-
-.ctm-categories-sports
-{	
-    background: url("images/sprite-categories.png") no-repeat center;
-    background-position: -100px -99px;
-    padding: 23px 23px;
-    left: 21px;
-}
-
-.ctm-categories-family
-{	
-    background: url("images/sprite-categories.png") no-repeat center;
-    background-position: -250px -49px;
-    padding: 23px 25px;
-    left: 22px;
-}
-
-.ctm-categories-services
-{	
-    background: url("images/sprite-categories.png") no-repeat center;
-    background-position: -99px -49px;
-    padding: 23px 26px;
-    left: 21px;
-}
-
-.ctm-categories-computer
-{	
-    background: url("images/sprite-categories.png") no-repeat center;
-    background-position: -249px 0px;
-    padding: 23px 26px;
-    left: 19px;
-}
-
-.ctm-categories-electronic
-{	
-    background: url("images/sprite-categories.png") no-repeat center;
-    background-position: -53px -101px;
-    padding: 23px 22px;
-    left: 25px;
-}
-
-.ctm-categories-food
-{	
-    background: url("images/sprite-categories.png") no-repeat center;
-    background-position: -48px -51px;
-    padding: 23px 23px;
-    left: 21px
-}
-
-.ctm-categories-community
-{	
-    background: url("images/sprite-categories.png") no-repeat center;
-    background-position: -200px 1px;
-    padding: 23px 23px;
-    left: 21px;
-}
-
-.ctm-categories-dating
-{	
-    background: url("images/sprite-categories.png") no-repeat center;
-    background-position: -2px -49px;
-    padding: 23px 23px;
-    left: 21px;
-}
-
-.ctm-categories-others
-{
-    background: url("images/sprite-categories.png") no-repeat center;
-    background-position: -200px -51px;
-    padding: 23px 23px;
-    left: 21px
-}
-
 div.myad-categories div.row div[class*="col-"]
 {
     padding: 0px;
@@ -610,7 +493,14 @@ div.myad-categories div.row div[class*="col-"]
 
 div.myad-categories div.row
 {
-    margin-top: 3px;
+    margin-top: 4px;
+}
+
+div.myad-categories div.row div.pane img 
+{
+    width: 83px;
+    margin: 0px auto;
+    margin-top: 5px;
 }
 
 div.myad-categories div.row div.pane
@@ -623,7 +513,6 @@ div.myad-categories div.row div.pane
     color: #0480ca;
     font-weight: bold;
     position: relative;
-    height: 92px;
     transition: opacity 0.5s ease;
     -o-transition: opacity 0.5s ease;
     -webkit-transition: opacity 0.5s ease;
@@ -641,12 +530,17 @@ div.myad-categories div.row div.pane a:hover
 
 div.myad-categories div.row div.pane span
 {
-    top: 65px;
-    position: relative;
+    font-size: 15px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+div.max-ad img
+{
+    margin: 0px auto;
 }
 
 div.h-side-ads img,
-div.max-ad img,
 div.map img,
 div.row div.h_video iframe
 {
@@ -755,6 +649,11 @@ div#side-affix
 {
     width: 278px;
     margin-top: -12px;
+}
+
+div#side-affix.affix
+{
+    top: 20px;
 }
 
 div.blue-affix ul.nav
@@ -887,7 +786,7 @@ div.row .panel-default
 }
 
 /* Css fix for Affix issue not removing .affix-bottom when scrolling back up */
-div.container .affix-bottom
+div.container-fluid .affix-bottom
 {
     position: relative;
 }
@@ -974,6 +873,16 @@ div.container div.alert-danger
     border-color: #dca7a7;
     background: #f2dede;
 }
+
+div.container-fluid
+{
+    max-width: 1600px;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
 /* End: Overriding Bootstrap Rules */
 
 /* Start: Start Dashboard */
@@ -1016,129 +925,34 @@ div#dashboard .name
 
 /* Start: Media Queries */
 /* Bootstrap first collapse at 1200px width */
+@media only screen and (max-width: 1366px) 
+{
+    div.myad-categories div.row div.pane img
+    {
+        width: 70px;
+    }
+    
+    div.myad-categories div.row div.pane span
+    {
+        top: 75px;
+        font-size: 11px;
+    }
+    
+    div.row div.h_video iframe
+    {
+        height: 451px;
+    }
+}
 @media only screen and (max-width: 1200px) 
 {
-    div.myad-categories div.row div.pane
+    div.myad-categories div.row div.pane img
     {
-        height: 75px !important;
+        width: 57px;
     }
     
     div.row div.myad-categories div.row div.pane span
     {
         top: 56px;
-    }
-    
-    i[class^="ctm-categories-"], 
-    i[class^="ctm-categories-"]
-    {
-        background-size: 280px;
-    }
-    
-    .ctm-categories-autos
-    {
-        padding: 23px 27px;
-        left: 15px;
-    }
-    
-    .ctm-categories-realstate
-    {
-        background-position: -141px -47px;
-        padding: 23px 23px;
-        left: 17px;
-    }
-    
-    .ctm-categories-electronic
-    {
-        background-position: -56px -95px;
-        padding: 23px 18px;
-        left: 25px;
-    }
-    
-    .ctm-categories-computer
-    {
-        background-position: -238px 0px;
-    }
-    
-    .ctm-categories-furniture
-    {
-        background-position: -147px -1px;
-        padding: 23px 22px;
-        left: 22px;
-    }
-    
-    .ctm-categories-tools
-    {
-        background-position: -139px -97px;
-        padding: 23px 30px;
-        left: 17px;
-    }
-    
-    .ctm-categories-pets
-    {
-        background-position: 0px -95px;
-        padding: 23px 29px;
-        left: 16px;
-    }
-    
-    .ctm-categories-jobs
-    {
-        background-position: -48px -1px;
-        padding: 23px 23px;
-        left: 16px;
-    }
-    
-    .ctm-categories-travel
-    {
-        background-position: -5px -1px;
-    }
-    
-    .ctm-categories-sports
-    {
-        background-position: -94px -96px;
-        padding: 23px 23px;
-        left: 16px;
-    }
-    
-    .ctm-categories-family
-    {
-        background-position: -235px -47px;
-        padding: 23px 25px;
-        left: 16px;
-    }
-    
-    .ctm-categories-services
-    {
-        background-position: -90px -49px;
-        padding: 23px 26px;
-        left: 13px;
-    }
-    
-    .ctm-categories-food
-    {
-        background-position: -48px -48px;
-        padding: 23px 23px;
-        left: 16px;
-    }
-    
-    .ctm-categories-community
-    {
-        background-position: -189px -1px;
-        padding: 23px 23px;
-        left: 17px;
-    }
-    
-    .ctm-categories-dating
-    {
-        background-position: -1px -48px;
-        padding: 23px 23px;
-        left: 17px;
-    }
-    
-    .ctm-categories-others
-    {
-        background-position: -187px -51px;
-        padding: 23px 23px;
-        left: 15px;
     }
     
     div.paid-ad-slide ul li img
@@ -1154,10 +968,9 @@ div#dashboard .name
         background-position: 6px 27px;
     }
     
-    div.row iframe
+    div.row div.h_video iframe
     {
-        width: 100%;
-        height: 315px;
+        height: 391px;
     }
     
     div#side-affix
@@ -1183,6 +996,21 @@ div#dashboard .name
 
 @media only screen and (max-width: 990px)
 {
+    div.myad-categories div.row div.pane img
+    {
+        width: 83px;
+    }
+    
+    div.row div.slider span.prev,
+    div.row div.slider span.next
+    {
+        display: none;
+    }
+    
+    div.myad-categories div.row div.pane span {
+        font-size: 15px;
+    }
+    
     nav#navbar-en img#header-logo-en
     {
         height: 88px;
@@ -1261,88 +1089,20 @@ div#dashboard .name
         padding: 0rem 1.5rem;
     }
     
-    .ctm-categories-autos
-    {
-        left: 37%;
-    }
-    
-    .ctm-categories-realstate
-    {
-        left: 37.5%;
-    }
-    
-    .ctm-categories-electronic
-    {
-        left: 42%;
-    }
-    
-    .ctm-categories-computer
-    {
-        left: 40%;
-    }
-    
-    .ctm-categories-furniture
-    {
-        left: 41%;
-    }
-    
-    .ctm-categories-tools
-    {
-        left: 39%;
-    }
-    
-    .ctm-categories-pets
-    {
-        left: 38%;
-    }
-    
-    .ctm-categories-jobs
-    {
-        left: 38%;
-    }
-    
-    .ctm-categories-travel
-    {
-        left: 40%;
-    }
-    
-    .ctm-categories-sports
-    {
-        left: 37%;
-    }
-    
-    .ctm-categories-family
-    {
-        left: 38%;
-    }
-    
-    .ctm-categories-services
-    {
-        left: 35%;
-    }
-    
-    .ctm-categories-food
-    {
-        left: 39%;
-    }
-    
-    .ctm-categories-community
-    {
-        left: 38%;
-    }
-    
-    .ctm-categories-dating
-    {
-        left: 38%;
-    }
-    
-    .ctm-categories-others
-    {
-        left: 37%;
-    }
     div.h_video iframe
     {
         padding: 0rem 1.5rem;
+    }
+    
+    div#static-pages nav
+    {
+        top: -8px;
+        float: left !important;
+    }
+    
+    div#static-pages h1
+    {
+        margin-bottom: 15px;
     }
 }
 @media only screen and (max-width: 768px) 
@@ -1350,6 +1110,14 @@ div#dashboard .name
     div.row .no-padding-right
     {
         padding-right: inherit !important;
+    }
+    
+    div.row div.slider span.prev,
+    div.row div.slider span.next
+    {
+        width: 25px;
+        height: 85px;
+        background-position: 6px 32px;
     }
     
     nav#navbar-en span.lang-switch,
@@ -1393,18 +1161,11 @@ div#dashboard .name
     
     div.inline-login-form div.remember [type="checkbox"]
     {
-        top: -15px;
+        top: -3px;
     }
     
     div.inline-login-form a.btn-register {
         margin-top: -10px;
-    }
-    
-    div.inline-login-form a.yellow-text
-    {
-        position: absolute;
-        top: -40px;
-        right: 15px;
     }
     
     div.inline-login-form input
@@ -1440,96 +1201,24 @@ div#dashboard .name
         border-bottom: solid 1px #555;
         padding-bottom: 10px;
     }
-    
-    .ctm-categories-autos
+}
+@media only screen and (max-width: 767px)
+{
+    div.inline-login-form a.yellow-text
     {
-        left: 43%;
+        position: absolute;
+        top: -40px;
+        right: 15px;
     }
     
-    .ctm-categories-realstate
+    div.inline-login-form div.remember [type="checkbox"]
     {
-        left: 44%;
+        top: -15px;
+        left: -1px;
     }
-    
-    .ctm-categories-electronic
-    {
-        left: 46%;
-    }
-    
-    .ctm-categories-computer
-    {
-        left: 45%;
-    }
-    
-    .ctm-categories-furniture
-    {
-        left: 45%;
-    }
-    
-    .ctm-categories-tools
-    {
-        left: 44%;
-    }
-    
-    .ctm-categories-pets
-    {
-        left: 44%;
-    }
-    
-    .ctm-categories-jobs
-    {
-        left: 44%;
-    }
-    
-    .ctm-categories-travel
-    {
-        left: 45%;
-    }
-    
-    .ctm-categories-sports
-    {
-        left: 45%;
-    }
-    
-    .ctm-categories-family
-    {
-        left: 44%;
-    }
-    
-    .ctm-categories-services
-    {
-        left: 43%;
-    }
-    
-    .ctm-categories-food
-    {
-        left: 44%;
-    }
-    
-    .ctm-categories-community
-    {
-        left: 43.5%;
-    }
-    
-    .ctm-categories-dating
-    {
-        left: 44%;
-    }
-    
-    .ctm-categories-others
-    {
-        left: 44%;
-    }
-    
 }
 @media only screen and (max-width: 320px)
 {  
-    .ctm-categories-row .ctm-categories-pane
-    {
-        height: 86px;
-        width: 86px;
-    }
-    
     .nav-tabs>li {
         width: 100%;
         margin-bottom: 1px;
@@ -1546,86 +1235,6 @@ div#dashboard .name
     img#header-logo-en
     {
         margin-left: -15px;
-    }
-    
-    .ctm-categories-autos
-    {
-        left: 35%;
-    }
-    
-    .ctm-categories-realstate
-    {
-        left: 35%;
-    }
-    
-    .ctm-categories-electronic
-    {
-        left: 39%;
-    }
-    
-    .ctm-categories-computer
-    {
-        left: 38%;
-    }
-    
-    .ctm-categories-furniture
-    {
-        left: 39%;
-    }
-    
-    .ctm-categories-tools
-    {
-        left: 38%;
-    }
-    
-    .ctm-categories-pets
-    {
-        left: 35%;
-    }
-    
-    .ctm-categories-jobs
-    {
-        left: 36%;
-    }
-    
-    .ctm-categories-travel
-    {
-        left: 37%;
-    }
-    
-    .ctm-categories-sports
-    {
-        left: 36%;
-    }
-    
-    .ctm-categories-family
-    {
-        left: 36%;
-    }
-    
-    .ctm-categories-services
-    {
-        left: 31%;
-    }
-    
-    .ctm-categories-food
-    {
-        left: 36%;
-    }
-    
-    .ctm-categories-community
-    {
-        left: 36%;
-    }
-    
-    .ctm-categories-dating
-    {
-        left: 36%;
-    }
-    
-    .ctm-categories-others
-    {
-        left: 36%;
     }
     
 }    
@@ -1725,45 +1334,57 @@ div.thumbnail h5
 /* Ad Styles */
 div.h-side-ads img
 {
-    margin: 2px 0px;
+    margin: 4px auto;
+    width: 498px;
+}
+
+div.ad-bg
+{
+    background: #EBEBEB;
 }
 /* End Ad Styles*/
 
 /* Paid Ad Slide Roller Styles */
-div.paid-ad-slide ul
+div.row .slick-slider
 {
-    margin-left: 32px;
-    text-align: center;
+    background: #ccc;
+    padding: 5px 0px;
+    margin-bottom: 20px;
 }
 
-div.paid-ad-slide ul li
+.slick-prev:before,
+.slick-next:before
 {
-    display: inline-block;
-    list-style: none;
-    background: #cccccc;
-    padding: 5px;
-    padding-left: 3px;
-    margin-right: -4px;
+    display: none;
 }
 
-div.paid-ad-slide ul li.next,
-div.paid-ad-slide ul li.prev
+div.slider span.prev,
+div.slider span.next
 {
+    padding: 10px;
+    position: absolute;
     width: 25px;
-    height: 85px;
+    height: 104px;
     background: #F21314;
     background-repeat: no-repeat;
-    background-position: 6px 32px;
+    background-position: 6px 42px;
     background-size: 13px;
+    
 }
 
-div.paid-ad-slide ul li.prev {
+div.slider span.prev
+{
+    left: -25px;
+    top: 0px;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAeCAYAAAAhDE4sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QTE3RDE1RjRGQzRBMTFFM0I1MzBGQjlGMDlDQUExMUUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QTE3RDE1RjVGQzRBMTFFM0I1MzBGQjlGMDlDQUExMUUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBMTdEMTVGMkZDNEExMUUzQjUzMEZCOUYwOUNBQTExRSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBMTdEMTVGM0ZDNEExMUUzQjUzMEZCOUYwOUNBQTExRSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvLevHgAAAFWSURBVHjarNavSwNhGMDx3dRicItLJkUNKvgPGAxiMChqGBbBMKwiKBbLkuB/YBjoij8waZWtiQuCQaNlaTAdqEHG+X3lDo5x7/s8t/OFTxjv7ru9793t5vm+n0k5xrEzmDIyjTq62RSRtSCSw3O/oTIugogZ2aRLM++voBg3kWQ/zjBj+wTNWEIVecv8iGaP9nDriJjRzJjryGIIFV8eVRRskVHUhMAHtsNj4iILaAmRB0xFj+uNlBRLOcFA7xeIvtgUAm9Yse2pNnKFvOPE/IV2HYEOll2BkLmOCo7ro4u26pINiofC0k4xLC0tdCDEXrGoCRn7itNf1oSMDXwJsTrGpJAxiYYQa2NLChk53CiWeu66aaOOFLE7TchYxacj9KT98b/GPF4s850kT5FHzOEybjLp4+gb6zi23SL9KOI92KN7L+WzfxY1/Hj/8CdiAqVfAQYANrECNCD5QqYAAAAASUVORK5CYII=);
 }
 
-div.paid-ad-slide ul li.next 
+div.slider span.next
 {
+    right: -25px;
+    top: 0px;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAeCAYAAAAhDE4sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MTY5QzFCN0NGQzQ4MTFFMzgxM0NFQjUyQkVDMkI1MjgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MTY5QzFCN0RGQzQ4MTFFMzgxM0NFQjUyQkVDMkI1MjgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxNjlDMUI3QUZDNDgxMUUzODEzQ0VCNTJCRUMyQjUyOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxNjlDMUI3QkZDNDgxMUUzODEzQ0VCNTJCRUMyQjUyOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PmBsANwAAAEhSURBVHjaYvj//38/EKsDMQMlGES8AeKPQKxPqUEH/kPAByCOosSgw/9RQRe1DAKB1UDMSQ2DQOA6EJuQYtDF/7jBVyAOItag7f8JgwZiDJIA4qVEGLYBiPnxGQTDiUD8noBhZ4FYg5BBIKyCJ/Bh4BsQhxEyCIZbifBqBTEGgbA7EN8kYFglMQaBMBcQzyVgWDUxBsGwDYGI6GZiIA4IAjEzHvkXhFwiAMRrCXgthpDXAoH4ITGG4DKIGYj7iIj+DHzRrwnEpwgYACpRnfElyBRokYsPHAJiOXyZdhkRXlkIxKyUFiOllBZsoEToSWlRC7JAl9IyG1TQsVBa+LeSWx0dRKogQ8itIBmBxFtohrQF4ssM5AJoI0KV0kYEQIABAN3lp6gTiZFlAAAAAElFTkSuQmCC);
 }
+
 /* End Ad Slide Roller Styles */
 

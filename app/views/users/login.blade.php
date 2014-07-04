@@ -6,7 +6,7 @@
         <h3>{{ Lang::get('general.user_login') }}</h3>
         <hr />
         @include('partials.form-errors', $errors)
-        {{ Form::open(['url' => 'login', 'role' => 'form']) }}
+        {{ Form::open(['url' => 'login', 'role' => 'form', 'class' => 'ma-form']) }}
             <div class="form-group">
                 <label for="email">Email</label>
                 {{ Form::email('email', '', ['class' => 'form-control', 'id' => 'email']) }}

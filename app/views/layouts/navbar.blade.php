@@ -1,5 +1,5 @@
 <nav id="navbar-{{ App::getLocale() }}" class="navbar navbar-static-top" role="navigation">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-sm-2">
                 <div class="navbar-header">
@@ -35,9 +35,9 @@
                     <div class="row{{ isset($hide_login) || $loggedIn ? ' hide-sign-in' : ''}}">
                         <p class="navbar-text navbar-right social-media">
                             <span><strong>{{ Lang::get('general.sign_in_using') }}:</strong></span>
-                            <a href="#"><img src="{{ URL::asset('assets/css/images/google_plus.png') }}" /></a>
-                            <a href="#"><img src="{{ URL::asset('assets/css/images/facebook.png') }}" /></a>
-                            <a href="#"><img src="{{ URL::asset('assets/css/images/twitter.png') }}" /></a>
+                            <a href="#"><img src="{{ URL::asset('assets/css/images/google_plus-white.png') }}" /></a>
+                            <a href="#"><img src="{{ URL::asset('assets/css/images/facebook-white.png') }}" /></a>
+                            <a href="#"><img src="{{ URL::asset('assets/css/images/twitter-white.png') }}" /></a>
                         </p>
                     </div>
                     <div class="row">
