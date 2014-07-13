@@ -48,18 +48,23 @@ class AdCategory extends Eloquent
     /**
      * Retrieve a hierarchy of categories.
      *
+     * @param bool  $parentOnly     To return the parent categories only.
      * @return array
      */
-    public static function getList()
+    public static function getList($parentOnly = true)
     {
-        $collection = static::all();
+        $collection = static::orderBy('name', 'ASC')->get();
 
         $list = [];
         foreach ($collection as $item) {
-            if (!$item->parent_id) {
-                foreach ($item->children()->orderBy('name')->get() as $child) {
-                    // Translate names to the plural translations.
-                    $list[Lang::choice("ads.{$item->name}", 2)][$child->id] = Lang::choice("ads.{$child->name}", 2);
+            if ($parentOnly) {
+                $list[$item->id] = Lang::choice("ads.{$item->name}", 2);
+            } else {
+                if (! $item->parent_id) {
+                    foreach ($item->children()->orderBy('name')->get() as $child) {
+                        // Translate names to the plural translations.
+                        $list[Lang::choice("ads.{$item->name}", 2)][$child->id] = Lang::choice("ads.{$child->name}", 2);
+                    }
                 }
             }
         }

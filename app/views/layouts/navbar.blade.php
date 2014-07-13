@@ -42,35 +42,6 @@
                     </div>
                     <div class="row">
                         <ul class="nav nav-tabs navbar-right nav-fix">
-                            <!--
-                            <?php
-                                $categoryRequest = Request::query('category', 'classified_ads');
-
-                                if (is_numeric($categoryRequest)) {
-                                    $adCategory = AdCategory::find((int)$categoryRequest);
-                                } else {
-                                    $adCategory = AdCategory::whereName($categoryRequest)->first();
-                                }
-
-                                $category = $adCategory->parent ? $adCategory->parent->name : $adCategory->name;
-                            ?>
-                            <li{{ 'classified_ads' == $category ? ' class="active"' : '' }}>
-                                <a href="{{ URL::to('ad') }}">{{ Lang::get('general.classifieds') }}</a>
-                            </li>
-                            <?php $vehicleQuery = http_build_query(['category' => 'vehicles']) ?>
-                            <li{{ 'vehicles' == $category ? ' class="active"' : '' }}>
-                                <a href="{{ URL::to('ad' . '?' . $vehicleQuery) }}">
-                                    {{ Lang::choice('ads.vehicles', 2); }}
-                                </a>
-                            </li>
-                            <?php $realEstateQuery = http_build_query(['category' => 'real_estate']) ?>
-                            <li{{ 'real_estate' == $category ? ' class="active"' : '' }}>
-                                <a href="{{ URL::to('ad' . '?' . $realEstateQuery) }}">
-                                    {{ Lang::get('ads.real_estate') }}
-                                </a>
-                            </li>
-                            <li><a href="{{ URL::to('/') }}">{{ Lang::get('general.my_ad') }}</a></li>
-                            -->
                             <li>
                                 <a href="#">Garage Sale</a>
                             </li>
