@@ -9,15 +9,15 @@
     <div class="col-md-9 col-centered">
         <div class="slider center">
             <span class="prev"></span>
-            <div><img src="assets/css/images/paid-ad-1.jpg" class="img-responsive" data-toggle="tooltip" data-placement="top" title="Mansion in LA"/></div>
-            <div><img src="assets/css/images/paid-ad-2.jpg" class="img-responsive" data-toggle="tooltip" data-placement="top" title="Aparment Unit in Arkansas"/></div>
-            <div><img src="assets/css/images/paid-ad-3.jpg" class="img-responsive" data-toggle="tooltip" data-placement="top" title="Pre-loved aquariums"/></div>
-            <div><img src="assets/css/images/paid-ad-4.jpg" class="img-responsive" data-toggle="tooltip" data-placement="top" title="Slightly used Sala Set"/></div>
-            <div><img src="assets/css/images/paid-ad-1.jpg" class="img-responsive" data-toggle="tooltip" data-placement="top" title="Mansion in LA"/></div>
-            <div><img src="assets/css/images/paid-ad-2.jpg" class="img-responsive" data-toggle="tooltip" data-placement="top" title="Aparment Unit in Arkansas"/></div>
-            <div><img src="assets/css/images/paid-ad-4.jpg" class="img-responsive" data-toggle="tooltip" data-placement="top" title="Slightly used Sala Set"/></div>
-            <div><img src="assets/css/images/paid-ad-1.jpg" class="img-responsive" data-toggle="tooltip" data-placement="top" title="Mansion in LA"/></div>
-            <div><img src="assets/css/images/paid-ad-2.jpg" class="img-responsive" data-toggle="tooltip" data-placement="top" title="Aparment Unit in Arkansas"/></div>
+            <div><img src="assets/css/images/TopBanner1.gif" class="img-responsive" data-toggle="tooltip" title="Mansion in LA"/></div>
+            <div><img src="assets/css/images/TopBanner2.gif" class="img-responsive" data-toggle="tooltip" title="Aparment Unit in Arkansas"/></div>
+            <div><img src="assets/css/images/TopBanner3.gif" class="img-responsive" data-toggle="tooltip" title="Pre-loved aquariums"/></div>
+            <div><img src="assets/css/images/TopBanner4.gif" class="img-responsive" data-toggle="tooltip" title="Slightly used Sala Set"/></div>
+            <div><img src="assets/css/images/TopBanner1.gif" class="img-responsive" data-toggle="tooltip" title="Mansion in LA"/></div>
+            <div><img src="assets/css/images/TopBanner2.gif" class="img-responsive" data-toggle="tooltip" title="Aparment Unit in Arkansas"/></div>
+            <div><img src="assets/css/images/TopBanner3.gif" class="img-responsive" data-toggle="tooltip" title="Slightly used Sala Set"/></div>
+            <div><img src="assets/css/images/TopBanner4.gif" class="img-responsive" data-toggle="tooltip" title="Mansion in LA"/></div>
+            <div><img src="assets/css/images/TopBanner1.gif" class="img-responsive" data-toggle="tooltip" title="Aparment Unit in Arkansas"/></div>
             <span class="next"></span>
         </div>
     </div>
