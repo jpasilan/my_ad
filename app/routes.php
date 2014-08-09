@@ -72,3 +72,8 @@ Route::controller('ad/data', 'AdDataController');
 // including sentryAuth are set in the constructor.
 Route::resource('ad', 'AdController');
 
+// Ad search listing placeholder route
+Route::get('/search-listing', 'AdController@searchListing');
+
+// Ad search listing placeholder route
+Route::get('/single-view-ad', 'AdController@viewAdvertisement');

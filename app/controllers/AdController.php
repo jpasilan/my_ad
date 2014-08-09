@@ -228,5 +228,27 @@ class AdController extends BaseController
 
         return ['validator' => Validator::make($input, $rules), 'data' => $input];
     }
+    
+    /**
+     * Placeholder method for search listing
+     * 
+     * return @mixed
+     */
+    
+    public function searchListing()
+    {
+        return View::make('ads.search-list');
+    }
+    
+    /**
+     * Placeholder method for single view ad
+     * 
+     * return @mixed
+     */
+    
+    public function viewAdvertisement()
+    {
+        return View::make('ads.single-view');
+    }
 
 }

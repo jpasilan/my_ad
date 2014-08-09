@@ -124,6 +124,45 @@ div.row .no-padding-right
     border: solid 1px #F21314;
 }
 
+.my-ad-panel 
+{
+    background-color: #cccacb;
+    padding: 20px;
+    padding-top: 55px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.my-ad-panel.no-heading {
+    padding-top: 20px;
+}
+
+.my-ad-panel span.panel-header 
+{
+    position: absolute;
+    background: #F21314;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 10px;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+}
+
+.side-ads
+{
+    margin-bottom: 20px;
+}
+
+.side-ads img {
+    margin-bottom: 5px;
+}
+
+div.white-panel 
+{
+    background: #fff;
+    padding: 15px;
+}
 /* End: Global Styles */
 
 /* navigation bar styles */
@@ -859,7 +898,7 @@ div.container .affix
 
 select.form-control,
 textarea, 
-input[type="text"], 
+input[type="text"],
 input[type="password"], 
 input[type="datetime"], 
 input[type="datetime-local"], 
@@ -875,9 +914,6 @@ input[type="tel"],
 input[type="color"], 
 .uneditable-input
 {
-    -webkit-border-radius: 0px !important;
-    -moz-border-radius: 0px !important;
-    border-radius: 0px !important;
     border: solid 1px #E5E5E5 !important;
 }
 
@@ -932,6 +968,22 @@ div.container div.alert-danger
 {
     border-color: #dca7a7;
     background: #f2dede;
+}
+
+span.input-group-addon
+{
+    background: #F21314;
+    color: #fff;
+    padding: 0px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+span.input-group-addon .caret
+{
+    border-top: 8px solid;
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
 }
 /* End: Overriding Bootstrap Rules */
 
@@ -1360,3 +1412,106 @@ div.paid-ad-slide ul li.next
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAeCAYAAAAhDE4sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MTY5QzFCN0NGQzQ4MTFFMzgxM0NFQjUyQkVDMkI1MjgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MTY5QzFCN0RGQzQ4MTFFMzgxM0NFQjUyQkVDMkI1MjgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxNjlDMUI3QUZDNDgxMUUzODEzQ0VCNTJCRUMyQjUyOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxNjlDMUI3QkZDNDgxMUUzODEzQ0VCNTJCRUMyQjUyOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PmBsANwAAAEhSURBVHjaYvj//38/EKsDMQMlGES8AeKPQKxPqUEH/kPAByCOosSgw/9RQRe1DAKB1UDMSQ2DQOA6EJuQYtDF/7jBVyAOItag7f8JgwZiDJIA4qVEGLYBiPnxGQTDiUD8noBhZ4FYg5BBIKyCJ/Bh4BsQhxEyCIZbifBqBTEGgbA7EN8kYFglMQaBMBcQzyVgWDUxBsGwDYGI6GZiIA4IAjEzHvkXhFwiAMRrCXgthpDXAoH4ITGG4DKIGYj7iIj+DHzRrwnEpwgYACpRnfElyBRokYsPHAJiOXyZdhkRXlkIxKyUFiOllBZsoEToSWlRC7JAl9IyG1TQsVBa+LeSWx0dRKogQ8itIBmBxFtohrQF4ssM5AJoI0KV0kYEQIABAN3lp6gTiZFlAAAAAElFTkSuQmCC);
 }
 /* End Ad Slide Roller Styles */
+
+/* Search list styles */
+div.search-excerpt
+{
+    border-bottom: solid 1px #eee;
+    padding: 20px 0px;
+}
+
+div.search-excerpt .watchlist,
+.watchlist
+{
+    margin-right: 10px;
+    font-size: 22px;
+    position: relative;
+    top: 6px;
+    color: rgba(119, 122, 128, 0.8);
+    text-shadow: 1px 4px 6px #FFF, 0 0 0 #000, 1px 4px 6px #FFF;
+    cursor: pointer;
+}
+
+div.search-excerpt .image
+{
+    margin-bottom: 10px;
+}
+
+div.search-excerpt.on-watchlist 
+{
+    background: rgba(248, 236, 32, .2);
+}
+
+div.search-excerpt.on-watchlist .watchlist,
+.watchlist.active
+{
+    color: rgba(248, 236, 32, 0.8);
+    text-shadow: 1px 4px 6px #FFFCCF, 0 0 0 #000, 1px 4px 6px #FFFCCF;
+}
+
+div.search-excerpt p.description,
+div.search-excerpt div.sub-details
+{
+    font-size: 12px;
+}
+
+div.search-excerpt div.sub-details div[class^="col"]
+{
+    margin-bottom: 10px;
+}
+
+/* End search list styles */
+
+/* Ad Single View */
+div.ad-details
+{
+    padding: 15px;
+}
+
+div.ad-details ul.nav 
+{
+    bottom: 0px;
+}
+
+div.ad-details div.tab-content
+{
+    padding: 20px;
+    border: solid 1px #eee;
+}
+
+div.ad-details .add-to-watchlist
+{
+    position: absolute;
+    right: 5px;
+    top: 4px;
+    font-size: 11px;
+    padding-right: 10px;
+}
+
+div.ad-details .watchlist 
+{
+    margin-left: 10px;
+}
+
+div.img-rotator
+{
+    margin: 10px 0px;
+}
+
+div.img-rotator span.glyphicon 
+{
+    top: 7px;
+    font-size: 20px;
+    position: relative;
+}
+
+div.img-rotator span.glyphicon-circle-arrow-left
+{
+    right: 6px;
+}
+
+div.img-rotator span.glyphicon-circle-arrow-right
+{
+    right: -6px;
+}
+/* End Ad Single View*/
